@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Riya Kapoor",
+    "description": "Your team tripled our Instagram engagement in just 3 months! Absolute game-changer for our brand.",
+    "id": 1,
+    "role": "Founder, Fashion Boutique"
+  },
+  {
+    "title": "Arjun Mehta",
+    "description": "From strategy to execution, their social media campaigns drove a 40% increase in leads. Highly recommend!",
+    "id": 2,
+    "role": "CEO, Tech Startup"
+  },
+  {
+    "title": "Priya Singh",
+    "description": "Our LinkedIn presence went from invisible to industry leader—thanks to their data-driven approach.",
+    "id": 3,
+    "role": "Marketing Head, B2B SaaS"
+  },
+  {
+    "title": "Vikram Joshi",
+    "description": "They handle our social media like it’s their own business. Consistent growth, creative content—worth every rupee.",
+    "id": 4,
+    "role": "Director, E-commerce Brand"
+  },
+  {
+    "title": "Ananya Reddy",
+    "description": "The ads they ran got us 5x ROI. Finally, a team that understands Indian consumer behavior!",
+    "id": 5,
+    "role": "CMO, FMCG Company"
+  }
+]

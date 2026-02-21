@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Priyanshu Naik",
+    "role": "Co-Founder",
+    "phone": "9167012101",
+    "image": "/assets/team/2.jpg",
+    "funFact": "Passionate about digital innovation and loves solving complex problems",
+    "portfolioUrl": "https://priyanshu-portfolio.example.com",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/priyanshu-naik",
+      "twitter": "https://twitter.com/priyanshu_naik"
+    },
+    "bio": "Visionary leader with expertise in digital strategy and business development. Passionate about creating innovative solutions that drive growth and success."
+  },
+  {
+    "name": "Taniksh Waingankar",
+    "role": "Co-Founder",
+    "phone": "8169765858",
+    "image": "/assets/team/3.jpg",
+    "funFact": "Tech enthusiast who believes in the power of creative storytelling",
+    "portfolioUrl": "https://taniksh-portfolio.example.com",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/taniksh-waingankar",
+      "instagram": "https://instagram.com/taniksh_w"
+    },
+    "bio": "Creative strategist with a keen eye for design and user experience. Dedicated to crafting compelling narratives that connect brands with their audiences."
+  },
+  {
+    "name": "Kartik Mistry",
+    "role": "Co-Founder",
+    "phone": "9930183457",
+    "image": "/assets/team/1.jpg",
+    "funFact": "Always exploring new technologies and loves mentoring young talent",
+    "portfolioUrl": "https://kartik-portfolio.example.com",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/kartik-mistry",
+      "github": "https://github.com/kartik-mistry"
+    },
+    "bio": "Technical innovator with deep expertise in web development and digital solutions. Committed to building scalable platforms that empower businesses."
+  }
+]
