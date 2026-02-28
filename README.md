@@ -1,171 +1,84 @@
 # Krypt Media Website
 
-A modern, responsive website for Krypt Media, built with **React**, **Vite**, and **Tailwind CSS**. This project is designed for easy maintenance, scalability, and a visually engaging user experience.
+Modern React website with 3D graphics, animations, and routing. Built with Vite, React Router, and Three.js.
 
----
+## Architecture
 
-## 🚀 Installation & Setup
+**Tech Stack:**
+- React 19 + Vite 7
+- React Router for navigation
+- Three.js + React Three Fiber for 3D components
+- Framer Motion for animations
+- GSAP for advanced animations
+- Tailwind CSS 4
 
-1. **Clone the repository:**
-   ```bash
-   git clone <your-repo-url>
-   cd Kryptmediawebsite
-   ```
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   The app will be available at [http://localhost:5173](http://localhost:5173) by default.
-
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
-5. **Preview production build:**
-   ```bash
-   npm run preview
-   ```
-
----
-
-## 📁 Project Structure
-
+**Core Structure:**
 ```
-Kryptmediawebsite/
-├── public/                # Static assets (currently empty)
-├── src/
-│   ├── assets/            # Images and media
-│   │   ├── logo.avif      # Site logo
-│   │   ├── services/      # Service images (1.jpg, 2.jpg, ...)
-│   │   └── team/          # Team member images (1.jpg, 2.jpg, ...)
-│   ├── components/        # Reusable React components
-│   │   ├── Navbar.jsx     # Responsive navigation bar
-│   │   └── AnimateOnScroll.jsx # Animation wrapper for scroll effects
-│   ├── data/              # Static JSON data
-│   │   ├── projects.json  # Project showcase data
-│   │   ├── services.json  # List of services
-│   │   └── team.json      # Team member info
-│   ├── pages/             # Main page sections
-│   │   ├── About.jsx      # About/Founders section
-│   │   ├── Hero.jsx       # Hero/landing section
-│   │   └── Services.jsx   # Services section
-│   ├── App.jsx            # Main app component
-│   ├── App.css            # App-specific styles (minimal)
-│   ├── index.css          # Global styles (Tailwind, scroll behavior)
-│   └── main.jsx           # App entry point
-├── index.html             # HTML entry point
-├── package.json           # Project metadata and scripts
-├── vite.config.js         # Vite configuration
-├── eslint.config.js       # ESLint configuration
-└── README.md              # Project documentation
+src/
+├── components/          # Reusable UI components (25+ components)
+├── pages/             # Route-based page components
+├── layouts/           # Layout wrappers (MainLayout)
+├── data/              # JSON data for content (services, projects, team, testimonials)
+└── hooks/             # Custom React hooks
 ```
 
----
+## Key Components
 
-## ✨ Features
-- **React + Vite** for fast development and builds
-- **Tailwind CSS** for utility-first styling
-- **Framer Motion** for smooth animations
-- **Responsive Navbar** with scroll tracking and mobile menu
-- **Animated Hero, Services, and About sections**
-- **Data-driven content** (services, team, projects)
-- **Easy customization and extension**
+**3D/Graphics:**
+- `Cubes.jsx` - 3D animated cubes with physics
+- `Particles.jsx` - Particle system effects
+- `CircularGallery.jsx` - 3D rotating gallery
+- `Waves.jsx` - Animated wave effects
 
----
+**UI/Animation:**
+- `Navbar.jsx` - Main navigation with mobile menu
+- `BlobCursor.jsx` - Custom cursor effects
+- `ScrollReveal.jsx` - Scroll-triggered animations
+- `InfiniteMenu.jsx` - Infinite scrolling menu
 
-## 🧩 Components
+**Forms/Interaction:**
+- `ContactForm.jsx` - Contact form with validation
+- `Lanyard.jsx` - Discord presence integration
 
-### `Navbar.jsx`
-- Responsive navigation bar with scroll tracking
-- Desktop and mobile menu with animated hamburger icon
-- Links to all main sections (Home, Services, Projects, About, Testimonials, Contact)
-- Uses Framer Motion for smooth transitions
+## Routing Structure
 
-### `AnimateOnScroll.jsx`
-- Wrapper component to animate children into view on scroll
-- Uses `framer-motion` and `react-intersection-observer`
+- `/` - Home page
+- `/services` - Services listing
+- `/services/:serviceSlug` - Individual service pages
+- `/projects` - Projects portfolio
+- `/projects/:projectSlug` - Project details
+- `/about` - About/team page
+- `/testimonials` - Client testimonials
+- `/contact` - Contact form
 
----
+## Data Management
 
-## 📄 Pages/Sections
+Content is managed through JSON files in `src/data/`:
+- `services.json` - Service offerings with metadata
+- `projects.json` - Portfolio projects
+- `team.json` - Team member information
+- `testimonials.json` - Client testimonials
+- `footer.json` - Footer links and information
+- `serviceSlugs.js` - Service slug mappings
 
-### `Hero.jsx`
-- Animated headline and subtitle
-- Gradient text and call-to-action button
-- Full-screen, centered layout
+## Development
 
-### `Services.jsx`
-- Animated grid of services, loaded from `data/services.json`
-- Each card includes image, icon, title, description, and features
-- Responsive and visually engaging
+```bash
+npm install
+npm run dev      # Development server
+npm run build    # Production build
+npm run lint     # ESLint checks
+```
 
-### `About.jsx`
-- Showcases founders/team, loaded from `data/team.json`
-- Alternating layout for each member
-- Includes image, name, role, bio, and contact info
+## Deployment
 
----
+- Vercel configuration in `vercel.json`
+- Static asset optimization in `vite.config.js`
+- Production builds output to `dist/`
 
-## 📊 Data Files
+## Maintenance Notes
 
-### `services.json`
-- Array of service objects: `title`, `description`, `image`, `icon`, `features[]`
-- Images referenced from `public/assets/services/`
-
-### `team.json`
-- Array of team members: `name`, `role`, `phone`, `image`
-- Images referenced from `public/assets/team/`
-
-### `projects.json`
-- Array of projects: `title`, `description`, `image`, `link`
-- (Extend as needed for more projects)
-
----
-
-## 🛠️ Customization
-- **Add new services:** Edit `src/data/services.json` and add images to `public/assets/services/`
-- **Add team members:** Edit `src/data/team.json` and add images to `public/assets/team/`
-- **Add projects:** Edit `src/data/projects.json` and update the UI as needed
-- **Change styles:** Edit Tailwind classes in components or add global styles in `index.css`
-- **Update logo:** Replace `public/logo.avif`
-
----
-
-## 🧹 Linting & Code Quality
-- ESLint is configured for React and modern JS (see `eslint.config.js`)
-- Run lint checks with:
-  ```bash
-  npm run lint
-  ```
-- Follows recommended rules for best practices and unused variable detection
-
----
-
-## 📜 Scripts
-- `npm run dev` – Start development server
-- `npm run build` – Build for production
-- `npm run preview` – Preview production build
-- `npm run lint` – Run ESLint
-
----
-
-## 🤝 Contributing
-- Fork the repo and create a new branch for your feature or fix
-- Make your changes and ensure the app runs and lints cleanly
-- Submit a pull request with a clear description of your changes
-
----
-
-## 📞 Contact
-For questions or support, contact the founders (see About section in the app for details).
-
----
-
-## 📝 Notes
-- All images are local for fast loading; add new images to the appropriate folders
-- The site is fully responsive and works on all modern browsers
-- Built with maintainability and scalability in mind
+- 3D components use React Three Fiber - check Three.js compatibility when updating
+- Animation performance relies on GSAP and Framer Motion
+- Images stored in `public/assets/` with organized subdirectories
+- ESLint configured for React hooks and modern JS patterns

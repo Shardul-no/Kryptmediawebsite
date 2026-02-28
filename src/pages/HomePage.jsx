@@ -54,6 +54,8 @@ const HIGHLIGHTED_PROJECTS = [
 export default function HomePage() {
   useEffect(() => {
     document.title = 'Krypt Media | Digital Experiences That Move Brands Forward';
+    // Scroll to top when page loads
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (

@@ -46,6 +46,9 @@ const Footer = () => {
                       <Link
                         to={link.url}
                         className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-sm"
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                        }}
                       >
                         {link.name}
                       </Link>

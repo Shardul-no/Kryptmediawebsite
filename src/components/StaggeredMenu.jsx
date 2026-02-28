@@ -453,6 +453,13 @@ export const StaggeredMenu = ({
                       href={it.link}
                       aria-label={it.ariaLabel}
                       data-index={idx + 1}
+                      onClick={(e) => {
+                        if (it.link.startsWith('/')) {
+                          e.preventDefault();
+                          window.location.href = it.link;
+                          window.scrollTo(0, 0);
+                        }
+                      }}
                     >
                       <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
                         {it.label}

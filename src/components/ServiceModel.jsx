@@ -55,6 +55,9 @@ const ServiceModel = ({ modelUrl, redirectUrl }) => {
             onClick={(e) => {
                 e.stopPropagation();
                 navigate(redirectUrl);
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 100);
             }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
