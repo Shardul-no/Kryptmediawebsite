@@ -456,7 +456,7 @@ class App {
 export default function CircularGallery({
   items,
   bend = 3,
-  textColor = '#ffffff',
+  textColor = '#1a202c',
   borderRadius = 0.05,
   font = 'bold 30px Figtree',
   scrollSpeed = 2,

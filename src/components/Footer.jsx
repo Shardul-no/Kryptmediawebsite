@@ -6,30 +6,30 @@ const isInternalLink = (url) => url.startsWith('/');
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4">
+    <footer className="bg-dark-teal text-beige-100 py-12 px-4 shadow-2xl border-t border-teal-500/20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
-              <img 
-                src={footerData.companyInfo.logo} 
+              <img
+                src={footerData.companyInfo.logo}
                 alt={footerData.companyInfo.name}
                 className="h-8 w-8 mr-3"
               />
               <h3 className="text-xl font-bold">{footerData.companyInfo.name}</h3>
             </div>
-            <p className="text-gray-300 mb-4 text-sm">
+            <p className="text-beige-300 mb-4 text-sm">
               {footerData.companyInfo.description}
             </p>
             <div className="space-y-2">
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-beige-300">
                 📧 {footerData.contactInfo.email}
               </p>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-beige-300">
                 📞 {footerData.contactInfo.phone}
               </p>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-beige-300">
                 📍 {footerData.contactInfo.address}
               </p>
             </div>
@@ -45,14 +45,14 @@ const Footer = () => {
                     {isInternalLink(link.url) ? (
                       <Link
                         to={link.url}
-                        className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
+                        className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-sm"
                       >
                         {link.name}
                       </Link>
                     ) : (
                       <a
                         href={link.url}
-                        className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
+                        className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-sm"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -75,7 +75,7 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors duration-200 text-2xl"
+                  className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-2xl"
                   title={social.name}
                 >
                   {social.icon}
@@ -86,21 +86,21 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 pt-8">
+        <div className="border-t border-teal-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-300 text-sm mb-4 md:mb-0">
+            <p className="text-beige-300 text-sm mb-4 md:mb-0">
               {footerData.copyright}
             </p>
             <div className="flex space-x-6">
-              <a 
-                href="#" 
-                className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
+              <a
+                href="#"
+                className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-sm"
               >
                 {footerData.privacyPolicy}
               </a>
-              <a 
-                href="#" 
-                className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
+              <a
+                href="#"
+                className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-sm"
               >
                 {footerData.termsOfService}
               </a>

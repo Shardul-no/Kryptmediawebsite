@@ -33,9 +33,9 @@ export default function ProjectDetailPage() {
 
 function DMXCaseStudy() {
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
+    <div className="min-h-screen bg-beige-100 text-charcoal pt-20">
       <div className="relative h-96 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-beige-100 z-10"></div>
         <img
           src="https://images.unsplash.com/photo-1590004953392-5aba2e72269a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=800&w=1200&q=80"
           alt="DMX Website"
@@ -49,7 +49,7 @@ function DMXCaseStudy() {
         </div>
         <Link
           to="/projects"
-          className="absolute top-8 left-8 z-30 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-all duration-300"
+          className="absolute top-8 left-8 z-30 bg-teal-600/20 backdrop-blur-sm text-teal-800 px-4 py-2 rounded-lg hover:bg-teal-600/30 transition-all duration-300 border border-teal-600/10"
         >
           ← Back to Projects
         </Link>
@@ -71,7 +71,7 @@ function DMXCaseStudy() {
               </p>
             </GradualBlur>
           </div>
-          <div className="bg-gray-900 p-8 rounded-2xl">
+          <div className="bg-white p-8 rounded-2xl border border-teal-500/10 shadow-sm transition-shadow hover:shadow-md">
             <h3 className="text-xl font-semibold mb-4">Project Details</h3>
             <div className="space-y-3">
               <div className="flex justify-between">
@@ -141,30 +141,30 @@ function DMXCaseStudy() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-gray-900 to-gray-800 p-8 rounded-2xl mb-20">
+        <div className="bg-gradient-to-r from-teal-900 to-teal-800 p-8 rounded-2xl mb-20 text-white">
           <ScrollReveal containerClassName="!my-0 mb-6 text-center" textClassName="text-white">Results</ScrollReveal>
           <GradualBlur>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">+120%</div>
-              <p className="text-gray-300">engagement</p>
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-4xl font-bold text-cyan-400 mb-2">+120%</div>
+                <p className="text-gray-300">engagement</p>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-cyan-400 mb-2">+65%</div>
+                <p className="text-gray-300">conversion increase</p>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-cyan-400 mb-2">3×</div>
+                <p className="text-gray-300">brand reach</p>
+              </div>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">+65%</div>
-              <p className="text-gray-300">conversion increase</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">3×</div>
-              <p className="text-gray-300">brand reach</p>
-            </div>
-          </div>
           </GradualBlur>
         </div>
 
         <div className="text-center">
           <Link
             to="/contact"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105"
+            className="inline-block bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105"
           >
             Start Your Project
           </Link>
@@ -176,9 +176,9 @@ function DMXCaseStudy() {
 
 function EcommerceCaseStudy() {
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
+    <div className="min-h-screen bg-beige-100 text-charcoal pt-20">
       <div className="relative h-96 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-beige-100 z-10"></div>
         <img
           src="https://images.unsplash.com/photo-1590004845575-cc18b13d1d0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=800&w=1200&q=80"
           alt="E-commerce Platform"
@@ -192,7 +192,7 @@ function EcommerceCaseStudy() {
         </div>
         <Link
           to="/projects"
-          className="absolute top-8 left-8 z-30 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-all duration-300"
+          className="absolute top-8 left-8 z-30 bg-teal-600/20 backdrop-blur-sm text-teal-800 px-4 py-2 rounded-lg hover:bg-teal-600/30 transition-all duration-300 border border-teal-600/10"
         >
           ← Back to Projects
         </Link>
@@ -212,7 +212,7 @@ function EcommerceCaseStudy() {
               their online business and significantly increased their digital revenue.
             </p>
           </div>
-          <div className="bg-gray-900 p-8 rounded-2xl">
+          <div className="bg-white p-8 rounded-2xl border border-teal-500/10 shadow-sm transition-shadow hover:shadow-md">
             <h3 className="text-xl font-semibold mb-4">Project Details</h3>
             <div className="space-y-3">
               <div className="flex justify-between">
@@ -277,7 +277,7 @@ function EcommerceCaseStudy() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-gray-900 to-gray-800 p-8 rounded-2xl mb-20">
+        <div className="bg-gradient-to-r from-teal-900 to-teal-800 p-8 rounded-2xl mb-20 text-white">
           <h2 className="text-3xl font-bold mb-6 text-center">Technical Implementation</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
@@ -326,7 +326,7 @@ function EcommerceCaseStudy() {
         <div className="text-center">
           <Link
             to="/contact"
-            className="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105"
+            className="inline-block bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105"
           >
             Build Your E-commerce Platform
           </Link>

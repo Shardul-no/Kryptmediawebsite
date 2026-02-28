@@ -23,7 +23,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-black shadow-md fixed w-full z-50 top-0 left-0 transition-all duration-500">
+    <nav className="bg-beige-100/80 backdrop-blur-md shadow-sm fixed w-full z-50 top-0 left-0 transition-all duration-500 border-b border-teal-500/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <motion.div
@@ -43,11 +43,10 @@ const Navbar = () => {
               <motion.div key={item.path} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   to={item.path}
-                className={`text-lg font-semibold transition-all duration-300 ${
-                  isActive(item.path)
-                    ? 'text-cyan-400 scale-110'
-                    : 'text-white hover:text-cyan-300 hover:scale-105'
-                }`}
+                  className={`text-lg font-semibold transition-all duration-300 ${isActive(item.path)
+                    ? 'text-teal-600 scale-110'
+                    : 'text-charcoal hover:text-teal-500 hover:scale-105'
+                    }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -65,19 +64,16 @@ const Navbar = () => {
             >
               <div className="w-8 h-8 relative flex items-center justify-center">
                 <span
-                  className={`block absolute h-0.5 w-6 bg-white transform transition duration-300 ease-in-out ${
-                    isOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
-                  }`}
+                  className={`block absolute h-0.5 w-6 bg-charcoal transform transition duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
+                    }`}
                 ></span>
                 <span
-                  className={`block absolute h-0.5 w-6 bg-white transition-all duration-300 ease-in-out ${
-                    isOpen ? 'opacity-0' : 'opacity-100'
-                  }`}
+                  className={`block absolute h-0.5 w-6 bg-charcoal transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'
+                    }`}
                 ></span>
                 <span
-                  className={`block absolute h-0.5 w-6 bg-white transform transition duration-300 ease-in-out ${
-                    isOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'
-                  }`}
+                  className={`block absolute h-0.5 w-6 bg-charcoal transform transition duration-300 ease-in-out ${isOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'
+                    }`}
                 ></span>
               </div>
             </motion.button>
@@ -86,7 +82,7 @@ const Navbar = () => {
       </div>
 
       <motion.div
-        className="md:hidden bg-black shadow-lg overflow-hidden border-t border-white/10"
+        className="md:hidden bg-beige-200 shadow-lg overflow-hidden border-t border-charcoal/10"
         initial={false}
         animate={{
           height: isOpen ? 'auto' : 0,
@@ -114,11 +110,10 @@ const Navbar = () => {
             >
               <Link
                 to={item.path}
-                className={`block py-3 text-lg font-medium transition-colors ${
-                  isActive(item.path)
-                    ? 'text-cyan-400 pl-4 border-l-4 border-cyan-400'
-                    : 'text-white hover:text-cyan-400/90'
-                }`}
+                className={`block py-3 text-lg font-medium transition-colors ${isActive(item.path)
+                  ? 'text-teal-600 pl-4 border-l-4 border-teal-600'
+                  : 'text-charcoal hover:text-teal-600'
+                  }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

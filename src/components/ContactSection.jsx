@@ -6,33 +6,33 @@ import SectionReveal from './SectionReveal';
 
 const ContactSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black text-white pt-24 pb-20 lg:pt-32 lg:pb-28">
+    <section className="relative min-h-screen overflow-hidden bg-beige-100 text-charcoal pt-24 pb-20 lg:pt-32 lg:pb-28">
       {/* Subtle waves background */}
-      <div className="absolute inset-0 z-0 opacity-[0.07]">
+      <div className="absolute inset-0 z-0 opacity-[0.2]">
         <Waves
-          lineColor="rgba(255,255,255,0.4)"
+          lineColor="rgba(13,148,136,0.3)"
           waveAmpX={12}
           waveAmpY={6}
           xGap={20}
           yGap={36}
         />
       </div>
-      <div className="absolute inset-0 bg-black/80 z-[1]" />
+      <div className="absolute inset-0 bg-beige-100/30 z-[1]" />
 
       <div className="relative z-10 flex justify-center items-center px-4">
         <div className="w-full max-w-[570px]">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-4">
               <BlurText
                 text="Let's Build Something Bold"
-                className="text-white"
+                className="text-charcoal"
                 delay={80}
                 stepDuration={0.4}
                 animateBy="words"
               />
             </h1>
             <GradualBlur delay={0.15}>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-charcoal-muted">
                 Have a project in mind? Let's make it happen.
               </p>
             </GradualBlur>
@@ -57,7 +57,7 @@ const ContactSection = () => {
             <SectionReveal delay={0.2}>
               <a
                 href="mailto:info@kryptmedia.in"
-                className="inline-flex items-center justify-center gap-2 border border-white/20 hover:border-cyan-400/50 text-white font-medium py-3 px-6 rounded-full transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-teal-600/20 hover:border-teal-600/50 text-teal-600 font-medium py-3 px-6 rounded-full transition-colors"
               >
                 Email Us
               </a>
@@ -66,35 +66,35 @@ const ContactSection = () => {
 
           <div className="space-y-8">
             <SectionReveal delay={0.15}>
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400 text-xl">
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-white border border-teal-500/10 shadow-sm">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-teal-500/10 text-teal-600 text-xl">
                   📍
                 </div>
                 <div>
-                  <h4 className="mb-1 text-lg font-semibold text-white">Location</h4>
-                  <p className="text-gray-400">Andheri West, Mumbai</p>
+                  <h4 className="mb-1 text-lg font-semibold text-charcoal">Location</h4>
+                  <p className="text-charcoal-muted">Andheri West, Mumbai</p>
                 </div>
               </div>
             </SectionReveal>
             <SectionReveal delay={0.2}>
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400 text-xl">
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-white border border-teal-500/10 shadow-sm">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-teal-500/10 text-teal-600 text-xl">
                   📞
                 </div>
                 <div>
-                  <h4 className="mb-1 text-lg font-semibold text-white">Phone</h4>
-                  <p className="text-gray-400">9930183457</p>
+                  <h4 className="mb-1 text-lg font-semibold text-charcoal">Phone</h4>
+                  <p className="text-charcoal-muted">9930183457</p>
                 </div>
               </div>
             </SectionReveal>
             <SectionReveal delay={0.25}>
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400 text-xl">
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-white border border-teal-500/10 shadow-sm">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-teal-500/10 text-teal-600 text-xl">
                   ✉️
                 </div>
                 <div>
-                  <h4 className="mb-1 text-lg font-semibold text-white">Email</h4>
-                  <p className="text-gray-400">info@kryptmedia.in</p>
+                  <h4 className="mb-1 text-lg font-semibold text-charcoal">Email</h4>
+                  <p className="text-charcoal-muted">info@kryptmedia.in</p>
                 </div>
               </div>
             </SectionReveal>

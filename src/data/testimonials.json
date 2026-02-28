@@ -28,5 +28,65 @@
     "description": "The ads they ran got us 5x ROI. Finally, a team that understands Indian consumer behavior!",
     "id": 5,
     "role": "CMO, FMCG Company"
+  },
+  {
+    "title": "Rahul Verma",
+    "description": "The best digital agency we've worked with. They actually listen to our needs and deliver beyond expectations.",
+    "id": 6,
+    "role": "Founder, Verma Ventures"
+  },
+  {
+    "title": "Sneha Kapoor",
+    "description": "Their creative vision helped us pivot our brand successfully. The engagement metrics speak for themselves.",
+    "id": 7,
+    "role": "Creative Director, Aura Studio"
+  },
+  {
+    "title": "Karan Malhotra",
+    "description": "Seamless communication and incredible results. Our conversion rates are up by 25% since we started.",
+    "id": 8,
+    "role": "Operation Head, Global Logistics"
+  },
+  {
+    "title": "Ishaan Sharma",
+    "description": "They turned our complex requirements into a beautiful, functional website. True professionals.",
+    "id": 9,
+    "role": "CTO, Fintech Solutions"
+  },
+  {
+    "title": "Meera Das",
+    "description": "The storytelling in our social media posts is top tier. Our audience feels a much stronger connection now.",
+    "id": 10,
+    "role": "Brand Manager, Organic Harvest"
+  },
+  {
+    "title": "Sameer Khan",
+    "description": "Exceptional ROI on our performance marketing campaigns. They know exactly where to put every rupee.",
+    "id": 11,
+    "role": "E-commerce Head, Urban Wear"
+  },
+  {
+    "title": "Zoya Ahmed",
+    "description": "A very talented team that brings fresh ideas to the table every single month. Highly recommended!",
+    "id": 12,
+    "role": "Founder, Zoya Interiors"
+  },
+  {
+    "title": "Rohan Deshmukh",
+    "description": "Their design team is world-class. They captured our brand's essence perfectly in the new identity.",
+    "id": 13,
+    "role": "VP Marketing, Real Estate Group"
+  },
+  {
+    "title": "Tanvi Gupta",
+    "description": "The speed and quality of their work are unmatched. We've seen a massive spike in our website traffic.",
+    "id": 14,
+    "role": "Digital Lead, Hospitality Plus"
+  },
+  {
+    "title": "Aditya Roy",
+    "description": "Transparent reporting and honest feedback. It feels like having an in-house team that actually works.",
+    "id": 15,
+    "role": "Director, Roy & Sons"
   }
 ]

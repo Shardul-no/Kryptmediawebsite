@@ -27,13 +27,13 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <div id="projects" className="relative bg-black text-white min-h-screen pt-24 pb-20 overflow-hidden">
+    <div id="projects" className="relative bg-beige-100 text-charcoal min-h-screen pt-24 pb-20 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <ScrollReveal containerClassName="!my-0" textClassName="text-white">
+        <ScrollReveal containerClassName="!my-0" textClassName="text-charcoal">
           Projects
         </ScrollReveal>
         <GradualBlur delay={0.15}>
-          <p className="text-gray-400 text-lg mt-4 max-w-2xl">
+          <p className="text-charcoal-muted text-lg mt-4 max-w-2xl">
             A glimpse into some of our recent work. Scroll or drag the gallery, then open a case study below.
           </p>
         </GradualBlur>
@@ -44,7 +44,7 @@ export default function ProjectsPage() {
         <CircularGallery
           items={galleryItems}
           bend={3}
-          textColor="#e5e5e5"
+          textColor="#1a202c"
           scrollSpeed={2}
           scrollEase={0.06}
         />
@@ -57,13 +57,13 @@ export default function ProjectsPage() {
             <Link
               key={project.slug}
               to={`/projects/${project.slug}`}
-              className="group flex flex-col items-center rounded-xl border border-white/10 bg-white/[0.02] px-8 py-6 hover:border-cyan-500/30 transition-colors duration-300"
+              className="group flex flex-col items-center rounded-xl border border-teal-500/10 bg-white px-8 py-6 hover:border-teal-500/30 transition-shadow duration-300 shadow-sm hover:shadow-md"
             >
-              <span className="text-cyan-400/80 text-sm font-medium">{project.tag}</span>
-              <span className="text-xl font-semibold text-white mt-1 group-hover:text-cyan-400/90 transition-colors">
+              <span className="text-teal-600/80 text-sm font-medium">{project.tag}</span>
+              <span className="text-xl font-semibold text-charcoal mt-1 group-hover:text-teal-600 transition-colors">
                 {project.title}
               </span>
-              <span className="text-gray-400 text-sm mt-2">View case study →</span>
+              <span className="text-charcoal-muted text-sm mt-2">View case study →</span>
             </Link>
           ))}
         </div>

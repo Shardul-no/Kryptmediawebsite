@@ -598,8 +598,8 @@ class InfiniteGridMenu {
   constructor(canvas, items, onActiveItemChange, onMovementChange, onInit = null, scale = 1.0) {
     this.canvas = canvas;
     this.items = items || [];
-    this.onActiveItemChange = onActiveItemChange || (() => {});
-    this.onMovementChange = onMovementChange || (() => {});
+    this.onActiveItemChange = onActiveItemChange || (() => { });
+    this.onMovementChange = onMovementChange || (() => { });
     this.scaleFactor = scale;
     this.camera.position[2] = 3 * scale;
     this.#init(onInit);
@@ -630,7 +630,7 @@ class InfiniteGridMenu {
   }
 
   #init(onInit) {
-    this.gl = this.canvas.getContext('webgl2', { antialias: true, alpha: false });
+    this.gl = this.canvas.getContext('webgl2', { antialias: true, alpha: true });
     const gl = this.gl;
     if (!gl) {
       throw new Error('No WebGL 2 context!');
@@ -971,20 +971,20 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
             className={`
           select-none
           absolute
-          font-black
-          [font-size:4rem]
-          left-[1.6em]
+          font-bold
+          text-4xl
+          md:text-5xl
+          lg:text-6xl
+          left-[5%]
+          md:left-[8%]
           top-1/2
-          transform
-          translate-x-[20%]
-          -translate-y-1/2
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          ${
-            isMoving
-              ? 'opacity-0 pointer-events-none duration-[100ms]'
-              : 'opacity-100 pointer-events-auto duration-[500ms]'
-          }
+          text-teal-600
+          ${isMoving
+                ? 'opacity-0 pointer-events-none duration-[100ms] translate-x-[-20px] -translate-y-1/2'
+                : 'opacity-100 pointer-events-auto duration-[500ms] translate-x-0 -translate-y-1/2'
+              }
         `}
           >
             {activeItem.title}
@@ -994,17 +994,21 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
             className={`
           select-none
           absolute
-          max-w-[10ch]
-          text-[1.5rem]
+          max-w-[250px]
+          md:max-w-[350px]
+          text-base
+          md:text-lg
+          lg:text-xl
           top-1/2
-          right-[1%]
+          right-[5%]
+          md:right-[8%]
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          ${
-            isMoving
-              ? 'opacity-0 pointer-events-none duration-[100ms] translate-x-[-60%] -translate-y-1/2'
-              : 'opacity-100 pointer-events-auto duration-[500ms] translate-x-[-90%] -translate-y-1/2'
-          }
+          text-charcoal-muted
+          ${isMoving
+                ? 'opacity-0 pointer-events-none duration-[100ms] translate-x-[20px] -translate-y-1/2'
+                : 'opacity-100 pointer-events-auto duration-[500ms] translate-x-0 -translate-y-1/2'
+              }
         `}
           >
             {activeItem.description}
@@ -1020,21 +1024,21 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
           h-[60px]
           grid
           place-items-center
-          bg-[#00ffff]
+          bg-teal-600
           border-[5px]
-          border-black
+          border-beige-100
           rounded-full
           cursor-pointer
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          ${
-            isMoving
-              ? 'bottom-[-80px] opacity-0 pointer-events-none duration-[100ms] scale-0 -translate-x-1/2'
-              : 'bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2'
-          }
+          hover:bg-teal-700
+          ${isMoving
+                ? 'bottom-[-80px] opacity-0 pointer-events-none duration-[100ms] scale-0 -translate-x-1/2'
+                : 'bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2'
+              }
         `}
           >
-            <p className="select-none relative text-[#060010] top-[2px] text-[26px]">&#x2197;</p>
+            <p className="select-none relative text-white top-[2px] text-[26px]">&#x2197;</p>
           </div>
         </>
       )}

@@ -19,27 +19,28 @@ export default function TestimonialsPage() {
   }, []);
 
   return (
-    <div id="testimonials" className="relative bg-black text-white min-h-screen overflow-hidden">
+    <div id="testimonials" className="relative bg-gradient-to-b from-beige-100 to-beige-200 text-charcoal min-h-screen overflow-hidden">
       {/* Ticker above */}
-      <section className="relative z-10 py-4 border-b border-white/10">
-        <ScrollVelocity
-          texts={[TICKER_TEXT]}
-          velocity={25}
-          parallaxClassName="py-1"
-          scrollerClassName="text-gray-400 text-sm md:text-base font-medium"
-        />
-      </section>
-
-      <div className="container mx-auto px-4 pt-12 pb-16">
-        <SectionReveal className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+      <div className="container mx-auto px-4 pt-32 pb-8">
+        <SectionReveal className="text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
             Client Testimonials
           </h1>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto">
+          <p className="text-charcoal-muted text-lg max-w-xl mx-auto">
             What our clients say about us
           </p>
         </SectionReveal>
       </div>
+
+      {/* Ticker now below heading — full width */}
+      <section className="relative z-10 py-6 border-y border-teal-500/10 bg-beige-200/80 mb-12">
+        <ScrollVelocity
+          texts={[TICKER_TEXT]}
+          velocity={40}
+          parallaxClassName="py-2"
+          scrollerClassName="text-charcoal-muted text-lg md:text-xl font-medium tracking-wide"
+        />
+      </section>
 
       {/* Infinite Menu — horizontal continuous motion */}
       <div className="h-[70vh] min-h-[450px] w-full">
@@ -48,7 +49,7 @@ export default function TestimonialsPage() {
 
       {/* Fallback quote for accessibility / when JS is minimal */}
       <div className="container mx-auto px-4 py-12 text-center">
-        <blockquote className="text-xl text-gray-300 italic max-w-2xl mx-auto">
+        <blockquote className="text-xl text-charcoal-muted italic max-w-2xl mx-auto">
           &ldquo;Krypt Media transformed our online presence and elevated our brand identity.&rdquo;
         </blockquote>
       </div>

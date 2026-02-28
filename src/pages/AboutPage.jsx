@@ -19,23 +19,23 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <section id="about" className="relative bg-black text-white overflow-hidden">
+    <section id="about" className="relative bg-beige-100 text-charcoal overflow-hidden">
       {/* Hero — premium dark with subtle gradient (Lanyard optional when assets available) */}
       <div className="relative min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-cyan-950/20 via-black to-black" />
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(34,211,238,0.08),transparent)]" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-teal-100/30 via-beige-50 to-beige-100" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(13,148,136,0.08),transparent)]" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-6">
             <BlurText
               text="We Build Brands Through Strategy and Innovation"
-              className="text-white"
+              className="text-charcoal"
               delay={70}
               stepDuration={0.4}
               animateBy="words"
             />
           </h1>
           <GradualBlur delay={0.2}>
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-charcoal-muted">
               Krypt Media is a creative digital agency focused on building impactful brand ecosystems.
               We blend strategy, design, and technology to craft digital products that perform.
             </p>
@@ -44,21 +44,21 @@ export default function AboutPage() {
       </div>
 
       {/* Values — Scroll Reveal */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
-        <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-teal-500/10">
+        <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-charcoal">
           What We Stand For
         </ScrollReveal>
         <GradualBlur delay={0.1}>
-          <p className="text-gray-400 text-lg max-w-2xl mb-14">
+          <p className="text-charcoal-muted text-lg max-w-2xl mb-14">
             Our values guide how we work with every client and project.
           </p>
         </GradualBlur>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {VALUES.map((value, i) => (
             <SectionReveal key={value.name} delay={i * 0.1}>
-              <div className="p-6 rounded-xl border border-white/10 bg-white/[0.02] hover:border-cyan-500/20 transition-colors duration-300">
-                <h3 className="text-xl font-semibold text-white mb-2">{value.name}</h3>
-                <p className="text-gray-400 text-sm">{value.desc}</p>
+              <div className="p-6 rounded-xl border border-teal-500/10 bg-charcoal/[0.02] hover:border-teal-500/20 transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-charcoal mb-2">{value.name}</h3>
+                <p className="text-charcoal-muted text-sm">{value.desc}</p>
               </div>
             </SectionReveal>
           ))}
@@ -66,58 +66,58 @@ export default function AboutPage() {
       </div>
 
       {/* Interactive Lanyards Section */}
-      <div className="container mx-auto px-4 py-24 border-t border-white/5">
-        <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-white">
+      <div className="container mx-auto px-4 py-24 border-t border-teal-500/10">
+        <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-charcoal">
           Our Founders
         </ScrollReveal>
         <GradualBlur delay={0.1}>
-          <p className="text-gray-400 text-lg max-w-2xl mb-14">
+          <p className="text-charcoal-muted text-lg max-w-2xl mb-14">
             Interactive lanyard cards representing our leadership team.
           </p>
         </GradualBlur>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Priyanshu's Lanyard */}
           <div className="h-96 lg:h-[32rem]">
-            <Lanyard 
-              position={[0, 0, 30]} 
-              gravity={[0, -40, 0]} 
-              fov={20} 
+            <Lanyard
+              position={[0, 0, 30]}
+              gravity={[0, -40, 0]}
+              fov={20}
               transparent={true}
               lanyardTexture="/assets/lanyard-priyanshu.png"
             />
             <div className="text-center mt-4">
-              <h3 className="text-xl font-semibold text-white">Priyanshu Naik</h3>
-              <p className="text-cyan-400/90">Co-Founder</p>
+              <h3 className="text-xl font-semibold text-charcoal">Priyanshu Naik</h3>
+              <p className="text-teal-600">Co-Founder</p>
             </div>
           </div>
-          
+
           {/* Taniksh's Lanyard */}
           <div className="h-96 lg:h-[32rem]">
-            <Lanyard 
-              position={[0, 0, 30]} 
-              gravity={[0, -40, 0]} 
-              fov={20} 
+            <Lanyard
+              position={[0, 0, 30]}
+              gravity={[0, -40, 0]}
+              fov={20}
               transparent={true}
               lanyardTexture="/assets/lanyard-taniksh.png"
             />
             <div className="text-center mt-4">
-              <h3 className="text-xl font-semibold text-white">Taniksh Waingankar</h3>
-              <p className="text-cyan-400/90">Co-Founder</p>
+              <h3 className="text-xl font-semibold text-charcoal">Taniksh Waingankar</h3>
+              <p className="text-teal-600">Co-Founder</p>
             </div>
           </div>
-          
+
           {/* Kartik's Lanyard */}
           <div className="h-96 lg:h-[32rem]">
-            <Lanyard 
-              position={[0, 0, 30]} 
-              gravity={[0, -40, 0]} 
-              fov={20} 
+            <Lanyard
+              position={[0, 0, 30]}
+              gravity={[0, -40, 0]}
+              fov={20}
               transparent={true}
               lanyardTexture="/assets/lanyard-kartik.png"
             />
             <div className="text-center mt-4">
-              <h3 className="text-xl font-semibold text-white">Kartik Mistry</h3>
-              <p className="text-cyan-400/90">Co-Founder</p>
+              <h3 className="text-xl font-semibold text-charcoal">Kartik Mistry</h3>
+              <p className="text-teal-600">Co-Founder</p>
             </div>
           </div>
         </div>

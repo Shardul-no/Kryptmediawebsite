@@ -77,7 +77,7 @@ class Noise {
 }
 
 const Waves = ({
-  lineColor = 'black',
+  lineColor = 'rgba(13,148,136,0.3)',
   backgroundColor = 'transparent',
   waveSpeedX = 0.0125,
   waveSpeedY = 0.005,
@@ -305,7 +305,7 @@ const Waves = ({
       className={`absolute top-0 left-0 w-full h-full overflow-hidden ${className}`}
     >
       <div
-        className="absolute top-0 left-0 bg-[#160000] rounded-full w-[0.5rem] h-[0.5rem]"
+        className="absolute top-0 left-0 bg-teal-600 rounded-full w-[0.5rem] h-[0.5rem]"
         style={{
           transform: 'translate3d(calc(var(--x) - 50%), calc(var(--y) - 50%), 0)',
           willChange: 'transform'

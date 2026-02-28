@@ -15,19 +15,19 @@ export default function ServicesPage() {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
-    <section id="services" className="relative pt-24 pb-20 bg-black overflow-hidden">
+    <section id="services" className="relative pt-24 pb-20 bg-beige-100 overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-blue-500/20 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-purple-500/20 blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-white">
+          <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-charcoal">
             Our Services
           </ScrollReveal>
           <GradualBlur>
-            <p className="max-w-2xl mx-auto text-lg text-gray-400">
+            <p className="max-w-2xl mx-auto text-lg text-charcoal-muted">
               Comprehensive solutions tailored to elevate your digital presence
             </p>
           </GradualBlur>
@@ -39,7 +39,7 @@ export default function ServicesPage() {
             return (
               <motion.div
                 key={service.title}
-                className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-teal-500/5 hover:border-teal-500/20"
                 initial={{
                   opacity: 0,
                   x: isMobile ? (index % 2 === 0 ? -80 : 80) : 0,
@@ -75,20 +75,20 @@ export default function ServicesPage() {
 
                 <div className="p-6">
                   {service.icon && <div className="text-4xl mb-3">{service.icon}</div>}
-                  <h2 className="text-xl font-bold mb-2 text-white">
+                  <h2 className="text-xl font-bold mb-2 text-charcoal">
                     {service.title}
                   </h2>
-                  <p className="text-gray-200 mb-4">{service.description}</p>
+                  <p className="text-charcoal-muted mb-4">{service.description}</p>
 
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 4).map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-green-500 mr-2">•</span>
-                        <span className="text-gray-200">{feature}</span>
+                        <span className="text-teal-500 mr-2">•</span>
+                        <span className="text-charcoal-muted">{feature}</span>
                       </li>
                     ))}
                     {service.features.length > 4 && (
-                      <li className="text-gray-400 text-sm">
+                      <li className="text-charcoal-muted text-sm">
                         +{service.features.length - 4} more features
                       </li>
                     )}
@@ -96,7 +96,7 @@ export default function ServicesPage() {
 
                   <Link
                     to={`/services/${slug}`}
-                    className="block w-full bg-cyan-500/90 hover:bg-cyan-400 text-black font-semibold py-3 px-6 rounded-lg transition-colors duration-300 text-center"
+                    className="block w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 text-center"
                   >
                     See More
                   </Link>

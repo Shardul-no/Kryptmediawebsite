@@ -5,13 +5,13 @@ import gsap from 'gsap';
 
 export default function BlobCursor({
   blobType = 'circle',
-  fillColor = '#5227FF',
+  fillColor = '#0d9488',
   trailCount = 3,
   sizes = [60, 125, 75],
   innerSizes = [20, 35, 25],
-  innerColor = 'rgba(255,255,255,0.8)',
+  innerColor = 'rgba(252,250,241,0.8)',
   opacities = [0.6, 0.6, 0.6],
-  shadowColor = 'rgba(0,0,0,0.75)',
+  shadowColor = 'rgba(13,148,136,0.3)',
   shadowBlur = 5,
   shadowOffsetX = 10,
   shadowOffsetY = 10,

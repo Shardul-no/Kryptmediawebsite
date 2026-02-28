@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
  */
 export default function MainLayout() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-beige-100 text-charcoal">
       <Navbar />
       <main>
         <Outlet />

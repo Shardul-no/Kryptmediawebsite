@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+@theme {
+  --color-beige-50: #fefefe;
+  --color-beige-100: #fcfaf1;
+  --color-beige-200: #f5f1e0;
+  --color-beige-300: #e8e2c8;
+  --color-teal-400: #26a69a;
+  --color-teal-500: #0d9488;
+  --color-teal-600: #0f766e;
+  --color-teal-700: #134e4a;
+  --color-dark-teal: #042f2e;
+  --color-charcoal: #1a202c;
+  --color-charcoal-muted: #4a5568;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-beige-100);
+  color: var(--color-charcoal);
 }
