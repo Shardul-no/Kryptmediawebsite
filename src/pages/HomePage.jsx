@@ -8,9 +8,15 @@ import ScrollVelocity from '../components/ScrollVelocity';
 import ScrollReveal from '../components/ScrollReveal';
 import GradualBlur from '../components/GradualBlur';
 import SectionReveal from '../components/SectionReveal';
-import Cubes from '../components/Cubes';
+import ServiceModel from '../components/ServiceModel';
 import { SERVICE_SLUGS } from '../data/serviceSlugs';
 import services from '../data/services.json';
+
+const SERVICE_MODELS = {
+  'Website Design & Development': '/3d/textured_model_0.glb',
+  'Social Media Marketing': '/3d/textured_model_0.glb', // Fallback for the broken model
+  'Design Services': '/3d/a_contemporary_3d_icon_representing_creative_desig_glb.glb',
+};
 
 const ROTATING_ITEMS = ['Websites.', 'Brands.', 'Campaigns.', 'Growth Systems.'];
 const STRIP_ITEMS = 'Web Design — Development — Branding — Social Media — Strategy — UI/UX';
@@ -151,19 +157,13 @@ export default function HomePage() {
             {services.slice(0, 3).map((service, index) => {
               const slug = SERVICE_SLUGS[service.title] || service.title.toLowerCase().replace(/\s+/g, '-');
               const copy = SERVICE_COPY[service.title] || service.description;
+              const modelUrl = SERVICE_MODELS[service.title] || '/3d/textured_model_0.glb';
+              const redirectUrl = `/services/${slug}`;
+
               return (
                 <SectionReveal key={service.title} delay={index * 0.12} className="flex flex-col items-center">
-                  <div className="w-full max-w-[280px] mx-auto mb-6">
-                    <Cubes
-                      gridSize={4}
-                      cubeSize={64}
-                      maxAngle={28}
-                      radius={2.5}
-                      faceColor="#f5f1e0"
-                      borderStyle="1px solid rgba(13,148,136,0.1)"
-                      autoAnimate={true}
-                      rippleOnClick={false}
-                    />
+                  <div className="w-full max-w-[320px] mx-auto mb-6">
+                    <ServiceModel modelUrl={modelUrl} redirectUrl={redirectUrl} />
                   </div>
                   <h3 className="text-xl font-semibold text-charcoal mb-2 text-center">{service.title}</h3>
                   <p className="text-charcoal-muted text-center text-sm mb-6 max-w-xs">{copy}</p>

@@ -84,6 +84,7 @@ export default function AboutPage() {
               fov={20}
               transparent={true}
               lanyardTexture="/assets/lanyard-priyanshu.png"
+              cardTexture="/assets/team/2.jpg"
             />
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold text-charcoal">Priyanshu Naik</h3>
@@ -99,6 +100,7 @@ export default function AboutPage() {
               fov={20}
               transparent={true}
               lanyardTexture="/assets/lanyard-taniksh.png"
+              cardTexture="/assets/team/3.jpg"
             />
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold text-charcoal">Taniksh Waingankar</h3>
@@ -114,6 +116,7 @@ export default function AboutPage() {
               fov={20}
               transparent={true}
               lanyardTexture="/assets/lanyard-kartik.png"
+              cardTexture="/assets/team/1.jpg"
             />
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold text-charcoal">Kartik Mistry</h3>

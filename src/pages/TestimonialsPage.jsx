@@ -32,7 +32,12 @@ export default function TestimonialsPage() {
         </SectionReveal>
       </div>
 
-      {/* Ticker now below heading — full width */}
+      {/* Infinite Menu — horizontal continuous motion */}
+      <div className="h-[70vh] min-h-[450px] w-full mb-12">
+        <InfiniteMenu items={menuItems} scale={1} />
+      </div>
+
+      {/* Ticker below — keep the scroll velocity going after the menu */}
       <section className="relative z-10 py-6 border-y border-teal-500/10 bg-beige-200/80 mb-12">
         <ScrollVelocity
           texts={[TICKER_TEXT]}
@@ -41,11 +46,6 @@ export default function TestimonialsPage() {
           scrollerClassName="text-charcoal-muted text-lg md:text-xl font-medium tracking-wide"
         />
       </section>
-
-      {/* Infinite Menu — horizontal continuous motion */}
-      <div className="h-[70vh] min-h-[450px] w-full">
-        <InfiniteMenu items={menuItems} scale={1} />
-      </div>
 
       {/* Fallback quote for accessibility / when JS is minimal */}
       <div className="container mx-auto px-4 py-12 text-center">

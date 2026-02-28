@@ -14,7 +14,7 @@ import * as THREE from 'three';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, lanyardTexture = null }) {
+export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, lanyardTexture = null, cardTexture = null }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
       >
         <ambientLight intensity={Math.PI} />
         <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-          <Band isMobile={isMobile} lanyardTexture={lanyardTexture} />
+          <Band isMobile={isMobile} lanyardTexture={lanyardTexture} cardTexture={cardTexture} />
         </Physics>
         <Environment blur={0.75}>
           <Lightformer
@@ -69,7 +69,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     </div>
   );
 }
-function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = null }) {
+function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = null, cardTexture = null }) {
   const band = useRef(),
     fixed = useRef(),
     j1 = useRef(),
@@ -83,6 +83,9 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   const { nodes, materials } = useGLTF(cardGLB);
   const texture = useTexture(lanyardTexture || lanyard);
+  const cardImg = useTexture(cardTexture || materials.base.map.image.src);
+  cardImg.flipY = false;
+  cardImg.offset.x = 0.25;
   const [curve] = useState(
     () =>
       new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()])
@@ -95,7 +98,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
   useSphericalJoint(j3, card, [
     [0, 0, 0],
-    [0, 1.5, 0]
+    [0, 2.6, 0]
   ]);
 
   useEffect(() => {
@@ -150,10 +153,10 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
           <BallCollider args={[0.1]} />
         </RigidBody>
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
-          <CuboidCollider args={[0.8, 1.125, 0.01]} />
+          <CuboidCollider args={[1.42, 2.0, 0.01]} />
           <group
-            scale={2.25}
-            position={[0, -1.2, -0.05]}
+            scale={4.0}
+            position={[0, -2.1, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerUp={e => (e.target.releasePointerCapture(e.pointerId), drag(false))}
@@ -164,7 +167,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
           >
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial
-                map={materials.base.map}
+                map={cardImg}
                 map-anisotropy={16}
                 clearcoat={isMobile ? 0 : 1}
                 clearcoatRoughness={0.15}
@@ -186,7 +189,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
           useMap
           map={texture}
           repeat={[-4, 1]}
-          lineWidth={1}
+          lineWidth={2.0}
         />
       </mesh>
     </>
