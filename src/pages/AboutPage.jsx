@@ -66,7 +66,7 @@ export default function AboutPage() {
       </div>
 
       {/* Interactive Lanyards Section */}
-      <div className="container mx-auto px-4 py-24 border-t border-teal-500/10">
+      <div className="container mx-auto px-4 pt-24 pb-48 border-t border-teal-500/10">
         <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-charcoal">
           Our Founders
         </ScrollReveal>
@@ -77,7 +77,7 @@ export default function AboutPage() {
         </GradualBlur>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Priyanshu's Lanyard */}
-          <div className="h-96 lg:h-[32rem]">
+          <div className="h-[30rem] lg:h-[40rem]">
             <Lanyard
               position={[0, 0, 30]}
               gravity={[0, -40, 0]}
@@ -92,7 +92,7 @@ export default function AboutPage() {
           </div>
 
           {/* Taniksh's Lanyard */}
-          <div className="h-96 lg:h-[32rem]">
+          <div className="h-[30rem] lg:h-[40rem]">
             <Lanyard
               position={[0, 0, 30]}
               gravity={[0, -40, 0]}
@@ -107,7 +107,7 @@ export default function AboutPage() {
           </div>
 
           {/* Kartik's Lanyard */}
-          <div className="h-96 lg:h-[32rem]">
+          <div className="h-[30rem] lg:h-[40rem]">
             <Lanyard
               position={[0, 0, 30]}
               gravity={[0, -40, 0]}
