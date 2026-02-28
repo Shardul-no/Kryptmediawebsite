@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import TerminalProcess from "../../components/TerminalProcess";
+import FlowingMenu from "../../components/FlowingMenu";
 
 const DesignServices = () => {
   const [sectionRef, inView] = useInView({
@@ -64,31 +65,26 @@ const DesignServices = () => {
             </p>
           </motion.div>
 
-          {/* What We Offer — staggered list */}
-          <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-charcoal">What We Offer</h2>
-            <ul className="space-y-3">
-              {[
-                'Brand Identity',
-                'Print Design',
-                'Digital Assets',
-                'Promotional Materials',
-                'Event Design',
-                'Style Guides & Moodboards',
-              ].map((item, i) => (
-                <motion.li
-                  key={item}
-                  className="flex items-center gap-3 py-2 border-b border-teal-500/10 last:border-0"
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: i * 0.08, duration: 0.45 }}
-                >
-                  <span className="text-teal-600 text-lg">→</span>
-                  <span className="text-charcoal-muted">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
+          {/* What We Offer — flowing menu */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <h2 className="text-2xl font-bold mb-8 text-charcoal">What We Offer</h2>
+            <div className="h-[400px] rounded-2xl overflow-hidden border border-teal-500/10 shadow-inner">
+              <FlowingMenu
+                items={[
+                  { text: 'Brand Identity', image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600&auto=format' },
+                  { text: 'Print Design', image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600&auto=format' },
+                  { text: 'Digital Assets', image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&auto=format' },
+                  { text: 'Promotional Materials', image: 'https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?q=80&w=600&auto=format' },
+                  { text: 'Event Design', image: 'https://images.unsplash.com/photo-1505373630562-4029295d83e2?q=80&w=600&auto=format' },
+                  { text: 'Style Guides', image: 'https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?q=80&w=600&auto=format' },
+                ]}
+                bgColor="transparent"
+                textColor="#333"
+                marqueeBgColor="#0d9488"
+                marqueeTextColor="#fff"
+                borderColor="rgba(13, 148, 136, 0.1)"
+              />
+            </div>
           </motion.div>
 
           {/* Process — terminal style */}

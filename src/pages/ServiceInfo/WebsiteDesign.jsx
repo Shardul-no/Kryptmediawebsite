@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import WhatsAppButton from '../../components/WhatsAppButton';
 import TerminalProcess from '../../components/TerminalProcess';
+import FlowingMenu from '../../components/FlowingMenu';
 
 const WebsiteDesign = () => {
   const [sectionRef, inView] = useInView({
@@ -64,31 +65,26 @@ const WebsiteDesign = () => {
             </p>
           </motion.div>
 
-          {/* What We Offer — staggered list */}
-          <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-charcoal">What We Offer</h2>
-            <ul className="space-y-3">
-              {[
-                'UI/UX Design',
-                'Custom Development',
-                'CMS Integration',
-                'Performance Optimization',
-                'SEO Structure',
-                'Ongoing Maintenance',
-              ].map((item, i) => (
-                <motion.li
-                  key={item}
-                  className="flex items-center gap-3 py-2 border-b border-teal-500/5 last:border-0"
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: i * 0.08, duration: 0.45 }}
-                >
-                  <span className="text-teal-600 text-lg">→</span>
-                  <span className="text-charcoal-muted">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
+          {/* What We Offer — flowing menu */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <h2 className="text-2xl font-bold mb-8 text-charcoal">What We Offer</h2>
+            <div className="h-[400px] rounded-2xl overflow-hidden border border-teal-500/10 shadow-inner">
+              <FlowingMenu
+                items={[
+                  { text: 'UI/UX Design', image: 'https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?q=80&w=600&auto=format' },
+                  { text: 'Custom Development', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format' },
+                  { text: 'CMS Integration', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format' },
+                  { text: 'Performance Optimization', image: 'https://images.unsplash.com/photo-1551288049-bbbda5366391?q=80&w=600&auto=format' },
+                  { text: 'SEO Structure', image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=600&auto=format' },
+                  { text: 'Ongoing Maintenance', image: 'https://images.unsplash.com/photo-1454165833767-13143895a004?q=80&w=600&auto=format' },
+                ]}
+                bgColor="transparent"
+                textColor="#333"
+                marqueeBgColor="#0d9488"
+                marqueeTextColor="#fff"
+                borderColor="rgba(13, 148, 136, 0.1)"
+              />
+            </div>
           </motion.div>
 
           {/* Images with external links */}
