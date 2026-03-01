@@ -42,7 +42,7 @@ const Navbar = () => {
             >
               <Link to="/">
                 <img
-                  src="/logo.avif"
+                  src="/templogo.png"
                   alt="Krypt Media Logo"
                   className="h-20 w-auto transition-transform duration-300"
                 />

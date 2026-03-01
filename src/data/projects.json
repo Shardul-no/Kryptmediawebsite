@@ -3,10 +3,19 @@
     "slug": "dmx",
     "title": "DMX Website",
     "description": "Interactive tech startup website with animations",
-    "image": "https://images.unsplash.com/photo-1590004953392-5aba2e72269a?ixlib=rb-1.2.1&auto=format&fit=crop&h=600&w=800&q=80",
+    "image": "/assets/companyLogo/dmx logo.png",
+    "url": "https://www.dmxrgit.com",
     "tag": "UI/UX & Development",
-    "technologies": ["React", "GSAP", "TailwindCSS"],
-    "hasDemo": true
+    "technologies": ["React", "GSAP", "TailwindCSS"]
+  },
+  {
+    "slug": "rajhans",
+    "title": "Rajhans Tours and Travels",
+    "description": "Travel and tourism website with booking features",
+    "image": "/assets/companyLogo/rtt (1).jpg",
+    "url": "https://rajhanstravels.com/",
+    "tag": "Travel & Tourism",
+    "technologies": ["React", "API Integration", "Responsive Design"]
   },
   {
     "slug": "ecommerce",

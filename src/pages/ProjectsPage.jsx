@@ -7,7 +7,7 @@ import GradualBlur from '../components/GradualBlur';
 
 const galleryItems = projectsData.map((p) => ({ 
   image: p.image, 
-  text: p.title 
+  text: p.title
 }));
 
 export default function ProjectsPage() {
@@ -30,6 +30,71 @@ export default function ProjectsPage() {
         </GradualBlur>
       </div>
 
+      {/* Project links — open case study */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="flex flex-wrap justify-center gap-6">
+          {projectsData.map((project) => (
+            project.url ? (
+              <a
+                key={project.slug}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center rounded-xl border border-teal-500/10 bg-white px-8 py-6 hover:border-teal-500/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
+              >
+                <span className="text-teal-600/80 text-sm font-medium">{project.tag}</span>
+                <span className="text-xl font-semibold text-charcoal mt-1 group-hover:text-teal-600 transition-colors">
+                  {project.title}
+                </span>
+                <p className="text-charcoal-muted text-sm mt-2 text-center max-w-xs">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1 mt-3 justify-center">
+                  {project.technologies.map((tech, index) => (
+                    <span 
+                      key={index}
+                      className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-teal-600 text-sm mt-3 font-medium">
+                  🔗 Visit Website →
+                </span>
+              </a>
+            ) : (
+              <Link
+                key={project.slug}
+                to={`/projects/${project.slug}`}
+                className="group flex flex-col items-center rounded-xl border border-teal-500/10 bg-white px-8 py-6 hover:border-teal-500/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
+              >
+                <span className="text-teal-600/80 text-sm font-medium">{project.tag}</span>
+                <span className="text-xl font-semibold text-charcoal mt-1 group-hover:text-teal-600 transition-colors">
+                  {project.title}
+                </span>
+                <p className="text-charcoal-muted text-sm mt-2 text-center max-w-xs">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1 mt-3 justify-center">
+                  {project.technologies.map((tech, index) => (
+                    <span 
+                      key={index}
+                      className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-teal-600 text-sm mt-3 font-medium">
+                  {project.hasDemo ? '🚀 Try Demo →' : '📋 View Details →'}
+                </span>
+              </Link>
+            )
+          ))}
+        </div>
+      </div>
+
       {/* Circular Gallery — scroll/drag to browse */}
       <div className="h-[70vh] min-h-[400px] w-full">
         <CircularGallery
@@ -39,40 +104,6 @@ export default function ProjectsPage() {
           scrollSpeed={2}
           scrollEase={0.06}
         />
-      </div>
-
-      {/* Project links — open case study */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-        <div className="flex flex-wrap justify-center gap-6">
-          {projectsData.map((project) => (
-            <Link
-              key={project.slug}
-              to={`/projects/${project.slug}`}
-              className="group flex flex-col items-center rounded-xl border border-teal-500/10 bg-white px-8 py-6 hover:border-teal-500/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
-            >
-              <span className="text-teal-600/80 text-sm font-medium">{project.tag}</span>
-              <span className="text-xl font-semibold text-charcoal mt-1 group-hover:text-teal-600 transition-colors">
-                {project.title}
-              </span>
-              <p className="text-charcoal-muted text-sm mt-2 text-center max-w-xs">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-1 mt-3 justify-center">
-                {project.technologies.map((tech, index) => (
-                  <span 
-                    key={index}
-                    className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <span className="text-teal-600 text-sm mt-3 font-medium">
-                {project.hasDemo ? '🚀 Try Demo →' : '📋 View Details →'}
-              </span>
-            </Link>
-          ))}
-        </div>
       </div>
     </div>
   );
