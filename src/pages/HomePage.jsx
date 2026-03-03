@@ -10,7 +10,7 @@ import GradualBlur from '../components/GradualBlur';
 import SectionReveal from '../components/SectionReveal';
 import ServiceModel from '../components/ServiceModel';
 import CardSwap, { Card } from '../components/CardSwap';
-import CircularGallery from '../components/CircularGallery';
+
 import { SERVICE_SLUGS } from '../data/serviceSlugs';
 import services from '../data/services.json';
 
@@ -267,16 +267,7 @@ export default function HomePage() {
             </Link>
           </SectionReveal>
 
-          {/* Circular Gallery for Selected Works */}
-          <div className="h-[60vh] min-h-[400px] w-full mt-12 overflow-hidden">
-            <CircularGallery
-              items={HIGHLIGHTED_PROJECTS.map(p => ({ image: p.image, text: p.title }))}
-              bend={3}
-              textColor="#1a202c"
-              scrollSpeed={2}
-              scrollEase={0.06}
-            />
-          </div>
+
         </div>
       </section>
     </div>

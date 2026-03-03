@@ -7,14 +7,14 @@ import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphe
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 
 // replace with your own imports, see the usage snippet for details
-import cardGLB from '/assets/card.glb?url';
-import lanyard from '/assets/lanyard.png';
+import cardGLB from './card.glb';
+import lanyard from './lanyard.png';
 
 import * as THREE from 'three';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, lanyardTexture = null, cardTexture = null }) {
+export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, teamMember = 'kartik' }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
   }, []);
 
   return (
-    <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
+    <div className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center">
       <Canvas
         camera={{ position: position, fov: fov }}
         dpr={[1, isMobile ? 1.5 : 2]}
@@ -33,7 +33,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
       >
         <ambientLight intensity={Math.PI} />
         <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-          <Band isMobile={isMobile} lanyardTexture={lanyardTexture} cardTexture={cardTexture} />
+          <Band isMobile={isMobile} teamMember={teamMember} />
         </Physics>
         <Environment blur={0.75}>
           <Lightformer
@@ -69,7 +69,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     </div>
   );
 }
-function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = null, cardTexture = null }) {
+function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, teamMember = 'kartik' }) {
   const band = useRef(),
     fixed = useRef(),
     j1 = useRef(),
@@ -82,10 +82,8 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
     dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   const { nodes, materials } = useGLTF(cardGLB);
-  const texture = useTexture(lanyardTexture || lanyard);
-  const cardImg = useTexture(cardTexture || materials.base.map.image.src);
-  cardImg.flipY = false;
-  cardImg.offset.x = 0.25;
+  const lanyardTexture = useTexture(lanyard);
+  const teamTexture = useTexture(`/assets/team/${teamMember}.png`);
   const [curve] = useState(
     () =>
       new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()])
@@ -98,7 +96,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
   useSphericalJoint(j3, card, [
     [0, 0, 0],
-    [0, 2.6, 0]
+    [0, 1.5, 0]
   ]);
 
   useEffect(() => {
@@ -137,7 +135,9 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
   });
 
   curve.curveType = 'chordal';
-  texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+  lanyardTexture.wrapS = lanyardTexture.wrapT = THREE.RepeatWrapping;
+  teamTexture.wrapS = teamTexture.wrapT = THREE.RepeatWrapping;
+  teamTexture.flipY = false;
 
   return (
     <>
@@ -153,10 +153,10 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
           <BallCollider args={[0.1]} />
         </RigidBody>
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
-          <CuboidCollider args={[1.42, 2.0, 0.01]} />
+          <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={4.0}
-            position={[0, -2.1, -0.05]}
+            scale={2.25}
+            position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerUp={e => (e.target.releasePointerCapture(e.pointerId), drag(false))}
@@ -167,7 +167,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
           >
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial
-                map={cardImg}
+                map={teamTexture}
                 map-anisotropy={16}
                 clearcoat={isMobile ? 0 : 1}
                 clearcoatRoughness={0.15}
@@ -187,9 +187,9 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, lanyardTexture = 
           depthTest={false}
           resolution={isMobile ? [1000, 2000] : [1000, 1000]}
           useMap
-          map={texture}
+          map={lanyardTexture}
           repeat={[-4, 1]}
-          lineWidth={2.0}
+          lineWidth={1}
         />
       </mesh>
     </>

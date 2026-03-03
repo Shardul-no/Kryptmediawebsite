@@ -67,61 +67,58 @@ export default function AboutPage() {
       </div>
 
       {/* Interactive Lanyards Section */}
-      <div className="container mx-auto px-4 pt-24 pb-48 border-t border-teal-500/10">
-        <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-charcoal">
+      <div className="container mx-auto px-4 pt-12 pb-48 border-t border-teal-500/10">
+        <ScrollReveal containerClassName="!my-0 mb-0" textClassName="text-charcoal">
           Our Founders
         </ScrollReveal>
         <GradualBlur delay={0.1}>
-          <p className="text-charcoal-muted text-lg max-w-2xl mb-14">
+          <p className="text-charcoal-muted text-lg max-w-2xl mb-0">
             Interactive lanyard cards representing our leadership team.
           </p>
         </GradualBlur>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Priyanshu's Lanyard */}
-          <div className="h-[30rem] lg:h-[40rem]">
+          <div className="relative aspect-[3/4] md:aspect-auto h-[35rem] md:h-[40rem]">
             <Lanyard
               position={[0, 0, 30]}
               gravity={[0, -40, 0]}
               fov={20}
               transparent={true}
-              lanyardTexture="/assets/lanyard.png"
-              cardTexture="/assets/team/priyanshu.jpeg"
+              teamMember="priyanshu"
             />
-            <div className="text-center mt-4">
-              <h3 className="text-xl font-semibold text-charcoal">Priyanshu Naik</h3>
-              <p className="text-teal-600">Co-Founder</p>
+            <div className="absolute -bottom-12 left-0 right-0 text-center">
+              <h3 className="text-xl font-semibold text-charcoal drop-shadow-lg">Priyanshu Naik</h3>
+              <p className="text-teal-600 drop-shadow-lg">Co-Founder</p>
             </div>
           </div>
 
           {/* Taniksh's Lanyard */}
-          <div className="h-[30rem] lg:h-[40rem]">
+          <div className="relative aspect-[3/4] md:aspect-auto h-[35rem] md:h-[40rem]">
             <Lanyard
               position={[0, 0, 30]}
               gravity={[0, -40, 0]}
               fov={20}
               transparent={true}
-              lanyardTexture="/assets/lanyard.png"
-              cardTexture="/assets/team/tanishk.jpeg"
+              teamMember="tanishk"
             />
-            <div className="text-center mt-4">
-              <h3 className="text-xl font-semibold text-charcoal">Taniksh Waingankar</h3>
-              <p className="text-teal-600">Co-Founder</p>
+            <div className="absolute -bottom-12 left-0 right-0 text-center">
+              <h3 className="text-xl font-semibold text-charcoal drop-shadow-lg">Taniksh Waingankar</h3>
+              <p className="text-teal-600 drop-shadow-lg">Co-Founder</p>
             </div>
           </div>
 
           {/* Kartik's Lanyard */}
-          <div className="h-[30rem] lg:h-[40rem]">
+          <div className="relative aspect-[3/4] md:aspect-auto h-[35rem] md:h-[40rem]">
             <Lanyard
               position={[0, 0, 30]}
               gravity={[0, -40, 0]}
               fov={20}
               transparent={true}
-              lanyardTexture="/assets/lanyard.png"
-              cardTexture="/assets/team/kartik.jpeg"
+              teamMember="kartik"
             />
-            <div className="text-center mt-4">
-              <h3 className="text-xl font-semibold text-charcoal">Kartik Mistry</h3>
-              <p className="text-teal-600">Co-Founder</p>
+            <div className="absolute -bottom-12 left-0 right-0 text-center">
+              <h3 className="text-xl font-semibold text-charcoal drop-shadow-lg">Kartik Mistry</h3>
+              <p className="text-teal-600 drop-shadow-lg">Co-Founder</p>
             </div>
           </div>
         </div>
