@@ -33,7 +33,7 @@ export default function ServiceDetailPage() {
 
   useEffect(() => {
     if (serviceTitle) {
-      document.title = `${serviceTitle} | Krypt Media`;
+      document.title = `${serviceTitle} | Krypt Media LLP`;
     }
   }, [serviceTitle]);
 

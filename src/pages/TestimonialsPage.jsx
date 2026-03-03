@@ -15,7 +15,7 @@ const menuItems = testimonials.map((t) => ({
 
 export default function TestimonialsPage() {
   useEffect(() => {
-    document.title = 'Client Testimonials | Krypt Media';
+    document.title = 'Client Testimonials | Krypt Media LLP';
   }, []);
 
   return (
@@ -50,7 +50,7 @@ export default function TestimonialsPage() {
       {/* Fallback quote for accessibility / when JS is minimal */}
       <div className="container mx-auto px-4 py-12 text-center">
         <blockquote className="text-xl text-charcoal-muted italic max-w-2xl mx-auto">
-          &ldquo;Krypt Media transformed our online presence and elevated our brand identity.&rdquo;
+          &ldquo;Krypt Media LLP transformed our online presence and elevated our brand identity.&rdquo;
         </blockquote>
       </div>
     </div>

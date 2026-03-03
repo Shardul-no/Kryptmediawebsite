@@ -20,8 +20,16 @@ const ContactForm = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        // Prepare WhatsApp message
+        const phoneNumber = "9930183457";
+        const messageText = `*New Inquiry from Website*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Subject:* ${formData.subject}%0A*Message:* ${formData.message}`;
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${messageText}`;
+
+        // Simulate a small delay for better UX
+        await new Promise((resolve) => setTimeout(resolve, 800));
+
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, '_blank');
 
         setIsSubmitting(false);
         setSubmitted(true);

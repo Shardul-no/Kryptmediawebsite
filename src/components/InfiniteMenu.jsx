@@ -680,7 +680,7 @@ class InfiniteGridMenu {
     this.#initDiscInstances(this.DISC_INSTANCE_COUNT);
 
     this.worldMatrix = mat4.create();
-    this.#initTexture();
+    this.onInit = onInit;
 
     this.control = new ArcballControl(this.canvas, deltaTime => this.#onControlUpdate(deltaTime));
 
@@ -688,10 +688,25 @@ class InfiniteGridMenu {
     this.#updateProjectionMatrix(gl);
     this.resize();
 
-    if (onInit) onInit(this);
+    this.#setupIntersectionObserver();
+  }
+
+  #setupIntersectionObserver() {
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting) {
+          this.#initTexture();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(this.canvas);
   }
 
   #initTexture() {
+    if (this.textureLoading) return;
+    this.textureLoading = true;
     const gl = this.gl;
     this.tex = createAndSetupTexture(gl, gl.LINEAR, gl.LINEAR, gl.CLAMP_TO_EDGE, gl.CLAMP_TO_EDGE);
 
@@ -724,6 +739,8 @@ class InfiniteGridMenu {
       gl.bindTexture(gl.TEXTURE_2D, this.tex);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas);
       gl.generateMipmap(gl.TEXTURE_2D);
+
+      if (this.onInit) this.onInit(this);
     });
   }
 

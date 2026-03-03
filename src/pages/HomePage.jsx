@@ -9,17 +9,25 @@ import ScrollReveal from '../components/ScrollReveal';
 import GradualBlur from '../components/GradualBlur';
 import SectionReveal from '../components/SectionReveal';
 import ServiceModel from '../components/ServiceModel';
+import CardSwap, { Card } from '../components/CardSwap';
+import CircularGallery from '../components/CircularGallery';
 import { SERVICE_SLUGS } from '../data/serviceSlugs';
 import services from '../data/services.json';
 
 const SERVICE_MODELS = {
   'Website Design & Development': '/3d/textured_model_0.glb',
-  'Social Media Marketing': '/3d/textured_model_0.glb', // Fallback for the broken model
+  'Social Media Marketing': '/3d/a_sleek_3d_symbol_representing_social_media_market_glb (2).glb',
   'Design Services': '/3d/a_contemporary_3d_icon_representing_creative_desig_glb.glb',
 };
 
 const ROTATING_ITEMS = ['Websites.', 'Brands.', 'Campaigns.', 'Growth Systems.'];
 const STRIP_ITEMS = 'Web Design — Development — Branding — Social Media — Strategy — UI/UX';
+
+const SERVICE_SCALES = {
+  'Website Design & Development': 0.90,
+  'Social Media Marketing': 1, // Made larger
+  'Design Services': 0.90,      // Made smaller
+};
 
 const SERVICE_COPY = {
   'Website Design & Development':
@@ -32,28 +40,22 @@ const SERVICE_COPY = {
 
 const HIGHLIGHTED_PROJECTS = [
   {
-    title: 'DMX Website',
+    title: 'DMX RGIT',
     slug: 'dmx',
-    image: 'https://images.unsplash.com/photo-1590004953392-5aba2e72269a?ixlib=rb-1.2.1&auto=format&fit=crop&h=500&w=800&q=80',
+    image: '/assets/companyLogo/dmx.png',
     tag: 'UI/UX & Development',
   },
   {
-    title: 'E-commerce Platform',
-    slug: 'ecommerce',
-    image: 'https://images.unsplash.com/photo-1590004845575-cc18b13d1d0a?ixlib=rb-1.2.1&auto=format&fit=crop&h=500&w=800&q=80',
-    tag: 'E-commerce',
-  },
-  {
-    title: 'More Work',
-    slug: null,
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&h=500&w=800&q=80',
-    tag: 'Branding & Web',
+    title: 'Rajhans Tours and Travels',
+    slug: 'rajhans',
+    image: '/assets/companyLogo/rajhans.png',
+    tag: 'Travel & Tourism',
   },
 ];
 
 export default function HomePage() {
   useEffect(() => {
-    document.title = 'Krypt Media | Digital Experiences That Move Brands Forward';
+    document.title = 'Krypt Media LLP | Digital Experiences That Move Brands Forward';
     // Scroll to top when page loads
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -73,58 +75,84 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-beige-100/30 z-[1]" />
 
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 pt-20 pb-16">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold max-w-5xl mb-6 leading-tight">
-            <BlurText
-              text="We Build Digital Experiences That Move Brands Forward"
-              className="text-charcoal"
-              delay={80}
-              stepDuration={0.4}
-              animateBy="words"
-            />
-          </h1>
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 pt-20 pb-16 gap-12">
+          <div className="flex-1 text-left lg:pr-12">
+            <h1 className="display-large text-charcoal mb-4">
+              <BlurText
+                text="Crafting Digital Artistry for "
+                className="inline text-charcoal"
+                delay={80}
+                stepDuration={0.4}
+                animateBy="words"
+              />
+              <span className="italic-serif text-teal-600 block sm:inline">Brands</span>
+              <BlurText
+                text=" That Lead"
+                className="inline text-charcoal"
+                delay={200}
+                stepDuration={0.4}
+                animateBy="words"
+              />
+            </h1>
 
-          <motion.div
-            initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }}
-            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="min-h-[1.2em] flex items-center justify-center mb-6"
-          >
-            <RotatingText
-              texts={ROTATING_ITEMS}
-              rotationInterval={2200}
-              mainClassName="text-2xl sm:text-3xl md:text-4xl text-teal-600 font-semibold"
-              elementLevelClassName="inline-block"
-              staggerDuration={0.02}
-              initial={{ opacity: 0, filter: 'blur(10px)', y: 15 }}
+            <motion.div
+              initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }}
               animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-              exit={{ opacity: 0, filter: 'blur(10px)', y: -15 }}
-              transition={{ type: 'spring', damping: 30, stiffness: 250 }}
-              animatePresenceInitial={true}
-            />
-          </motion.div>
-
-          <p className="max-w-2xl text-lg mb-10">
-            <BlurText
-              text="Krypt Media crafts immersive digital solutions blending strategy, design, and technology."
-              className="text-charcoal-muted"
-              delay={60}
-              stepDuration={0.35}
-            />
-          </p>
-
-          <motion.div
-            initial={{ opacity: 0, filter: 'blur(8px)', y: 12 }}
-            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-          >
-            <Link
-              to="/projects"
-              className="inline-block px-8 py-3.5 rounded-full bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors duration-300 shadow-lg shadow-teal-500/20"
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="min-h-[1.2em] flex items-center mb-6"
             >
-              View Our Work
-            </Link>
-          </motion.div>
+              <RotatingText
+                texts={ROTATING_ITEMS}
+                rotationInterval={2200}
+                mainClassName="text-2xl sm:text-3xl md:text-4xl text-teal-600 font-semibold"
+                elementLevelClassName="inline-block"
+                staggerDuration={0.02}
+                initial={{ opacity: 0, filter: 'blur(10px)', y: 15 }}
+                animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+                exit={{ opacity: 0, filter: 'blur(10px)', y: -15 }}
+                transition={{ type: 'spring', damping: 30, stiffness: 250 }}
+                animatePresenceInitial={true}
+              />
+            </motion.div>
+
+            <p className="max-w-xl text-lg mb-10 text-charcoal-muted leading-relaxed italic-serif opacity-80">
+              <BlurText
+                text="Krypt Media LLP blends high-end strategy with avant-garde design to build digital products that move the needle."
+                className="text-charcoal-muted"
+                delay={60}
+                stepDuration={0.35}
+              />
+            </p>
+
+            <motion.div
+              initial={{ opacity: 0, filter: 'blur(8px)', y: 12 }}
+              animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+            >
+              <Link
+                to="/projects"
+                className="inline-block px-8 py-3.5 rounded-full bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors duration-300 shadow-lg shadow-teal-500/20"
+              >
+                View Our Work
+              </Link>
+            </motion.div>
+          </div>
+
+          <div className="flex-1 w-full max-w-[500px] h-[550px] relative flex items-center justify-center lg:justify-end">
+            <CardSwap width={450} height={350} cardDistance={40} verticalDistance={50}>
+              {HIGHLIGHTED_PROJECTS.map((project, i) => (
+                <Card key={i} customClass="p-6 flex flex-col justify-between border-teal-500/20 shadow-2xl overflow-hidden bg-white">
+                  <div className="relative w-full h-2/3 rounded-lg overflow-hidden mb-4">
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <span className="text-teal-600 text-xs font-bold uppercase tracking-widest">{project.tag}</span>
+                    <h3 className="text-2xl font-bold text-charcoal mt-1">{project.title}</h3>
+                  </div>
+                </Card>
+              ))}
+            </CardSwap>
+          </div>
         </div>
       </section>
 
@@ -165,7 +193,11 @@ export default function HomePage() {
               return (
                 <SectionReveal key={service.title} delay={index * 0.12} className="flex flex-col items-center">
                   <div className="w-full max-w-[320px] mx-auto mb-6">
-                    <ServiceModel modelUrl={modelUrl} redirectUrl={redirectUrl} />
+                    <ServiceModel
+                      modelUrl={modelUrl}
+                      redirectUrl={redirectUrl}
+                      scaleMultiplier={SERVICE_SCALES[service.title] || 1.0}
+                    />
                   </div>
                   <h3 className="text-xl font-semibold text-charcoal mb-2 text-center">{service.title}</h3>
                   <p className="text-charcoal-muted text-center text-sm mb-6 max-w-xs">{copy}</p>
@@ -203,11 +235,14 @@ export default function HomePage() {
                   to={project.slug ? `/projects/${project.slug}` : '/projects'}
                   className="group block rounded-xl overflow-hidden border border-teal-500/10 hover:border-teal-500/30 transition-colors duration-300 bg-beige-50"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-white/50">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${project.slug === 'rajhans'
+                        ? 'object-contain p-12'
+                        : 'object-cover'
+                        }`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-teal-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
@@ -223,7 +258,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <SectionReveal delay={0.3} className="text-center mt-12">
+          <SectionReveal delay={0.3} className="text-center mt-12 mb-16">
             <Link
               to="/projects"
               className="inline-block px-6 py-2.5 rounded-full border border-teal-600/20 text-teal-600 font-medium hover:border-teal-600/50 hover:bg-teal-50 transition-all duration-300"
@@ -231,6 +266,17 @@ export default function HomePage() {
               View all projects
             </Link>
           </SectionReveal>
+
+          {/* Circular Gallery for Selected Works */}
+          <div className="h-[60vh] min-h-[400px] w-full mt-12 overflow-hidden">
+            <CircularGallery
+              items={HIGHLIGHTED_PROJECTS.map(p => ({ image: p.image, text: p.title }))}
+              bend={3}
+              textColor="#1a202c"
+              scrollSpeed={2}
+              scrollEase={0.06}
+            />
+          </div>
         </div>
       </section>
     </div>

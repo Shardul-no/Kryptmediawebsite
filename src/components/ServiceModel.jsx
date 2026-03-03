@@ -4,32 +4,36 @@ import { useGLTF, ContactShadows, Environment, Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { useNavigate } from 'react-router-dom';
 
-function Model({ url }) {
+function Model({ url, scaleMultiplier = 1 }) {
     const { scene } = useGLTF(url);
     const groupRef = useRef();
+    const [clonedScene, setClonedScene] = useState(null);
 
-    // Center and normalize the model scale
     useEffect(() => {
         if (scene) {
-            const box = new THREE.Box3().setFromObject(scene);
+            // Clone the scene so multiple instances don't fight over the same object
+            const clone = scene.clone();
+            const box = new THREE.Box3().setFromObject(clone);
             const size = box.getSize(new THREE.Vector3());
             const center = box.getCenter(new THREE.Vector3());
 
             // Center the model
-            scene.position.x = -center.x;
-            scene.position.y = -center.y;
-            scene.position.z = -center.z;
+            clone.position.x = -center.x;
+            clone.position.y = -center.y;
+            clone.position.z = -center.z;
 
-            // Normalize scale (fit into a 2x2x2 cube approximately)
+            // Normalize scale
             const maxDim = Math.max(size.x, size.y, size.z);
-            const scale = 2.5 / maxDim;
-            scene.scale.setScalar(scale);
+            // Default 3.0 instead of 2.5, multiplied by custom factor
+            const finalScale = (3.2 * scaleMultiplier) / (maxDim || 1);
+            clone.scale.setScalar(finalScale);
+
+            setClonedScene(clone);
         }
-    }, [scene, url]);
+    }, [scene, url, scaleMultiplier]);
 
     useFrame((state) => {
         if (groupRef.current) {
-            // Gentle tilt towards cursor
             const targetRotationX = (state.mouse.y * 0.3);
             const targetRotationY = (state.mouse.x * 0.3);
 
@@ -38,14 +42,16 @@ function Model({ url }) {
         }
     });
 
+    if (!clonedScene) return null;
+
     return (
         <group ref={groupRef}>
-            <primitive object={scene} />
+            <primitive object={clonedScene} />
         </group>
     );
 }
 
-const ServiceModel = ({ modelUrl, redirectUrl }) => {
+const ServiceModel = ({ modelUrl, redirectUrl, scaleMultiplier = 1 }) => {
     const navigate = useNavigate();
     const [hovered, setHovered] = useState(false);
 
@@ -82,7 +88,7 @@ const ServiceModel = ({ modelUrl, redirectUrl }) => {
                     </Float>
                 }>
                     <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
-                        <Model url={modelUrl} />
+                        <Model url={modelUrl} scaleMultiplier={scaleMultiplier} />
                     </Float>
                     <ContactShadows
                         position={[0, -2.5, 0]}

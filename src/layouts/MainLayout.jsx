@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import WhatsAppFixed from '../components/WhatsAppFixed';
 
 /**
  * Main layout wrapper used by all pages.
@@ -13,6 +14,7 @@ export default function MainLayout() {
       <main>
         <Outlet />
       </main>
+      <WhatsAppFixed />
       <Footer />
     </div>
   );

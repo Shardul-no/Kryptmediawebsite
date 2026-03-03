@@ -15,7 +15,7 @@ const VALUES = [
 
 export default function AboutPage() {
   useEffect(() => {
-    document.title = 'About Us | Krypt Media';
+    document.title = 'About Us | Krypt Media LLP';
   }, []);
 
   return (
@@ -25,19 +25,20 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-teal-100/30 via-beige-50 to-beige-100" />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(13,148,136,0.08),transparent)]" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-6">
+          <h1 className="display-large text-charcoal mb-8">
             <BlurText
-              text="We Build Brands Through Strategy and Innovation"
-              className="text-charcoal"
+              text="Defining the Future of "
+              className="inline text-charcoal"
               delay={70}
               stepDuration={0.4}
               animateBy="words"
             />
+            <span className="italic-serif text-teal-600 block sm:inline">Digital Identity</span>
           </h1>
           <GradualBlur delay={0.2}>
-            <p className="text-lg text-charcoal-muted">
-              Krypt Media is a creative digital agency focused on building impactful brand ecosystems.
-              We blend strategy, design, and technology to craft digital products that perform.
+            <p className="text-xl text-charcoal-muted font-sans font-light leading-relaxed max-w-2xl mx-auto italic-serif opacity-90">
+              Krypt Media LLP is a creative digital agency focused on building <span className="text-charcoal font-medium not-italic">impactful brand ecosystems</span>.
+              We blend avant-garde strategy, design, and technology.
             </p>
           </GradualBlur>
         </div>
@@ -83,8 +84,8 @@ export default function AboutPage() {
               gravity={[0, -40, 0]}
               fov={20}
               transparent={true}
-              lanyardTexture="/assets/lanyard-priyanshu.png"
-              cardTexture="/assets/team/2.jpg"
+              lanyardTexture="/assets/lanyard.png"
+              cardTexture="/assets/team/priyanshu.jpeg"
             />
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold text-charcoal">Priyanshu Naik</h3>
@@ -99,8 +100,8 @@ export default function AboutPage() {
               gravity={[0, -40, 0]}
               fov={20}
               transparent={true}
-              lanyardTexture="/assets/lanyard-taniksh.png"
-              cardTexture="/assets/team/3.jpg"
+              lanyardTexture="/assets/lanyard.png"
+              cardTexture="/assets/team/tanishk.jpeg"
             />
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold text-charcoal">Taniksh Waingankar</h3>
@@ -115,8 +116,8 @@ export default function AboutPage() {
               gravity={[0, -40, 0]}
               fov={20}
               transparent={true}
-              lanyardTexture="/assets/lanyard-kartik.png"
-              cardTexture="/assets/team/1.jpg"
+              lanyardTexture="/assets/lanyard.png"
+              cardTexture="/assets/team/kartik.jpeg"
             />
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold text-charcoal">Kartik Mistry</h3>

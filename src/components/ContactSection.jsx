@@ -24,7 +24,7 @@ const ContactSection = () => {
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-charcoal mb-6 tracking-tight">
             <BlurText
               text="Let's Build Something Bold"
-              className="text-charcoal"
+              className="text-charcoal justify-center"
               delay={80}
               stepDuration={0.4}
               animateBy="words"
@@ -61,7 +61,7 @@ const ContactSection = () => {
                 </SectionReveal>
                 <SectionReveal delay={0.2}>
                   <a
-                    href="mailto:info@kryptmedia.in"
+                    href="mailto:contact@kryptmedia.in"
                     className="flex items-center justify-center gap-3 border-2 border-charcoal/10 hover:border-charcoal/30 text-charcoal font-bold py-4 px-8 rounded-2xl transition-all active:scale-95"
                   >
                     Email Us
@@ -100,7 +100,9 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-bold uppercase tracking-wider text-charcoal/40 mb-1">General Inquiry</h4>
-                    <p className="text-xl font-semibold text-charcoal">info@kryptmedia.in</p>
+                    <a href="mailto:contact@kryptmedia.in" className="text-xl font-semibold text-charcoal hover:text-teal-600 transition-colors">
+                      contact@kryptmedia.in
+                    </a>
                   </div>
                 </div>
               </SectionReveal>

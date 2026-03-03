@@ -5,14 +5,14 @@ import CircularGallery from '../components/CircularGallery';
 import ScrollReveal from '../components/ScrollReveal';
 import GradualBlur from '../components/GradualBlur';
 
-const galleryItems = projectsData.map((p) => ({ 
-  image: p.image, 
+const galleryItems = projectsData.map((p) => ({
+  image: p.image,
   text: p.title
 }));
 
 export default function ProjectsPage() {
   useEffect(() => {
-    document.title = 'Our Projects | Krypt Media';
+    document.title = 'Our Projects | Krypt Media LLP';
     // Scroll to top when page loads
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
                 </p>
                 <div className="flex flex-wrap gap-1 mt-3 justify-center">
                   {project.technologies.map((tech, index) => (
-                    <span 
+                    <span
                       key={index}
                       className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded"
                     >
@@ -78,7 +78,7 @@ export default function ProjectsPage() {
                 </p>
                 <div className="flex flex-wrap gap-1 mt-3 justify-center">
                   {project.technologies.map((tech, index) => (
-                    <span 
+                    <span
                       key={index}
                       className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded"
                     >

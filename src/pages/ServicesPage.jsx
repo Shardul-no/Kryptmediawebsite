@@ -9,7 +9,7 @@ import { SERVICE_SLUGS } from '../data/serviceSlugs';
 
 export default function ServicesPage() {
   useEffect(() => {
-    document.title = 'Our Services | Krypt Media';
+    document.title = 'Our Services | Krypt Media LLP';
   }, []);
 
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -23,12 +23,12 @@ export default function ServicesPage() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-charcoal">
+          <ScrollReveal containerClassName="!my-0 mb-6" textClassName="display-large text-charcoal">
             Our Services
           </ScrollReveal>
           <GradualBlur>
-            <p className="max-w-2xl mx-auto text-lg text-charcoal-muted">
-              Comprehensive solutions tailored to elevate your digital presence
+            <p className="max-w-2xl mx-auto text-xl text-charcoal-muted italic-serif opacity-80">
+              Bespoke digital solutions <span className="not-italic font-sans text-teal-600 font-medium">tailored</span> to scale your vision.
             </p>
           </GradualBlur>
         </div>

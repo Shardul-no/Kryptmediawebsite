@@ -1,29 +1,28 @@
 [
   {
     "slug": "dmx",
-    "title": "DMX Website",
+    "title": "DMX RGIT",
     "description": "Interactive tech startup website with animations",
-    "image": "/assets/companyLogo/dmx logo.png",
+    "image": "/assets/companyLogo/dmx.png",
     "url": "https://www.dmxrgit.com",
     "tag": "UI/UX & Development",
-    "technologies": ["React", "GSAP", "TailwindCSS"]
+    "technologies": [
+      "React",
+      "GSAP",
+      "TailwindCSS"
+    ]
   },
   {
     "slug": "rajhans",
     "title": "Rajhans Tours and Travels",
     "description": "Travel and tourism website with booking features",
-    "image": "/assets/companyLogo/rtt (1).jpg",
+    "image": "/assets/companyLogo/rajhans.png",
     "url": "https://rajhanstravels.com/",
     "tag": "Travel & Tourism",
-    "technologies": ["React", "API Integration", "Responsive Design"]
-  },
-  {
-    "slug": "ecommerce",
-    "title": "E-commerce Platform",
-    "description": "Modern shopping experience with cart functionality",
-    "image": "https://images.unsplash.com/photo-1590004845575-cc18b13d1d0a?ixlib=rb-1.2.1&auto=format&fit=crop&h=600&w=800&q=80",
-    "tag": "E-commerce",
-    "technologies": ["React", "State Management", "API Integration"],
-    "hasDemo": true
+    "technologies": [
+      "React",
+      "API Integration",
+      "Responsive Design"
+    ]
   }
 ]

@@ -29,11 +29,15 @@ const Navbar = () => {
         width="100%"
         height="auto"
         borderRadius={24}
-        borderWidth={0.08}
-        backgroundOpacity={0.08}
-        blur={12}
-        brightness={95}
-        className="max-w-7xl border border-teal-500/10 shadow-lg"
+        borderWidth={0.06}
+        backgroundOpacity={0.04}
+        blur={8}
+        brightness={98}
+        distortionScale={0}
+        redOffset={0}
+        greenOffset={0}
+        blueOffset={0}
+        className="max-w-7xl border border-teal-500/5 shadow-md"
       >
         <div className="px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex justify-between items-center h-20">
@@ -42,8 +46,8 @@ const Navbar = () => {
             >
               <Link to="/">
                 <img
-                  src="/templogo.png"
-                  alt="Krypt Media Logo"
+                  src="/logo.png"
+                  alt="Krypt Media LLP Logo"
                   className="h-20 w-auto transition-transform duration-300"
                 />
               </Link>
