@@ -10,7 +10,8 @@
       "React",
       "GSAP",
       "TailwindCSS"
-    ]
+    ],
+    "hasDemo": true
   },
   {
     "slug": "rajhans",
@@ -24,5 +25,19 @@
       "API Integration",
       "Responsive Design"
     ]
+  },
+  {
+    "slug": "mumbai-studio",
+    "title": "Midnight Sound Studio",
+    "description": "Cinematic music recording studio experience with interactive animations",
+    "image": "/assets/projects/mumbai-studio/artist-silhouette-recording.png",
+    "tag": "Interactive Experience",
+    "technologies": [
+      "React",
+      "GSAP",
+      "TailwindCSS",
+      "ScrollTrigger"
+    ],
+    "hasDemo": true
   }
 ]

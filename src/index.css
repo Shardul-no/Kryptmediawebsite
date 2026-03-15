@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 /* 
@@ -80,4 +80,27 @@ h6 {
   font-size: clamp(3rem, 8vw, 6rem);
   line-height: 1.1;
   font-weight: 800;
+}
+
+/* Mumbai Studio Wave Animation */
+.wave-bar {
+  height: var(--wave-height, 30px);
+  animation: wave var(--wave-duration, 1s) ease-in-out infinite;
+  animation-delay: var(--wave-delay, 0s);
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.5); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
