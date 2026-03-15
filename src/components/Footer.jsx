@@ -32,7 +32,7 @@ const SocialIcon = ({ name }) => {
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-teal text-beige-100 py-12 px-4 shadow-2xl border-t border-teal-500/20">
+    <footer className="bg-slate-600 text-tan-100 py-12 px-4 shadow-2xl border-t border-coffee/20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
@@ -45,17 +45,17 @@ const Footer = () => {
               />
               <h3 className="text-xl font-bold">{footerData.companyInfo.name}</h3>
             </div>
-            <p className="text-beige-300 mb-4 text-sm">
+            <p className="text-tan-300 mb-4 text-sm">
               {footerData.companyInfo.description}
             </p>
             <div className="space-y-2">
-              <a href={`mailto:${footerData.contactInfo.email}`} className="text-sm text-beige-300 hover:text-teal-400 transition-colors">
+              <a href={`mailto:${footerData.contactInfo.email}`} className="text-sm text-tan-300 hover:text-coffee transition-colors">
                 📧 {footerData.contactInfo.email}
               </a>
-              <p className="text-sm text-beige-300">
+              <p className="text-sm text-tan-300">
                 📞 {footerData.contactInfo.phone}
               </p>
-              <p className="text-sm text-beige-300">
+              <p className="text-sm text-tan-300">
                 📍 {footerData.contactInfo.address}
               </p>
             </div>
@@ -71,7 +71,7 @@ const Footer = () => {
                     {isInternalLink(link.url) ? (
                       <Link
                         to={link.url}
-                        className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-sm"
+                        className="text-tan-300 hover:text-coffee transition-colors duration-200 text-sm"
                         onClick={() => {
                           window.scrollTo(0, 0);
                         }}
@@ -81,7 +81,7 @@ const Footer = () => {
                     ) : (
                       <a
                         href={link.url}
-                        className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-sm"
+                        className="text-tan-300 hover:text-coffee transition-colors duration-200 text-sm"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -104,7 +104,7 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-beige-300 hover:text-teal-400 transition-all duration-300 hover:scale-110 active:scale-90"
+                  className="text-tan-300 hover:text-coffee transition-all duration-300 hover:scale-110 active:scale-90"
                   title={social.name}
                 >
                   <SocialIcon name={social.icon} />
@@ -115,21 +115,21 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-teal-800 pt-8">
+        <div className="border-t border-slate-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-beige-300 text-sm mb-4 md:mb-0">
+            <p className="text-tan-300 text-sm mb-4 md:mb-0">
               © 2026 Krypt Media LLP. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a
                 href="#"
-                className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-sm"
+                className="text-tan-300 hover:text-coffee transition-colors duration-200 text-sm"
               >
                 {footerData.privacyPolicy}
               </a>
               <a
                 href="#"
-                className="text-beige-300 hover:text-teal-400 transition-colors duration-200 text-sm"
+                className="text-tan-300 hover:text-coffee transition-colors duration-200 text-sm"
               >
                 {footerData.termsOfService}
               </a>

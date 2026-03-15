@@ -19,11 +19,11 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <section id="about" className="relative bg-beige-100 text-charcoal overflow-hidden">
+    <section id="about" className="relative bg-tan-100 text-charcoal overflow-hidden">
       {/* Hero — premium dark with subtle gradient (Lanyard optional when assets available) */}
       <div className="relative min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-teal-100/30 via-beige-50 to-beige-100" />
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(13,148,136,0.08),transparent)]" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-tan-100/30 via-tan-50 to-tan-100" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(99,32,36,0.08),transparent)]" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
           <h1 className="display-large text-charcoal mb-8">
             <BlurText
@@ -33,10 +33,10 @@ export default function AboutPage() {
               stepDuration={0.4}
               animateBy="words"
             />
-            <span className="italic-serif text-teal-600 block sm:inline">Digital Identity</span>
+            <span className="italic-serif text-caput-mortuum block sm:inline">Digital Identity</span>
           </h1>
           <GradualBlur delay={0.2}>
-            <p className="text-xl text-charcoal-muted font-sans font-light leading-relaxed max-w-2xl mx-auto italic-serif opacity-90">
+            <p className="text-xl text-slate-500 font-sans font-light leading-relaxed max-w-2xl mx-auto italic-serif opacity-90">
               Krypt Media LLP is a creative digital agency focused on building <span className="text-charcoal font-medium not-italic">impactful brand ecosystems</span>.
               We blend avant-garde strategy, design, and technology.
             </p>
@@ -45,21 +45,21 @@ export default function AboutPage() {
       </div>
 
       {/* Values — Scroll Reveal */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-teal-500/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-coffee/10">
         <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-charcoal">
           What We Stand For
         </ScrollReveal>
         <GradualBlur delay={0.1}>
-          <p className="text-charcoal-muted text-lg max-w-2xl mb-14">
+          <p className="text-slate-500 text-lg max-w-2xl mb-14">
             Our values guide how we work with every client and project.
           </p>
         </GradualBlur>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {VALUES.map((value, i) => (
             <SectionReveal key={value.name} delay={i * 0.1}>
-              <div className="p-6 rounded-xl border border-teal-500/10 bg-charcoal/[0.02] hover:border-teal-500/20 transition-colors duration-300">
+              <div className="p-6 rounded-xl border border-coffee/10 bg-charcoal/[0.02] hover:border-coffee/20 transition-colors duration-300">
                 <h3 className="text-xl font-semibold text-charcoal mb-2">{value.name}</h3>
-                <p className="text-charcoal-muted text-sm">{value.desc}</p>
+                <p className="text-slate-500 text-sm">{value.desc}</p>
               </div>
             </SectionReveal>
           ))}
@@ -67,12 +67,12 @@ export default function AboutPage() {
       </div>
 
       {/* Interactive Lanyards Section */}
-      <div className="container mx-auto px-4 pt-12 pb-48 border-t border-teal-500/10">
+      <div className="container mx-auto px-4 pt-12 pb-48 border-t border-coffee/10">
         <ScrollReveal containerClassName="!my-0 mb-0" textClassName="text-charcoal">
           Our Founders
         </ScrollReveal>
         <GradualBlur delay={0.1}>
-          <p className="text-charcoal-muted text-lg max-w-2xl mb-0">
+          <p className="text-slate-500 text-lg max-w-2xl mb-0">
             Interactive lanyard cards representing our leadership team.
           </p>
         </GradualBlur>
@@ -86,9 +86,9 @@ export default function AboutPage() {
               transparent={true}
               teamMember="priyanshu"
             />
-            <div className="absolute -bottom-12 left-0 right-0 text-center">
+            <div className="absolute -bottom-32 left-0 right-0 text-center">
               <h3 className="text-xl font-semibold text-charcoal drop-shadow-lg">Priyanshu Naik</h3>
-              <p className="text-teal-600 drop-shadow-lg">Co-Founder</p>
+              <p className="text-caput-mortuum drop-shadow-lg">Co-Founder</p>
             </div>
           </div>
 
@@ -101,9 +101,9 @@ export default function AboutPage() {
               transparent={true}
               teamMember="tanishk"
             />
-            <div className="absolute -bottom-12 left-0 right-0 text-center">
+            <div className="absolute -bottom-32 left-0 right-0 text-center">
               <h3 className="text-xl font-semibold text-charcoal drop-shadow-lg">Taniksh Waingankar</h3>
-              <p className="text-teal-600 drop-shadow-lg">Co-Founder</p>
+              <p className="text-caput-mortuum drop-shadow-lg">Co-Founder</p>
             </div>
           </div>
 
@@ -116,9 +116,9 @@ export default function AboutPage() {
               transparent={true}
               teamMember="kartik"
             />
-            <div className="absolute -bottom-12 left-0 right-0 text-center">
+            <div className="absolute -bottom-32 left-0 right-0 text-center">
               <h3 className="text-xl font-semibold text-charcoal drop-shadow-lg">Kartik Mistry</h3>
-              <p className="text-teal-600 drop-shadow-lg">Co-Founder</p>
+              <p className="text-caput-mortuum drop-shadow-lg">Co-Founder</p>
             </div>
           </div>
         </div>

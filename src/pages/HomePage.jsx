@@ -61,11 +61,11 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="relative bg-beige-100 text-charcoal overflow-hidden">
+    <div className="relative bg-tan-100 text-charcoal overflow-hidden">
       {/* ——— HERO ——— */}
       <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden">
         <Waves
-          lineColor="rgba(13,148,136,0.2)"
+          lineColor="rgba(99,32,36,0.2)"
           backgroundColor="transparent"
           waveAmpX={20}
           waveAmpY={10}
@@ -73,7 +73,7 @@ export default function HomePage() {
           yGap={28}
           className="z-0"
         />
-        <div className="absolute inset-0 bg-beige-100/30 z-[1]" />
+        <div className="absolute inset-0 bg-tan-100/30 z-[1]" />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 pt-20 pb-16 gap-12">
           <div className="flex-1 text-left lg:pr-12">
@@ -85,7 +85,7 @@ export default function HomePage() {
                 stepDuration={0.4}
                 animateBy="words"
               />
-              <span className="italic-serif text-teal-600 block sm:inline">Brands</span>
+              <span className="italic-serif text-caput-mortuum block sm:inline">Brands</span>
               <BlurText
                 text=" That Lead"
                 className="inline text-charcoal"
@@ -104,7 +104,7 @@ export default function HomePage() {
               <RotatingText
                 texts={ROTATING_ITEMS}
                 rotationInterval={2200}
-                mainClassName="text-2xl sm:text-3xl md:text-4xl text-teal-600 font-semibold"
+                mainClassName="text-2xl sm:text-3xl md:text-4xl text-caput-mortuum font-semibold"
                 elementLevelClassName="inline-block"
                 staggerDuration={0.02}
                 initial={{ opacity: 0, filter: 'blur(10px)', y: 15 }}
@@ -115,10 +115,10 @@ export default function HomePage() {
               />
             </motion.div>
 
-            <p className="max-w-xl text-lg mb-10 text-charcoal-muted leading-relaxed italic-serif opacity-80">
+            <p className="max-w-xl text-lg mb-10 text-slate-500 leading-relaxed italic-serif opacity-80">
               <BlurText
                 text="Krypt Media LLP blends high-end strategy with avant-garde design to build digital products that move the needle."
-                className="text-charcoal-muted"
+                className="text-slate-500"
                 delay={60}
                 stepDuration={0.35}
               />
@@ -131,7 +131,7 @@ export default function HomePage() {
             >
               <Link
                 to="/projects"
-                className="inline-block px-8 py-3.5 rounded-full bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors duration-300 shadow-lg shadow-teal-500/20"
+                className="inline-block px-8 py-3.5 rounded-full bg-caput-mortuum text-white font-semibold hover:bg-slate-700 transition-colors duration-300 shadow-lg shadow-coffee/20"
               >
                 View Our Work
               </Link>
@@ -141,12 +141,12 @@ export default function HomePage() {
           <div className="flex-1 w-full max-w-[500px] h-[550px] relative flex items-center justify-center lg:justify-end">
             <CardSwap width={450} height={350} cardDistance={40} verticalDistance={50}>
               {HIGHLIGHTED_PROJECTS.map((project, i) => (
-                <Card key={i} customClass="p-6 flex flex-col justify-between border-teal-500/20 shadow-2xl overflow-hidden bg-white">
+                <Card key={i} customClass="p-6 flex flex-col justify-between border-coffee/20 shadow-2xl overflow-hidden bg-white">
                   <div className="relative w-full h-2/3 rounded-lg overflow-hidden mb-4">
                     <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <span className="text-teal-600 text-xs font-bold uppercase tracking-widest">{project.tag}</span>
+                    <span className="text-caput-mortuum text-xs font-bold uppercase tracking-widest">{project.tag}</span>
                     <h3 className="text-2xl font-bold text-charcoal mt-1">{project.title}</h3>
                   </div>
                 </Card>
@@ -157,17 +157,17 @@ export default function HomePage() {
       </section>
 
       {/* ——— HORIZONTAL STRIP (Scroll Velocity) ——— */}
-      <section className="relative z-10 py-6 border-y border-teal-500/10 bg-beige-200/80">
+      <section className="relative z-10 py-6 border-y border-coffee/10 bg-tan-200/80">
         <ScrollVelocity
           texts={[STRIP_ITEMS]}
           velocity={40}
           parallaxClassName="py-2"
-          scrollerClassName="text-charcoal-muted text-lg md:text-xl font-medium tracking-wide"
+          scrollerClassName="text-slate-500 text-lg md:text-xl font-medium tracking-wide"
         />
       </section>
 
       {/* ——— SERVICES OVERVIEW ——— */}
-      <section id="services-overview" className="relative py-24 md:py-32 bg-beige-50">
+      <section id="services-overview" className="relative py-24 md:py-32 bg-tan-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16 md:mb-20">
             <ScrollReveal
@@ -177,7 +177,7 @@ export default function HomePage() {
               Our Services
             </ScrollReveal>
             <GradualBlur delay={0.2} className="max-w-2xl mt-4">
-              <p className="text-charcoal-muted text-lg">
+              <p className="text-slate-500 text-lg">
                 Three pillars of what we do—interactive, focused, and built for impact.
               </p>
             </GradualBlur>
@@ -200,10 +200,10 @@ export default function HomePage() {
                     />
                   </div>
                   <h3 className="text-xl font-semibold text-charcoal mb-2 text-center">{service.title}</h3>
-                  <p className="text-charcoal-muted text-center text-sm mb-6 max-w-xs">{copy}</p>
+                  <p className="text-slate-500 text-center text-sm mb-6 max-w-xs">{copy}</p>
                   <Link
                     to={`/services/${slug}`}
-                    className="text-teal-600 hover:text-teal-500 text-sm font-medium transition-colors"
+                    className="text-caput-mortuum hover:text-slate-600 text-sm font-medium transition-colors"
                   >
                     Learn more →
                   </Link>
@@ -215,14 +215,14 @@ export default function HomePage() {
       </section>
 
       {/* ——— SELECTED WORK PREVIEW ——— */}
-      <section id="selected-work" className="relative py-24 md:py-32 bg-beige-100 border-t border-teal-500/10">
+      <section id="selected-work" className="relative py-24 md:py-32 bg-tan-100 border-t border-coffee/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-14">
             <ScrollReveal containerClassName="!my-0" textClassName="text-charcoal">
               Selected Work
             </ScrollReveal>
             <GradualBlur delay={0.15}>
-              <p className="text-charcoal-muted text-lg mt-4 max-w-2xl">
+              <p className="text-slate-500 text-lg mt-4 max-w-2xl">
                 A glimpse into recent projects—each opens a full case study.
               </p>
             </GradualBlur>
@@ -233,7 +233,7 @@ export default function HomePage() {
               <SectionReveal key={project.slug || project.title} delay={index * 0.1}>
                 <Link
                   to={project.slug ? `/projects/${project.slug}` : '/projects'}
-                  className="group block rounded-xl overflow-hidden border border-teal-500/10 hover:border-teal-500/30 transition-colors duration-300 bg-beige-50"
+                  className="group block rounded-xl overflow-hidden border border-coffee/10 hover:border-coffee/30 transition-colors duration-300 bg-tan-50"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-white/50">
                     <img
@@ -244,14 +244,14 @@ export default function HomePage() {
                         : 'object-cover'
                         }`}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-teal-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div className="p-5 bg-charcoal/[0.02]">
-                    <span className="text-teal-600/80 text-sm font-medium">{project.tag}</span>
-                    <h3 className="text-xl font-semibold text-charcoal mt-1 group-hover:text-teal-600 transition-colors">
+                    <span className="text-caput-mortuum/80 text-sm font-medium">{project.tag}</span>
+                    <h3 className="text-xl font-semibold text-charcoal mt-1 group-hover:text-caput-mortuum transition-colors">
                       {project.title}
                     </h3>
-                    <span className="text-charcoal-muted text-sm mt-2 inline-block">View case study →</span>
+                    <span className="text-slate-500 text-sm mt-2 inline-block">View case study →</span>
                   </div>
                 </Link>
               </SectionReveal>
@@ -261,7 +261,7 @@ export default function HomePage() {
           <SectionReveal delay={0.3} className="text-center mt-12 mb-16">
             <Link
               to="/projects"
-              className="inline-block px-6 py-2.5 rounded-full border border-teal-600/20 text-teal-600 font-medium hover:border-teal-600/50 hover:bg-teal-50 transition-all duration-300"
+              className="inline-block px-6 py-2.5 rounded-full border border-caput-mortuum/20 text-caput-mortuum font-medium hover:border-caput-mortuum/50 hover:bg-tan-50 transition-all duration-300"
             >
               View all projects
             </Link>

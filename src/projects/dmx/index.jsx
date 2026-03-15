@@ -16,7 +16,7 @@ export default function DMXDemo() {
   return (
     <div className="dmx-demo px-8 py-8">
       {/* Hero Section with Interactive Elements */}
-      <section className="demo-hero relative h-96 bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl overflow-hidden mb-12">
+      <section className="demo-hero relative h-96 bg-gradient-to-br from-slate-600 to-caput-mortuum rounded-2xl overflow-hidden mb-12">
         <div 
           className="absolute inset-0 opacity-20"
           style={{
@@ -29,7 +29,7 @@ export default function DMXDemo() {
             <p className="text-xl opacity-90">Experience the future of web design</p>
             <button 
               onClick={() => setActiveSection('features')}
-              className="mt-6 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+              className="mt-6 bg-white text-slate-600 px-6 py-3 rounded-lg font-semibold hover:bg-tan-50 transition-colors"
             >
               Explore Features
             </button>
@@ -46,18 +46,18 @@ export default function DMXDemo() {
         ].map((feature, index) => (
           <div 
             key={index}
-            className="bg-white p-6 rounded-xl border border-teal-500/10 hover:border-teal-500/30 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer"
+            className="bg-white p-6 rounded-xl border border-coffee/10 hover:border-coffee/30 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer"
             onClick={() => setActiveSection(`feature-${index}`)}
           >
             <div className="text-3xl mb-3">{feature.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-            <p className="text-charcoal-muted">{feature.description}</p>
+            <p className="text-slate-500">{feature.description}</p>
           </div>
         ))}
       </section>
 
       {/* Interactive Component */}
-      <section className="demo-interactive bg-white rounded-xl p-8 border border-teal-500/10">
+      <section className="demo-interactive bg-white rounded-xl p-8 border border-coffee/10">
         <h3 className="text-2xl font-bold mb-6">Try It Yourself</h3>
         <InteractiveComponent />
       </section>
@@ -78,14 +78,14 @@ function InteractiveComponent() {
       <div className="flex items-center gap-4">
         <button 
           onClick={() => setCount(count - 1)}
-          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
+          className="bg-coffee text-white px-4 py-2 rounded hover:bg-slate-600 transition-colors"
         >
           -
         </button>
         <span className="text-2xl font-bold w-16 text-center">{count}</span>
         <button 
           onClick={() => setCount(count + 1)}
-          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors"
+          className="bg-caput-mortuum text-white px-4 py-2 rounded hover:bg-slate-700 transition-colors"
         >
           +
         </button>
@@ -97,11 +97,11 @@ function InteractiveComponent() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Type something..."
-          className="w-full px-4 py-2 border border-teal-500/20 rounded-lg focus:outline-none focus:border-teal-500"
+          className="w-full px-4 py-2 border border-coffee/20 rounded-lg focus:outline-none focus:border-coffee"
         />
         {text && (
-          <p className="mt-2 text-charcoal-muted">
-            You typed: <span className="font-semibold text-teal-600">{text}</span>
+          <p className="mt-2 text-slate-500">
+            You typed: <span className="font-semibold text-caput-mortuum">{text}</span>
           </p>
         )}
       </div>

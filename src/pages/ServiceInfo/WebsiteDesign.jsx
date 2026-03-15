@@ -38,12 +38,12 @@ const WebsiteDesign = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-beige-100 overflow-hidden"
+      className="relative py-20 bg-tan-100 overflow-hidden"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,10 +57,10 @@ const WebsiteDesign = () => {
           {/* Main description */}
           <motion.div variants={itemVariants} className="mb-12">
             <h2 className="text-2xl font-bold mb-4 text-charcoal">About Our Service</h2>
-            <p className="text-charcoal-muted leading-relaxed mb-6">
+            <p className="text-slate-500 leading-relaxed mb-6">
               We specialize in creating stunning, high-performance websites that not only look great but also drive real business results. Our team combines cutting-edge design principles with robust development practices to deliver websites that stand out in today's competitive digital landscape.
             </p>
-            <p className="text-charcoal-muted leading-relaxed">
+            <p className="text-slate-500 leading-relaxed">
               From initial concept to final deployment, we handle every aspect of your website project with meticulous attention to detail. Whether you need a simple landing page or a complex e-commerce platform, we have the expertise to bring your vision to life.
             </p>
           </motion.div>
@@ -68,7 +68,7 @@ const WebsiteDesign = () => {
           {/* What We Offer — flowing menu */}
           <motion.div variants={itemVariants} className="mb-16">
             <h2 className="text-2xl font-bold mb-8 text-charcoal">What We Offer</h2>
-            <div className="h-[400px] rounded-2xl overflow-hidden border border-teal-500/10 shadow-inner">
+            <div className="h-[400px] rounded-2xl overflow-hidden border border-coffee/10 shadow-inner">
               <FlowingMenu
                 items={[
                   { text: 'UI/UX Design', image: 'https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?q=80&w=600&auto=format' },
@@ -101,7 +101,7 @@ const WebsiteDesign = () => {
                   href="https://aramesh.in/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+                  className="inline-block bg-caput-mortuum hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
                   Visit Website
                 </a>
@@ -116,7 +116,7 @@ const WebsiteDesign = () => {
                   href="https://customizedgift.co.in/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+                  className="inline-block bg-caput-mortuum hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
                   Visit Website
                 </a>
@@ -131,7 +131,7 @@ const WebsiteDesign = () => {
                   href="https://goboujeelifestyle.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+                  className="inline-block bg-caput-mortuum hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
                   Visit Website
                 </a>

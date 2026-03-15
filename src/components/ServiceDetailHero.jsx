@@ -16,7 +16,7 @@ export default function ServiceDetailHero({
           speed={1.2}
           curveAmount={180}
           interactive={false}
-          className="fill-teal-600"
+          className="fill-caput-mortuum"
         />
       </div>
 
@@ -25,7 +25,7 @@ export default function ServiceDetailHero({
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
         <Link
           to="/services"
-          className="inline-flex items-center text-teal-600/90 hover:text-teal-500 text-sm font-medium mb-8 transition-colors"
+          className="inline-flex items-center text-caput-mortuum/90 hover:text-caput-mortuum/80 text-sm font-medium mb-8 transition-colors"
         >
           <span className="mr-2">←</span> Back to Services
         </Link>
@@ -39,10 +39,10 @@ export default function ServiceDetailHero({
             animateBy="words"
           />
         </h1>
-        <p className="text-lg text-charcoal-muted">
+        <p className="text-lg text-slate-500">
           <BlurText
             text={subtext}
-            className="text-charcoal-muted"
+            className="text-slate-500"
             delay={50}
             stepDuration={0.35}
           />

@@ -53,8 +53,8 @@ export default function ProjectDetailPage() {
       <ProjectLayout title={project.title}>
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
-            <p className="text-charcoal-muted">Loading project demo...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-caput-mortuum mx-auto mb-4"></div>
+            <p className="text-slate-500">Loading project demo...</p>
           </div>
         </div>
       </ProjectLayout>
@@ -66,9 +66,9 @@ export default function ProjectDetailPage() {
       <ProjectLayout title={project.title}>
         <div className="text-center py-20">
           <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
-          <p className="text-charcoal-muted mb-8">{project.description}</p>
-          <div className="bg-white rounded-xl p-8 border border-teal-500/10">
-            <p className="text-charcoal-muted">Demo coming soon!</p>
+          <p className="text-slate-500 mb-8">{project.description}</p>
+          <div className="bg-white rounded-xl p-8 border border-coffee/10">
+            <p className="text-slate-500">Demo coming soon!</p>
           </div>
         </div>
       </ProjectLayout>
@@ -79,7 +79,7 @@ export default function ProjectDetailPage() {
     <ProjectLayout title={project.title}>
       {ProjectDemo ? <ProjectDemo /> : (
         <div className="text-center py-20">
-          <p className="text-charcoal-muted">Demo not available</p>
+          <p className="text-slate-500">Demo not available</p>
         </div>
       )}
     </ProjectLayout>

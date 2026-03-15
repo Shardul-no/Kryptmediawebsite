@@ -67,12 +67,12 @@ const SocialMediaMarketing = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-beige-100 text-charcoal overflow-hidden min-h-screen"
+      className="relative py-20 bg-tan-100 text-charcoal overflow-hidden min-h-screen"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,10 +86,10 @@ const SocialMediaMarketing = () => {
           {/* Main description */}
           <motion.div variants={itemVariants} className="mb-12">
             <h2 className="text-2xl font-bold mb-4 text-charcoal">About Our Service</h2>
-            <p className="text-charcoal-muted leading-relaxed mb-6">
+            <p className="text-slate-500 leading-relaxed mb-6">
               In today's digital age, social media is the heartbeat of brand communication. Our comprehensive social media marketing services help businesses build meaningful connections with their audience, increase brand awareness, and drive measurable results across all major platforms.
             </p>
-            <p className="text-charcoal-muted leading-relaxed">
+            <p className="text-slate-500 leading-relaxed">
               We don't just post content – we create strategic campaigns that resonate with your target audience, build community engagement, and convert followers into loyal customers. Our data-driven approach ensures every post contributes to your business goals.
             </p>
           </motion.div>
@@ -97,7 +97,7 @@ const SocialMediaMarketing = () => {
           {/* What We Offer — flowing menu */}
           <motion.div variants={itemVariants} className="mb-16">
             <h2 className="text-2xl font-bold mb-8 text-charcoal">What We Offer</h2>
-            <div className="h-[400px] rounded-2xl overflow-hidden border border-teal-500/10 shadow-inner">
+            <div className="h-[400px] rounded-2xl overflow-hidden border border-coffee/10 shadow-inner">
               <FlowingMenu
                 items={[
                   { text: 'Content Strategy', image: 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?q=80&w=600&auto=format' },
@@ -123,7 +123,7 @@ const SocialMediaMarketing = () => {
               {galleryImages.map((image, index) => (
                 <motion.div
                   key={index}
-                  className="group relative overflow-hidden rounded-lg bg-white border border-teal-500/10 shadow-sm break-inside-avoid mb-6"
+                  className="group relative overflow-hidden rounded-lg bg-white border border-coffee/10 shadow-sm break-inside-avoid mb-6"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -132,7 +132,7 @@ const SocialMediaMarketing = () => {
                     alt={image.alt}
                     className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-teal-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-4">
                       <h3 className="text-white font-semibold text-lg">{image.title}</h3>
                     </div>

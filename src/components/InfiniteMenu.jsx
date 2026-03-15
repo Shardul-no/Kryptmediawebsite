@@ -997,7 +997,7 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
           top-1/2
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          text-teal-600
+          text-charcoal
           ${isMoving
                 ? 'opacity-0 pointer-events-none duration-[100ms] translate-x-[-20px] -translate-y-1/2'
                 : 'opacity-100 pointer-events-auto duration-[500ms] translate-x-0 -translate-y-1/2'
@@ -1021,7 +1021,7 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
           md:right-[8%]
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          text-charcoal-muted
+          text-slate-500
           ${isMoving
                 ? 'opacity-0 pointer-events-none duration-[100ms] translate-x-[20px] -translate-y-1/2'
                 : 'opacity-100 pointer-events-auto duration-[500ms] translate-x-0 -translate-y-1/2'
@@ -1041,14 +1041,14 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
           h-[60px]
           grid
           place-items-center
-          bg-teal-600
+          bg-caput-mortuum
           border-[5px]
-          border-beige-100
+          border-tan-100
           rounded-full
           cursor-pointer
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          hover:bg-teal-700
+          hover:bg-slate-700
           ${isMoving
                 ? 'bottom-[-80px] opacity-0 pointer-events-none duration-[100ms] scale-0 -translate-x-1/2'
                 : 'bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2'

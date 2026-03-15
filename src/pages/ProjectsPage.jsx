@@ -18,13 +18,13 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <div id="projects" className="relative bg-beige-100 text-charcoal min-h-screen pt-24 pb-20 overflow-hidden">
+    <div id="projects" className="relative bg-tan-100 text-charcoal min-h-screen pt-24 pb-20 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <ScrollReveal containerClassName="!my-0" textClassName="text-charcoal">
           Projects
         </ScrollReveal>
         <GradualBlur delay={0.15}>
-          <p className="text-charcoal-muted text-lg mt-4 max-w-2xl">
+          <p className="text-slate-500 text-lg mt-4 max-w-2xl">
             Interactive demos of our recent work. Click any project to experience it live.
           </p>
         </GradualBlur>
@@ -40,26 +40,26 @@ export default function ProjectsPage() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center rounded-xl border border-teal-500/10 bg-white px-8 py-6 hover:border-teal-500/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
+                className="group flex flex-col items-center rounded-xl border border-coffee/10 bg-white px-8 py-6 hover:border-coffee/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
               >
-                <span className="text-teal-600/80 text-sm font-medium">{project.tag}</span>
-                <span className="text-xl font-semibold text-charcoal mt-1 group-hover:text-teal-600 transition-colors">
+                <span className="text-caput-mortuum/80 text-sm font-medium">{project.tag}</span>
+                <span className="text-xl font-semibold text-charcoal mt-1 group-hover:text-caput-mortuum transition-colors">
                   {project.title}
                 </span>
-                <p className="text-charcoal-muted text-sm mt-2 text-center max-w-xs">
+                <p className="text-slate-500 text-sm mt-2 text-center max-w-xs">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1 mt-3 justify-center">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded"
+                      className="text-xs bg-tan-100 text-caput-mortuum px-2 py-1 rounded"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <span className="text-teal-600 text-sm mt-3 font-medium">
+                <span className="text-caput-mortuum text-sm mt-3 font-medium">
                   🔗 Visit Website →
                 </span>
               </a>
@@ -67,26 +67,26 @@ export default function ProjectsPage() {
               <Link
                 key={project.slug}
                 to={`/projects/${project.slug}`}
-                className="group flex flex-col items-center rounded-xl border border-teal-500/10 bg-white px-8 py-6 hover:border-teal-500/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
+                className="group flex flex-col items-center rounded-xl border border-coffee/10 bg-white px-8 py-6 hover:border-coffee/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
               >
-                <span className="text-teal-600/80 text-sm font-medium">{project.tag}</span>
-                <span className="text-xl font-semibold text-charcoal mt-1 group-hover:text-teal-600 transition-colors">
+                <span className="text-caput-mortuum/80 text-sm font-medium">{project.tag}</span>
+                <span className="text-xl font-semibold text-charcoal mt-1 group-hover:text-caput-mortuum transition-colors">
                   {project.title}
                 </span>
-                <p className="text-charcoal-muted text-sm mt-2 text-center max-w-xs">
+                <p className="text-slate-500 text-sm mt-2 text-center max-w-xs">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1 mt-3 justify-center">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded"
+                      className="text-xs bg-tan-100 text-caput-mortuum px-2 py-1 rounded"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <span className="text-teal-600 text-sm mt-3 font-medium">
+                <span className="text-caput-mortuum text-sm mt-3 font-medium">
                   {project.hasDemo ? '🚀 Try Demo →' : '📋 View Details →'}
                 </span>
               </Link>

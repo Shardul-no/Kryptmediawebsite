@@ -102,7 +102,7 @@ const ServiceModel = ({ modelUrl, redirectUrl, scaleMultiplier = 1 }) => {
             </Canvas>
 
             {/* Overlay hint */}
-            <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-teal-600/10 border border-teal-600/20 text-[10px] text-teal-600 font-medium tracking-wider uppercase transition-all duration-300 pointer-events-none ${hovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-caput-mortuum/10 border border-caput-mortuum/20 text-[10px] text-caput-mortuum font-medium tracking-wider uppercase transition-all duration-300 pointer-events-none ${hovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
                 View Service
             </div>
         </div>

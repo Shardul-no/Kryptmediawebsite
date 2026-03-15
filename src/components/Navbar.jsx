@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import GlassSurface from './GlassSurface';
 
 const navItems = [
   { path: '/', name: 'Home' },
@@ -25,20 +24,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full z-50 top-4 px-4 sm:px-6 lg:px-8 flex justify-center transition-all duration-500">
-      <GlassSurface
-        width="100%"
-        height="auto"
-        borderRadius={24}
-        borderWidth={0.06}
-        backgroundOpacity={0.04}
-        blur={8}
-        brightness={98}
-        distortionScale={0}
-        redOffset={0}
-        greenOffset={0}
-        blueOffset={0}
-        className="max-w-7xl border border-teal-500/5 shadow-md"
-      >
+      <div className="max-w-7xl w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-3xl shadow-md">
         <div className="px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex justify-between items-center h-20">
             <motion.div
@@ -59,8 +45,8 @@ const Navbar = () => {
                   <Link
                     to={item.path}
                     className={`text-lg font-semibold transition-all duration-300 ${isActive(item.path)
-                      ? 'text-teal-600 scale-110'
-                      : 'text-charcoal hover:text-teal-500 hover:scale-105'
+                      ? 'text-caput-mortuum scale-110'
+                      : 'text-charcoal hover:text-caput-mortuum hover:scale-105'
                       }`}
                     onClick={() => setIsOpen(false)}
                   >
@@ -125,8 +111,8 @@ const Navbar = () => {
                   <Link
                     to={item.path}
                     className={`block py-3 text-lg font-medium transition-colors ${isActive(item.path)
-                      ? 'text-teal-600 pl-4 border-l-4 border-teal-600'
-                      : 'text-charcoal hover:text-teal-600'
+                      ? 'text-caput-mortuum pl-4 border-l-4 border-caput-mortuum'
+                      : 'text-charcoal hover:text-caput-mortuum'
                       }`}
                     onClick={() => setIsOpen(false)}
                   >
@@ -137,7 +123,7 @@ const Navbar = () => {
             </motion.div>
           </motion.div>
         </div>
-      </GlassSurface>
+      </div>
     </nav>
   );
 };

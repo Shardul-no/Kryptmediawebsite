@@ -15,10 +15,10 @@ export default function ServicesPage() {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
-    <section id="services" className="relative pt-24 pb-20 bg-beige-100 overflow-hidden">
+    <section id="services" className="relative pt-24 pb-20 bg-tan-100 overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,8 +27,8 @@ export default function ServicesPage() {
             Our Services
           </ScrollReveal>
           <GradualBlur>
-            <p className="max-w-2xl mx-auto text-xl text-charcoal-muted italic-serif opacity-80">
-              Bespoke digital solutions <span className="not-italic font-sans text-teal-600 font-medium">tailored</span> to scale your vision.
+            <p className="max-w-2xl mx-auto text-xl text-slate-500 italic-serif opacity-80">
+              Bespoke digital solutions <span className="not-italic font-sans text-caput-mortuum font-medium">tailored</span> to scale your vision.
             </p>
           </GradualBlur>
         </div>
@@ -39,7 +39,7 @@ export default function ServicesPage() {
             return (
               <motion.div
                 key={service.title}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-teal-500/5 hover:border-teal-500/20"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-coffee/5 hover:border-coffee/20"
                 initial={{
                   opacity: 0,
                   x: isMobile ? (index % 2 === 0 ? -80 : 80) : 0,
@@ -78,17 +78,17 @@ export default function ServicesPage() {
                   <h2 className="text-xl font-bold mb-2 text-charcoal">
                     {service.title}
                   </h2>
-                  <p className="text-charcoal-muted mb-4">{service.description}</p>
+                  <p className="text-slate-500 mb-4">{service.description}</p>
 
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 4).map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-teal-500 mr-2">•</span>
-                        <span className="text-charcoal-muted">{feature}</span>
+                        <span className="text-caput-mortuum mr-2">•</span>
+                        <span className="text-slate-500">{feature}</span>
                       </li>
                     ))}
                     {service.features.length > 4 && (
-                      <li className="text-charcoal-muted text-sm">
+                      <li className="text-slate-500 text-sm">
                         +{service.features.length - 4} more features
                       </li>
                     )}
@@ -96,7 +96,7 @@ export default function ServicesPage() {
 
                   <Link
                     to={`/services/${slug}`}
-                    className="block w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 text-center"
+                    className="block w-full bg-caput-mortuum hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 text-center"
                   >
                     See More
                   </Link>

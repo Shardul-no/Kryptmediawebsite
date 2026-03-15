@@ -6,7 +6,7 @@ import ContactForm from './ContactForm';
 
 const ContactSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-beige-100 text-charcoal pt-24 pb-20 lg:pt-32 lg:pb-28">
+    <section className="relative min-h-screen overflow-hidden bg-tan-100 text-charcoal pt-24 pb-20 lg:pt-32 lg:pb-28">
       {/* Subtle waves background */}
       <div className="absolute inset-0 z-0 opacity-[0.2]">
         <Waves
@@ -17,7 +17,7 @@ const ContactSection = () => {
           yGap={36}
         />
       </div>
-      <div className="absolute inset-0 bg-beige-100/30 z-[1]" />
+      <div className="absolute inset-0 bg-tan-100/30 z-[1]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 lg:mb-20">
@@ -72,8 +72,8 @@ const ContactSection = () => {
 
             <div className="space-y-4">
               <SectionReveal delay={0.15}>
-                <div className="group flex items-center gap-6 p-6 rounded-2xl bg-white border border-teal-500/5 shadow-sm hover:shadow-md hover:border-teal-500/20 transition-all">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600 text-2xl group-hover:scale-110 transition-transform">
+                <div className="group flex items-center gap-6 p-6 rounded-2xl bg-white border border-coffee/5 shadow-sm hover:shadow-md hover:border-coffee/20 transition-all">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-coffee/10 text-caput-mortuum text-2xl group-hover:scale-110 transition-transform">
                     📍
                   </div>
                   <div>
@@ -83,8 +83,8 @@ const ContactSection = () => {
                 </div>
               </SectionReveal>
               <SectionReveal delay={0.2}>
-                <div className="group flex items-center gap-6 p-6 rounded-2xl bg-white border border-teal-500/5 shadow-sm hover:shadow-md hover:border-teal-500/20 transition-all">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600 text-2xl group-hover:scale-110 transition-transform">
+                <div className="group flex items-center gap-6 p-6 rounded-2xl bg-white border border-coffee/5 shadow-sm hover:shadow-md hover:border-coffee/20 transition-all">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-coffee/10 text-caput-mortuum text-2xl group-hover:scale-110 transition-transform">
                     📞
                   </div>
                   <div>
@@ -94,13 +94,13 @@ const ContactSection = () => {
                 </div>
               </SectionReveal>
               <SectionReveal delay={0.25}>
-                <div className="group flex items-center gap-6 p-6 rounded-2xl bg-white border border-teal-500/5 shadow-sm hover:shadow-md hover:border-teal-500/20 transition-all">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600 text-2xl group-hover:scale-110 transition-transform">
+                <div className="group flex items-center gap-6 p-6 rounded-2xl bg-white border border-coffee/5 shadow-sm hover:shadow-md hover:border-coffee/20 transition-all">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-coffee/10 text-caput-mortuum text-2xl group-hover:scale-110 transition-transform">
                     ✉️
                   </div>
                   <div>
                     <h4 className="text-sm font-bold uppercase tracking-wider text-charcoal/40 mb-1">General Inquiry</h4>
-                    <a href="mailto:contact@kryptmedia.in" className="text-xl font-semibold text-charcoal hover:text-teal-600 transition-colors">
+                    <a href="mailto:contact@kryptmedia.in" className="text-xl font-semibold text-charcoal hover:text-caput-mortuum transition-colors">
                       contact@kryptmedia.in
                     </a>
                   </div>
