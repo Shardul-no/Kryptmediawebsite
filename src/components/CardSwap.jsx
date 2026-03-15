@@ -31,8 +31,8 @@ const placeNow = (el, slot, skew) =>
     });
 
 const CardSwap = ({
-    width = 500,
-    height = 400,
+    width = "100%",
+    height = "auto",
     cardDistance = 60,
     verticalDistance = 70,
     delay = 5000,
@@ -176,12 +176,14 @@ const CardSwap = ({
     );
 
     return (
-        <div
-            ref={container}
-            className="absolute bottom-0 right-0 transform translate-x-[5%] translate-y-[-15%] origin-bottom-right perspective-[900px] overflow-visible max-[768px]:translate-x-[25%] max-[768px]:translate-y-[-5%] max-[768px]:scale-[0.75] max-[480px]:translate-x-[25%] max-[480px]:translate-y-[-5%] max-[480px]:scale-[0.55]"
-            style={{ width, height }}
-        >
-            {rendered}
+        <div className="w-full max-w-full overflow-hidden">
+            <div
+                ref={container}
+                className="absolute bottom-0 right-0 transform translate-x-[5%] translate-y-[-15%] origin-bottom-right perspective-[900px] overflow-visible max-[768px]:translate-x-[25%] max-[768px]:translate-y-[-5%] max-[768px]:scale-[0.75] max-[480px]:translate-x-[25%] max-[480px]:translate-y-[-5%] max-[480px]:scale-[0.55]"
+                style={{ width, height }}
+            >
+                {rendered}
+            </div>
         </div>
     );
 };

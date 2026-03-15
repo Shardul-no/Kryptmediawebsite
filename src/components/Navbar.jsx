@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -21,12 +21,26 @@ const Navbar = () => {
   };
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  
+  const closeMenu = () => setIsOpen(false);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (isOpen && !event.target.closest('nav')) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, [isOpen]);
 
   return (
     <nav className="fixed w-full z-50 top-4 px-4 sm:px-6 lg:px-8 flex justify-center transition-all duration-500">
       <div className="max-w-7xl w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-3xl shadow-md">
         <div className="px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
             <motion.div
               whileHover={{ scale: 1.05 }}
             >
@@ -34,7 +48,7 @@ const Navbar = () => {
                 <img
                   src="/logo.png"
                   alt="Krypt Media LLP Logo"
-                  className="h-20 w-auto transition-transform duration-300"
+                  className="h-14 sm:h-16 md:h-20 w-auto transition-transform duration-300"
                 />
               </Link>
             </motion.div>
@@ -44,7 +58,7 @@ const Navbar = () => {
                 <motion.div key={item.path} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                   <Link
                     to={item.path}
-                    className={`text-lg font-semibold transition-all duration-300 ${isActive(item.path)
+                    className={`text-sm lg:text-base xl:text-lg font-semibold transition-all duration-300 ${isActive(item.path)
                       ? 'text-caput-mortuum scale-110'
                       : 'text-charcoal hover:text-caput-mortuum hover:scale-105'
                       }`}
@@ -110,7 +124,7 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
-                    className={`block py-3 text-lg font-medium transition-colors ${isActive(item.path)
+                    className={`block py-3 text-base sm:text-lg font-medium transition-colors ${isActive(item.path)
                       ? 'text-caput-mortuum pl-4 border-l-4 border-caput-mortuum'
                       : 'text-charcoal hover:text-caput-mortuum'
                       }`}

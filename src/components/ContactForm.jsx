@@ -65,7 +65,7 @@ const ContactForm = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     placeholder="John Doe"
-                                    className="w-full px-5 py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
+                                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
                                 />
                             </div>
                             <div className="space-y-2">
@@ -80,7 +80,7 @@ const ContactForm = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                     placeholder="john@example.com"
-                                    className="w-full px-5 py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
+                                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
                                 />
                             </div>
                         </div>
@@ -97,7 +97,7 @@ const ContactForm = () => {
                                 value={formData.subject}
                                 onChange={handleChange}
                                 placeholder="How can we help?"
-                                className="w-full px-5 py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
+                                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
                             />
                         </div>
 
@@ -113,7 +113,7 @@ const ContactForm = () => {
                                 onChange={handleChange}
                                 rows="4"
                                 placeholder="Tell us about your project..."
-                                className="w-full px-5 py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20 resize-none"
+                                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20 resize-none"
                             ></textarea>
                         </div>
 

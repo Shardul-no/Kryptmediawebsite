@@ -15,14 +15,14 @@ export default function ServicesPage() {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
-    <section id="services" className="relative pt-24 pb-20 bg-tan-100 overflow-hidden">
+    <section id="services" className="relative pt-16 sm:pt-20 md:pt-24 pb-20 bg-tan-100 overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full bg-coffee/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 mt-8 lg:mt-0">
           <ScrollReveal containerClassName="!my-0 mb-6" textClassName="display-large text-charcoal">
             Our Services
           </ScrollReveal>
@@ -60,7 +60,7 @@ export default function ServicesPage() {
                 }}
                 viewport={{ once: true, amount: 0.2 }}
               >
-                <div className="h-48 relative overflow-hidden">
+                <div className="h-auto min-h-[160px] sm:min-h-[192px] relative overflow-hidden">
                   <motion.img
                     src={service.image}
                     alt={service.title}

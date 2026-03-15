@@ -6,7 +6,7 @@ import ContactForm from './ContactForm';
 
 const ContactSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-tan-100 text-charcoal pt-24 pb-20 lg:pt-32 lg:pb-28">
+    <section className="relative min-h-[100dvh] overflow-hidden bg-tan-100 text-charcoal pt-24 pb-20 lg:pt-32 lg:pb-28">
       {/* Subtle waves background */}
       <div className="absolute inset-0 z-0 opacity-[0.2]">
         <Waves

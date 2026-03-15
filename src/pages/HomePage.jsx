@@ -63,7 +63,7 @@ export default function HomePage() {
   return (
     <div className="relative bg-tan-100 text-charcoal overflow-hidden">
       {/* ——— HERO ——— */}
-      <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+      <section id="hero" className="relative min-h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden">
         <Waves
           lineColor="rgba(99,32,36,0.2)"
           backgroundColor="transparent"
@@ -75,9 +75,9 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-tan-100/30 z-[1]" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 pt-20 pb-16 gap-12">
-          <div className="flex-1 text-left lg:pr-12">
-            <h1 className="display-large text-charcoal mb-4">
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 pt-16 sm:pt-18 md:pt-20 pb-16 gap-12">
+          <div className="flex-1 text-left lg:pr-12 mb-8 lg:mb-0">
+            <h1 className="display-large text-charcoal mb-6 lg:mb-4">
               <BlurText
                 text="Crafting Digital Artistry for "
                 className="inline text-charcoal"
@@ -138,7 +138,7 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          <div className="flex-1 w-full max-w-[500px] h-[550px] relative flex items-center justify-center lg:justify-end">
+          <div className="flex-1 w-full max-w-[500px] h-[550px] relative flex items-center justify-center lg:justify-end hidden lg:block">
             <CardSwap width={450} height={350} cardDistance={40} verticalDistance={50}>
               {HIGHLIGHTED_PROJECTS.map((project, i) => (
                 <Card key={i} customClass="p-6 flex flex-col justify-between border-coffee/20 shadow-2xl overflow-hidden bg-white">
@@ -192,7 +192,7 @@ export default function HomePage() {
 
               return (
                 <SectionReveal key={service.title} delay={index * 0.12} className="flex flex-col items-center">
-                  <div className="w-full max-w-[320px] mx-auto mb-6">
+                  <div className="w-full max-w-[280px] sm:max-w-[320px] mx-auto mb-6">
                     <ServiceModel
                       modelUrl={modelUrl}
                       redirectUrl={redirectUrl}

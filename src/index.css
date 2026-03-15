@@ -33,6 +33,7 @@
 
 html {
   scroll-behavior: smooth;
+  height: -webkit-fill-available;
 }
 
 body {
@@ -41,6 +42,7 @@ body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  min-height: -webkit-fill-available;
 }
 
 h1,

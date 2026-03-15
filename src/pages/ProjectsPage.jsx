@@ -18,8 +18,8 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <div id="projects" className="relative bg-tan-100 text-charcoal min-h-screen pt-24 pb-20 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    <div id="projects" className="relative bg-tan-100 text-charcoal min-h-[100dvh] pt-16 sm:pt-20 md:pt-24 pb-20 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 mt-8 lg:mt-0">
         <ScrollReveal containerClassName="!my-0" textClassName="text-charcoal">
           Projects
         </ScrollReveal>
@@ -96,7 +96,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Circular Gallery — scroll/drag to browse */}
-      <div className="h-[70vh] min-h-[400px] w-full">
+      <div className="h-[50vh] sm:h-[60vh] md:h-[70vh] min-h-[300px] sm:min-h-[400px] w-full">
         <CircularGallery
           items={galleryItems}
           bend={3}

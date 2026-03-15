@@ -32,7 +32,7 @@ const SocialIcon = ({ name }) => {
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-600 text-tan-100 py-12 px-4 shadow-2xl border-t border-coffee/20">
+    <footer className="bg-slate-600 text-tan-100 py-8 sm:py-10 md:py-12 px-4 shadow-2xl border-t border-coffee/20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}

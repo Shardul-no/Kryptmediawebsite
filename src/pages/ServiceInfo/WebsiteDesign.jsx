@@ -38,12 +38,12 @@ const WebsiteDesign = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-tan-100 overflow-hidden"
+      className="relative py-12 md:py-16 lg:py-20 bg-tan-100 overflow-hidden"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full bg-coffee/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +68,7 @@ const WebsiteDesign = () => {
           {/* What We Offer — flowing menu */}
           <motion.div variants={itemVariants} className="mb-16">
             <h2 className="text-2xl font-bold mb-8 text-charcoal">What We Offer</h2>
-            <div className="h-[400px] rounded-2xl overflow-hidden border border-coffee/10 shadow-inner">
+            <div className="h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden border border-coffee/10 shadow-inner">
               <FlowingMenu
                 items={[
                   { text: 'UI/UX Design', image: 'https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?q=80&w=600&auto=format' },
@@ -95,7 +95,7 @@ const WebsiteDesign = () => {
                 <img
                   src="/assets/serviceInfo/websiteDesign/aramesh.png"
                   alt="Website Design Example"
-                  className="w-full h-64 object-cover rounded-lg mb-4"
+                  className="w-full h-40 sm:h-52 md:h-64 object-cover rounded-lg mb-4"
                 />
                 <a
                   href="https://aramesh.in/"
@@ -110,7 +110,7 @@ const WebsiteDesign = () => {
                 <img
                   src="/assets/serviceInfo/websiteDesign/gift.png"
                   alt="Website Design Example"
-                  className="w-full h-64 object-cover rounded-lg mb-4"
+                  className="w-full h-40 sm:h-52 md:h-64 object-cover rounded-lg mb-4"
                 />
                 <a
                   href="https://customizedgift.co.in/"
@@ -125,7 +125,7 @@ const WebsiteDesign = () => {
                 <img
                   src="/assets/serviceInfo/websiteDesign/lifestyle.png"
                   alt="Website Design Example"
-                  className="w-full h-64 object-cover rounded-lg mb-4"
+                  className="w-full h-40 sm:h-52 md:h-64 object-cover rounded-lg mb-4"
                 />
                 <a
                   href="https://goboujeelifestyle.com/"

@@ -9,7 +9,7 @@ import WhatsAppFixed from '../components/WhatsAppFixed';
  */
 export default function MainLayout() {
   return (
-    <div className="min-h-screen bg-tan-100 text-charcoal">
+    <div className="min-h-[100dvh] bg-tan-100 text-charcoal">
       <Navbar />
       <main>
         <Outlet />

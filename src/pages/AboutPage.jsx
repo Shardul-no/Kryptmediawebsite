@@ -21,7 +21,7 @@ export default function AboutPage() {
   return (
     <section id="about" className="relative bg-tan-100 text-charcoal overflow-hidden">
       {/* Hero — premium dark with subtle gradient (Lanyard optional when assets available) */}
-      <div className="relative min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden">
+      <div className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-tan-100/30 via-tan-50 to-tan-100" />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(99,32,36,0.08),transparent)]" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
