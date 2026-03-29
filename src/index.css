@@ -1,106 +1,100 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
-/* 
- * Color Palette Configuration
- * To change colors globally, update the values below or modify:
- * src/config/colors.js - Centralized color configuration
- * Use the switchColorScheme() function for dynamic theme switching
- */
-
 @theme {
-  /* Background Colors */
-  --color-tan-50: #f5ede0;
-  --color-tan-100: #f0e6d6;
-  --color-tan-200: #D5B893;
-  --color-tan-300: #c9a97a;
-  
-  /* Primary Colors */
-  --color-slate-400: #617891;
-  --color-slate-500: #3d5470;
-  --color-slate-600: #25344F;
-  --color-slate-700: #1a2a3f;
-  
-  /* Text Colors */
-  --color-charcoal: #25344F;
-  --color-charcoal-muted: #617891;
-  --color-space-cadet: #25344F;
-  
-  /* Accent Colors */
-  --color-coffee: #6F4D38;
+  /* ── Krypt Media Brand Colors ── */
+  --color-krypt-orange:  #ED921D;
+  --color-krypt-apricot: #F2A966;
+  --color-krypt-cream:   #F3E9C2;
+  --color-krypt-sand:    #EBCB9F;
+  --color-krypt-olive:   #ABAD8C;
+  --color-krypt-charcoal:#15171C;
+
+  /* ── Legacy colors (inner pages) ── */
+  --color-tan-50:        #f5ede0;
+  --color-tan-100:       #f0e6d6;
+  --color-tan-200:       #D5B893;
+  --color-tan-300:       #c9a97a;
+  --color-slate-400:     #617891;
+  --color-slate-500:     #3d5470;
+  --color-slate-600:     #25344F;
+  --color-slate-700:     #1a2a3f;
+  --color-charcoal:      #25344F;
+  --color-charcoal-muted:#617891;
+  --color-space-cadet:   #25344F;
+  --color-coffee:        #6F4D38;
   --color-caput-mortuum: #632024;
+
+  /* ── Brand Fonts ── */
+  --font-playfair:  'Playfair Display', serif;
+  --font-dm:        'DM Sans', sans-serif;
+  --font-cormorant: 'Cormorant Garamond', serif;
 }
 
-html {
-  scroll-behavior: smooth;
-  height: -webkit-fill-available;
-}
+/* ── Base ── */
+html { scroll-behavior: smooth; height: -webkit-fill-available; }
 
 body {
-  background-color: var(--color-tan-100);
-  color: var(--color-charcoal);
-  font-family: 'Inter', sans-serif;
+  background-color: var(--color-krypt-cream);
+  color: var(--color-krypt-charcoal);
+  font-family: 'DM Sans', 'Inter', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   min-height: -webkit-fill-available;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   font-weight: 700;
 }
 
-.font-serif {
-  font-family: 'Playfair Display', serif;
+/* ── Gradient Blob Animations ── */
+@keyframes meshBlob {
+  0%,100% { transform: translate(0,0)      scale(1);    }
+  33%      { transform: translate(40px,-50px) scale(1.08); }
+  66%      { transform: translate(-25px,30px) scale(0.94); }
 }
-
-.font-sans {
-  font-family: 'Inter', sans-serif;
+@keyframes meshBlob2 {
+  0%,100% { transform: translate(0,0)       scale(1);    }
+  33%      { transform: translate(-45px,35px) scale(1.12); }
+  66%      { transform: translate(30px,-30px) scale(0.91); }
 }
-
-.italic-serif {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-weight: 400;
+@keyframes meshBlob3 {
+  0%,100% { transform: translate(0,0)       scale(1);    }
+  33%      { transform: translate(25px,45px)  scale(0.93); }
+  66%      { transform: translate(-35px,-20px) scale(1.09); }
 }
+.animate-blob   { animation: meshBlob  10s ease-in-out infinite; }
+.animate-blob-2 { animation: meshBlob2 13s ease-in-out infinite; }
+.animate-blob-3 { animation: meshBlob3 16s ease-in-out infinite; }
 
-.text-premium {
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-weight: 600;
+/* ── Marquee ── */
+@keyframes marquee {
+  0%   { transform: translateX(0);    }
+  100% { transform: translateX(-50%); }
 }
+.animate-marquee { animation: marquee 28s linear infinite; }
 
-.display-large {
-  font-size: clamp(3rem, 8vw, 6rem);
-  line-height: 1.1;
-  font-weight: 800;
+/* ── Fade Up ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(32px); }
+  to   { opacity:1; transform:translateY(0);    }
 }
+.animate-fade-up { animation: fadeUp 0.7s ease forwards; }
 
-/* Mumbai Studio Wave Animation */
+/* ── Legacy utilities ── */
+.display-large   { font-size:clamp(3rem,8vw,6rem); line-height:1.1; font-weight:800; }
+.italic-serif    { font-family:'Playfair Display',serif; font-style:italic; font-weight:400; }
+.font-serif      { font-family:'Playfair Display',serif; }
+.font-sans       { font-family:'DM Sans',sans-serif; }
+.text-premium    { letter-spacing:0.05em; text-transform:uppercase; font-weight:600; }
+
+/* Mumbai Studio wave */
 .wave-bar {
-  height: var(--wave-height, 30px);
-  animation: wave var(--wave-duration, 1s) ease-in-out infinite;
-  animation-delay: var(--wave-delay, 0s);
+  height:var(--wave-height,30px);
+  animation:wave var(--wave-duration,1s) ease-in-out infinite;
+  animation-delay:var(--wave-delay,0s);
 }
-
-@keyframes wave {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(0.5); }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@keyframes wave    { 0%,100%{transform:scaleY(1);}  50%{transform:scaleY(0.5);} }
+@keyframes fadeInUp{ from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }

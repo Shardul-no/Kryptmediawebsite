@@ -1,145 +1,119 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const navItems = [
-  { path: '/', name: 'Home' },
-  { path: '/services', name: 'Services' },
-  { path: '/projects', name: 'Projects' },
-  { path: '/about', name: 'About' },
-  { path: '/testimonials', name: 'Testimonials' },
-  { path: '/contact', name: 'Contact' },
+const navLinks = [
+  { path: '/services',      name: 'Services' },
+  { path: '/projects',      name: 'Work' },
+  { path: '/about',         name: 'About' },
+  { path: '/testimonials',  name: 'Testimonials' },
 ];
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navbar() {
+  const [isOpen,   setIsOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const isActive = (path) => {
-    if (path === '/') return location.pathname === '/';
-    return location.pathname.startsWith(path);
+  const isHome = location.pathname === '/';
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 56);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => setIsOpen(false), [location.pathname]);
+
+  const isActive = (path) =>
+    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+
+  const solidBg  = 'bg-krypt-cream/95 backdrop-blur-md border-b border-krypt-olive/20 shadow-sm';
+  const clearBg  = 'bg-transparent';
+  const navBg    = scrolled || !isHome ? solidBg : clearBg;
+
+  const linkColor = (path) => {
+    if (isActive(path)) return 'text-krypt-orange';
+    return scrolled || !isHome
+      ? 'text-krypt-charcoal hover:text-krypt-orange'
+      : 'text-white/80 hover:text-white';
   };
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  
-  const closeMenu = () => setIsOpen(false);
-
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (isOpen && !event.target.closest('nav')) {
-        closeMenu();
-      }
-    };
-
-    document.addEventListener('click', handleOutsideClick);
-    return () => document.removeEventListener('click', handleOutsideClick);
-  }, [isOpen]);
+  const hamColor = scrolled || !isHome ? 'bg-krypt-charcoal' : 'bg-white';
 
   return (
-    <nav className="fixed w-full z-50 top-4 px-4 sm:px-6 lg:px-8 flex justify-center transition-all duration-500">
-      <div className="max-w-7xl w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-3xl shadow-md">
-        <div className="px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${navBg}`}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+
+        {/* Logo */}
+        <Link to="/" className="flex-shrink-0">
+          <img src="/logo.png" alt="Krypt Media" className="h-12 w-auto" />
+        </Link>
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map(({ path, name }) => (
+            <Link
+              key={path}
+              to={path}
+              className={`font-dm text-sm font-medium transition-colors duration-200 ${linkColor(path)}`}
             >
-              <Link to="/">
-                <img
-                  src="/logo.png"
-                  alt="Krypt Media LLP Logo"
-                  className="h-14 sm:h-16 md:h-20 w-auto transition-transform duration-300"
-                />
-              </Link>
-            </motion.div>
-
-            <div className="hidden md:flex space-x-8">
-              {navItems.map((item) => (
-                <motion.div key={item.path} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                  <Link
-                    to={item.path}
-                    className={`text-sm lg:text-base xl:text-lg font-semibold transition-all duration-300 ${isActive(item.path)
-                      ? 'text-caput-mortuum scale-110'
-                      : 'text-charcoal hover:text-caput-mortuum hover:scale-105'
-                      }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="md:hidden">
-              <motion.button
-                onClick={toggleMenu}
-                className="focus:outline-none"
-                aria-label="Toggle menu"
-                whileTap={{ scale: 0.9 }}
-              >
-                <div className="w-8 h-8 relative flex items-center justify-center">
-                  <span
-                    className={`block absolute h-0.5 w-6 bg-charcoal transform transition duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
-                      }`}
-                  ></span>
-                  <span
-                    className={`block absolute h-0.5 w-6 bg-charcoal transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'
-                      }`}
-                  ></span>
-                  <span
-                    className={`block absolute h-0.5 w-6 bg-charcoal transform transition duration-300 ease-in-out ${isOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'
-                      }`}
-                  ></span>
-                </div>
-              </motion.button>
-            </div>
-          </div>
-
-          <motion.div
-            className="md:hidden overflow-hidden"
-            initial={false}
-            animate={{
-              height: isOpen ? 'auto' : 0,
-              opacity: isOpen ? 1 : 0,
-            }}
-            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+              {name}
+            </Link>
+          ))}
+          <Link
+            to="/contact"
+            className="ml-2 px-6 py-2.5 bg-krypt-orange text-white font-dm text-sm font-medium rounded-full hover:bg-krypt-apricot transition-colors duration-300 shadow-md shadow-krypt-orange/25"
           >
-            <motion.div
-              className="py-6 space-y-1 border-t border-charcoal/10"
-              variants={{
-                open: { transition: { staggerChildren: 0.06, delayChildren: 0.08 } },
-                closed: { transition: { staggerChildren: 0.04, staggerDirection: -1 } },
-              }}
-              initial="closed"
-              animate={isOpen ? 'open' : 'closed'}
-            >
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.path}
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: 16 },
-                  }}
-                  transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-                >
-                  <Link
-                    to={item.path}
-                    className={`block py-3 text-base sm:text-lg font-medium transition-colors ${isActive(item.path)
-                      ? 'text-caput-mortuum pl-4 border-l-4 border-caput-mortuum'
-                      : 'text-charcoal hover:text-caput-mortuum'
-                      }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+            Start a Project
+          </Link>
         </div>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setIsOpen((o) => !o)}
+          className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-[5px]"
+          aria-label="Toggle menu"
+        >
+          <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${hamColor} ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+          <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${hamColor} ${isOpen ? 'opacity-0' : ''}`} />
+          <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${hamColor} ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      <motion.div
+        initial={false}
+        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
+        className="md:hidden overflow-hidden bg-krypt-cream border-t border-krypt-olive/15"
+      >
+        <div className="px-6 py-6 space-y-1">
+          <Link
+            to="/"
+            className={`block py-3 font-dm font-medium text-base border-b border-krypt-olive/10 ${isActive('/') ? 'text-krypt-orange' : 'text-krypt-charcoal'}`}
+          >
+            Home
+          </Link>
+          {navLinks.map(({ path, name }) => (
+            <Link
+              key={path}
+              to={path}
+              className={`block py-3 font-dm font-medium text-base border-b border-krypt-olive/10 ${isActive(path) ? 'text-krypt-orange' : 'text-krypt-charcoal'}`}
+            >
+              {name}
+            </Link>
+          ))}
+          <div className="pt-4">
+            <Link
+              to="/contact"
+              className="block w-full text-center px-6 py-3.5 bg-krypt-orange text-white font-dm font-medium rounded-full text-sm"
+            >
+              Start a Project
+            </Link>
+          </div>
+        </div>
+      </motion.div>
     </nav>
   );
-};
-
-export default Navbar;
+}
