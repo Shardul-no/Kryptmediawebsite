@@ -67,12 +67,12 @@ const SocialMediaMarketing = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-tan-100 text-charcoal overflow-hidden min-h-screen"
+      className="relative py-20 bg-krypt-cream text-krypt-charcoal overflow-hidden min-h-screen"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-krypt-orange/10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-krypt-orange/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,19 +85,19 @@ const SocialMediaMarketing = () => {
         >
           {/* Main description */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-2xl font-bold mb-4 text-charcoal">About Our Service</h2>
-            <p className="text-slate-500 leading-relaxed mb-6">
+            <h2 className="text-2xl font-bold mb-4 text-krypt-charcoal">About Our Service</h2>
+            <p className="text-krypt-charcoal/55 leading-relaxed mb-6">
               In today's digital age, social media is the heartbeat of brand communication. Our comprehensive social media marketing services help businesses build meaningful connections with their audience, increase brand awareness, and drive measurable results across all major platforms.
             </p>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-krypt-charcoal/55 leading-relaxed">
               We don't just post content – we create strategic campaigns that resonate with your target audience, build community engagement, and convert followers into loyal customers. Our data-driven approach ensures every post contributes to your business goals.
             </p>
           </motion.div>
 
           {/* What We Offer — flowing menu */}
           <motion.div variants={itemVariants} className="mb-16">
-            <h2 className="text-2xl font-bold mb-8 text-charcoal">What We Offer</h2>
-            <div className="h-[400px] rounded-2xl overflow-hidden border border-coffee/10 shadow-inner">
+            <h2 className="text-2xl font-bold mb-8 text-krypt-charcoal">What We Offer</h2>
+            <div className="h-[400px] rounded-2xl overflow-hidden border border-krypt-olive/10 shadow-inner">
               <FlowingMenu
                 items={[
                   { text: 'Content Strategy', image: 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?q=80&w=600&auto=format' },
@@ -118,12 +118,12 @@ const SocialMediaMarketing = () => {
 
           {/* Image Gallery */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-charcoal">Our Work Gallery</h2>
+            <h2 className="text-2xl font-bold mb-6 text-krypt-charcoal">Our Work Gallery</h2>
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {galleryImages.map((image, index) => (
                 <motion.div
                   key={index}
-                  className="group relative overflow-hidden rounded-lg bg-white border border-coffee/10 shadow-sm break-inside-avoid mb-6"
+                  className="group relative overflow-hidden rounded-lg bg-white border border-krypt-olive/10 shadow-sm break-inside-avoid mb-6"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -144,7 +144,7 @@ const SocialMediaMarketing = () => {
 
           {/* Process — terminal style */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-2xl font-bold mb-6 text-charcoal">Our Process</h2>
+            <h2 className="text-2xl font-bold mb-6 text-krypt-charcoal">Our Process</h2>
             <TerminalProcess className="mb-10" />
             <WhatsAppButton serviceName="social media marketing" />
           </motion.div>

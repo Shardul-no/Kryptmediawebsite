@@ -6,13 +6,13 @@ export default function ProjectLayout({ children, title }) {
   };
 
   return (
-    <div className="min-h-screen bg-tan-100 text-charcoal">
+    <div className="min-h-screen bg-krypt-cream text-krypt-charcoal">
       {/* Back Navigation - Small and barely visible */}
       <div className="fixed top-4 left-4 z-50">
         <Link
           to="/projects"
           onClick={scrollToTop}
-          className="inline-flex items-center gap-1 text-caput-mortuum/40 hover:text-caput-mortuum/60 transition-colors text-sm"
+          className="inline-flex items-center gap-1 text-krypt-orange/40 hover:text-krypt-orange/60 transition-colors text-sm"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />

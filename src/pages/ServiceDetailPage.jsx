@@ -48,7 +48,7 @@ export default function ServiceDetailPage() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-tan-100 text-charcoal">
+    <div className="min-h-[100dvh] bg-krypt-cream text-krypt-charcoal">
       <ServiceDetailHero
         serviceName={serviceTitle}
         headline={heroConfig.headline}

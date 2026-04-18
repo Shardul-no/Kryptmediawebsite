@@ -19,14 +19,14 @@ export default function TestimonialsPage() {
   }, []);
 
   return (
-    <div id="testimonials" className="relative bg-gradient-to-b from-tan-100 to-tan-200 text-charcoal min-h-screen overflow-hidden">
+    <div id="testimonials" className="relative bg-gradient-to-b from-krypt-cream to-krypt-sand text-krypt-charcoal min-h-screen overflow-hidden">
       {/* Ticker above */}
       <div className="container mx-auto px-4 pt-32 pb-8">
         <SectionReveal className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-krypt-charcoal mb-4">
             Client Testimonials
           </h1>
-          <p className="text-slate-500 text-lg max-w-xl mx-auto">
+          <p className="text-krypt-charcoal/55 text-lg max-w-xl mx-auto">
             What our clients say about us
           </p>
         </SectionReveal>
@@ -38,18 +38,18 @@ export default function TestimonialsPage() {
       </div>
 
       {/* Ticker below — keep the scroll velocity going after the menu */}
-      <section className="relative z-10 py-6 border-y border-coffee/10 bg-tan-200/80 mb-12">
+      <section className="relative z-10 py-6 border-y border-krypt-olive/10 bg-krypt-sand/80 mb-12">
         <ScrollVelocity
           texts={[TICKER_TEXT]}
           velocity={40}
           parallaxClassName="py-2"
-          scrollerClassName="text-slate-500 text-lg md:text-xl font-medium tracking-wide"
+          scrollerClassName="text-krypt-charcoal/55 text-lg md:text-xl font-medium tracking-wide"
         />
       </section>
 
       {/* Fallback quote for accessibility / when JS is minimal */}
       <div className="container mx-auto px-4 py-12 text-center">
-        <blockquote className="text-xl text-slate-500 italic max-w-2xl mx-auto">
+        <blockquote className="text-xl text-krypt-charcoal/55 italic max-w-2xl mx-auto">
           &ldquo;Krypt Media LLP transformed our online presence and elevated our brand identity.&rdquo;
         </blockquote>
       </div>

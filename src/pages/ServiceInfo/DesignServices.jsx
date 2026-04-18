@@ -38,12 +38,12 @@ const DesignServices = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-tan-100 text-charcoal overflow-hidden min-h-screen"
+      className="relative py-20 bg-krypt-cream text-krypt-charcoal overflow-hidden min-h-screen"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-krypt-orange/10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-krypt-orange/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,19 +56,19 @@ const DesignServices = () => {
         >
           {/* Main description */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-2xl font-bold mb-4 text-charcoal">About Our Service</h2>
-            <p className="text-slate-500 leading-relaxed mb-6">
+            <h2 className="text-2xl font-bold mb-4 text-krypt-charcoal">About Our Service</h2>
+            <p className="text-krypt-charcoal/55 leading-relaxed mb-6">
               Great design is the foundation of effective brand communication. Our design services create visual assets that not only look stunning but also convey your message clearly and drive action from your audience.
             </p>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-krypt-charcoal/55 leading-relaxed">
               From print materials to digital assets, we ensure every design element aligns with your brand identity and business objectives. Our creative team combines artistic vision with strategic thinking to deliver designs that make an impact.
             </p>
           </motion.div>
 
           {/* What We Offer — flowing menu */}
           <motion.div variants={itemVariants} className="mb-16">
-            <h2 className="text-2xl font-bold mb-8 text-charcoal">What We Offer</h2>
-            <div className="h-[400px] rounded-2xl overflow-hidden border border-coffee/10 shadow-inner">
+            <h2 className="text-2xl font-bold mb-8 text-krypt-charcoal">What We Offer</h2>
+            <div className="h-[400px] rounded-2xl overflow-hidden border border-krypt-olive/10 shadow-inner">
               <FlowingMenu
                 items={[
                   { text: 'Brand Identity', image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600&auto=format' },
@@ -89,7 +89,7 @@ const DesignServices = () => {
 
           {/* Process — terminal style */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-2xl font-bold mb-6 text-charcoal">Our Process</h2>
+            <h2 className="text-2xl font-bold mb-6 text-krypt-charcoal">Our Process</h2>
             <TerminalProcess className="mb-10" />
             <WhatsAppButton serviceName="design services" />
           </motion.div>

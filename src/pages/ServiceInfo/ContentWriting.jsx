@@ -55,12 +55,12 @@ const ContentWriting = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-tan-100 text-charcoal overflow-hidden min-h-screen"
+      className="relative py-20 bg-krypt-cream text-krypt-charcoal overflow-hidden min-h-screen"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-coffee/10 blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-krypt-orange/10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-krypt-orange/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,10 +71,10 @@ const ContentWriting = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-charcoal">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-krypt-charcoal">
             Content Writing
           </h1>
-          <p className="max-w-3xl mx-auto text-lg text-slate-500">
+          <p className="max-w-3xl mx-auto text-lg text-krypt-charcoal/55">
             Strategic content creation across formats to engage your target audience
           </p>
         </motion.div>
@@ -88,46 +88,46 @@ const ContentWriting = () => {
         >
           {/* Main description */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-2xl font-bold mb-4 text-charcoal">About Our Service</h2>
-            <p className="text-slate-500 leading-relaxed mb-6">
+            <h2 className="text-2xl font-bold mb-4 text-krypt-charcoal">About Our Service</h2>
+            <p className="text-krypt-charcoal/55 leading-relaxed mb-6">
               Content is king in the digital world, and quality writing is what separates successful brands from the rest. Our content writing services create compelling, engaging, and SEO-optimized content that resonates with your audience and drives results.
             </p>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-krypt-charcoal/55 leading-relaxed">
               From technical documentation to creative marketing copy, our experienced writers understand how to craft content that not only informs but also inspires action. We ensure every piece of content aligns with your brand voice and business objectives.
             </p>
           </motion.div>
 
           {/* Features grid */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-charcoal">What We Offer</h2>
+            <h2 className="text-2xl font-bold mb-6 text-krypt-charcoal">What We Offer</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg border border-coffee/10 shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-charcoal">Technical Writing</h3>
-                <p className="text-slate-500">Clear, concise technical documentation and user guides.</p>
+              <div className="bg-white p-6 rounded-lg border border-krypt-olive/10 shadow-sm">
+                <h3 className="text-xl font-semibold mb-3 text-krypt-charcoal">Technical Writing</h3>
+                <p className="text-krypt-charcoal/55">Clear, concise technical documentation and user guides.</p>
               </div>
-              <div className="bg-white p-6 rounded-lg border border-coffee/10 shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-charcoal">Marketing Copy</h3>
-                <p className="text-slate-500">Compelling copy that drives conversions and brand awareness.</p>
+              <div className="bg-white p-6 rounded-lg border border-krypt-olive/10 shadow-sm">
+                <h3 className="text-xl font-semibold mb-3 text-krypt-charcoal">Marketing Copy</h3>
+                <p className="text-krypt-charcoal/55">Compelling copy that drives conversions and brand awareness.</p>
               </div>
-              <div className="bg-white p-6 rounded-lg border border-coffee/10 shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-charcoal">Professional Writing</h3>
-                <p className="text-slate-500">Resumes, cover letters, and professional documents.</p>
+              <div className="bg-white p-6 rounded-lg border border-krypt-olive/10 shadow-sm">
+                <h3 className="text-xl font-semibold mb-3 text-krypt-charcoal">Professional Writing</h3>
+                <p className="text-krypt-charcoal/55">Resumes, cover letters, and professional documents.</p>
               </div>
-              <div className="bg-white p-6 rounded-lg border border-coffee/10 shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-charcoal">Blog & SEO Content</h3>
-                <p className="text-slate-500">Engaging blog posts optimized for search engines.</p>
+              <div className="bg-white p-6 rounded-lg border border-krypt-olive/10 shadow-sm">
+                <h3 className="text-xl font-semibold mb-3 text-krypt-charcoal">Blog & SEO Content</h3>
+                <p className="text-krypt-charcoal/55">Engaging blog posts optimized for search engines.</p>
               </div>
             </div>
           </motion.div>
 
           {/* Image Gallery */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-charcoal">Our Writing Samples</h2>
+            <h2 className="text-2xl font-bold mb-6 text-krypt-charcoal">Our Writing Samples</h2>
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {galleryImages.map((image, index) => (
                 <motion.div
                   key={index}
-                  className="group relative overflow-hidden rounded-lg bg-white shadow-sm border border-coffee/10 break-inside-avoid mb-6"
+                  className="group relative overflow-hidden rounded-lg bg-white shadow-sm border border-krypt-olive/10 break-inside-avoid mb-6"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -148,34 +148,34 @@ const ContentWriting = () => {
 
           {/* Process section */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-2xl font-bold mb-6 text-charcoal">Our Process</h2>
+            <h2 className="text-2xl font-bold mb-6 text-krypt-charcoal">Our Process</h2>
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="bg-caput-mortuum text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1">1</div>
+                <div className="bg-krypt-orange text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1">1</div>
                 <div>
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">Research & Planning</h3>
-                  <p className="text-slate-500">We research your topic, audience, and industry to create a content strategy.</p>
+                  <h3 className="text-lg font-semibold text-krypt-charcoal mb-2">Research & Planning</h3>
+                  <p className="text-krypt-charcoal/55">We research your topic, audience, and industry to create a content strategy.</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-caput-mortuum text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1">2</div>
+                <div className="bg-krypt-orange text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1">2</div>
                 <div>
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">Content Creation</h3>
-                  <p className="text-slate-500">Our writers craft engaging, well-researched content tailored to your needs.</p>
+                  <h3 className="text-lg font-semibold text-krypt-charcoal mb-2">Content Creation</h3>
+                  <p className="text-krypt-charcoal/55">Our writers craft engaging, well-researched content tailored to your needs.</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-caput-mortuum text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1">3</div>
+                <div className="bg-krypt-orange text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1">3</div>
                 <div>
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">Review & Revision</h3>
-                  <p className="text-slate-500">We review and revise content based on your feedback and requirements.</p>
+                  <h3 className="text-lg font-semibold text-krypt-charcoal mb-2">Review & Revision</h3>
+                  <p className="text-krypt-charcoal/55">We review and revise content based on your feedback and requirements.</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-caput-mortuum text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1">4</div>
+                <div className="bg-krypt-orange text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1">4</div>
                 <div>
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">Final Delivery</h3>
-                  <p className="text-slate-500">We deliver polished, ready-to-publish content in your preferred format.</p>
+                  <h3 className="text-lg font-semibold text-krypt-charcoal mb-2">Final Delivery</h3>
+                  <p className="text-krypt-charcoal/55">We deliver polished, ready-to-publish content in your preferred format.</p>
                 </div>
               </div>
             </div>

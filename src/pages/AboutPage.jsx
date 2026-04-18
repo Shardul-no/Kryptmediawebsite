@@ -19,25 +19,25 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <section id="about" className="relative bg-tan-100 text-charcoal overflow-hidden">
+    <section id="about" className="relative bg-krypt-cream text-krypt-charcoal overflow-hidden">
       {/* Hero — premium dark with subtle gradient (Lanyard optional when assets available) */}
       <div className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-tan-100/30 via-tan-50 to-tan-100" />
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(99,32,36,0.08),transparent)]" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-krypt-cream/30 via-krypt-cream to-krypt-cream" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(237,146,29,0.08),transparent)]" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-          <h1 className="display-large text-charcoal mb-8">
+          <h1 className="display-large text-krypt-charcoal mb-8">
             <BlurText
               text="Defining the Future of "
-              className="inline text-charcoal"
+              className="inline text-krypt-charcoal"
               delay={70}
               stepDuration={0.4}
               animateBy="words"
             />
-            <span className="italic-serif text-caput-mortuum block sm:inline">Digital Identity</span>
+            <span className="italic-serif text-krypt-orange block sm:inline">Digital Identity</span>
           </h1>
           <GradualBlur delay={0.2}>
-            <p className="text-xl text-slate-500 font-sans font-light leading-relaxed max-w-2xl mx-auto italic-serif opacity-90">
-              Krypt Media LLP is a creative digital agency focused on building <span className="text-charcoal font-medium not-italic">impactful brand ecosystems</span>.
+            <p className="text-xl text-krypt-charcoal/55 font-sans font-light leading-relaxed max-w-2xl mx-auto italic-serif opacity-90">
+              Krypt Media LLP is a creative digital agency focused on building <span className="text-krypt-charcoal font-medium not-italic">impactful brand ecosystems</span>.
               We blend avant-garde strategy, design, and technology.
             </p>
           </GradualBlur>
@@ -45,21 +45,21 @@ export default function AboutPage() {
       </div>
 
       {/* Values — Scroll Reveal */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-coffee/10">
-        <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-charcoal">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-krypt-olive/10">
+        <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-krypt-charcoal">
           What We Stand For
         </ScrollReveal>
         <GradualBlur delay={0.1}>
-          <p className="text-slate-500 text-lg max-w-2xl mb-14">
+          <p className="text-krypt-charcoal/55 text-lg max-w-2xl mb-14">
             Our values guide how we work with every client and project.
           </p>
         </GradualBlur>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {VALUES.map((value, i) => (
             <SectionReveal key={value.name} delay={i * 0.1}>
-              <div className="p-6 rounded-xl border border-coffee/10 bg-charcoal/[0.02] hover:border-coffee/20 transition-colors duration-300">
-                <h3 className="text-xl font-semibold text-charcoal mb-2">{value.name}</h3>
-                <p className="text-slate-500 text-sm">{value.desc}</p>
+              <div className="p-6 rounded-xl border border-krypt-olive/10 bg-krypt-charcoal/[0.02] hover:border-krypt-olive/20 transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-krypt-charcoal mb-2">{value.name}</h3>
+                <p className="text-krypt-charcoal/55 text-sm">{value.desc}</p>
               </div>
             </SectionReveal>
           ))}
@@ -67,12 +67,12 @@ export default function AboutPage() {
       </div>
 
       {/* Interactive Lanyards Section */}
-      <div className="container mx-auto px-4 pt-12 pb-48 border-t border-coffee/10">
-        <ScrollReveal containerClassName="!my-0 mb-0" textClassName="text-charcoal">
+      <div className="container mx-auto px-4 pt-12 pb-48 border-t border-krypt-olive/10">
+        <ScrollReveal containerClassName="!my-0 mb-0" textClassName="text-krypt-charcoal">
           Our Founders
         </ScrollReveal>
         <GradualBlur delay={0.1}>
-          <p className="text-slate-500 text-lg max-w-2xl mb-0">
+          <p className="text-krypt-charcoal/55 text-lg max-w-2xl mb-0">
             Interactive lanyard cards representing our leadership team.
           </p>
         </GradualBlur>
@@ -87,8 +87,8 @@ export default function AboutPage() {
               teamMember="priyanshu"
             />
             <div className="absolute -bottom-32 left-0 right-0 text-center">
-              <h3 className="text-xl font-semibold text-charcoal drop-shadow-lg">Priyanshu Naik</h3>
-              <p className="text-caput-mortuum drop-shadow-lg">Co-Founder</p>
+              <h3 className="text-xl font-semibold text-krypt-charcoal drop-shadow-lg">Priyanshu Naik</h3>
+              <p className="text-krypt-orange drop-shadow-lg">Co-Founder</p>
             </div>
           </div>
 
@@ -102,8 +102,8 @@ export default function AboutPage() {
               teamMember="tanishk"
             />
             <div className="absolute -bottom-32 left-0 right-0 text-center">
-              <h3 className="text-xl font-semibold text-charcoal drop-shadow-lg">Taniksh Waingankar</h3>
-              <p className="text-caput-mortuum drop-shadow-lg">Co-Founder</p>
+              <h3 className="text-xl font-semibold text-krypt-charcoal drop-shadow-lg">Taniksh Waingankar</h3>
+              <p className="text-krypt-orange drop-shadow-lg">Co-Founder</p>
             </div>
           </div>
 
@@ -117,8 +117,8 @@ export default function AboutPage() {
               teamMember="kartik"
             />
             <div className="absolute -bottom-32 left-0 right-0 text-center">
-              <h3 className="text-xl font-semibold text-charcoal drop-shadow-lg">Kartik Mistry</h3>
-              <p className="text-caput-mortuum drop-shadow-lg">Co-Founder</p>
+              <h3 className="text-xl font-semibold text-krypt-charcoal drop-shadow-lg">Kartik Mistry</h3>
+              <p className="text-krypt-orange drop-shadow-lg">Co-Founder</p>
             </div>
           </div>
         </div>

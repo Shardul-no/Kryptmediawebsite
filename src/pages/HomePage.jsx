@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import HeroSection        from '../sections/HeroSection';
 import MarqueeTicker      from '../components/MarqueeTicker';
-import WhyUsSection       from '../sections/WhyUsSection';
+import FeaturedWorkSection from '../sections/FeaturedWorkSection';
 import ProcessSection     from '../sections/ProcessSection';
 import SplitSection       from '../sections/SplitSection';
 import TestimonialsSection from '../sections/TestimonialsSection';
@@ -23,8 +23,8 @@ export default function HomePage() {
       {/* 2. Marquee strip */}
       <MarqueeTicker />
 
-      {/* 3. Why Us */}
-      <WhyUsSection />
+      {/* 3. Featured Work */}
+      <FeaturedWorkSection />
 
       {/* 4. Marquee (dark variant) */}
       <MarqueeTicker dark text="WEB DEVELOPMENT · UI/UX DESIGN · AI AGENTS · BRAND STRATEGY · AUTOMATION · TECH CONSULTING ·" />
