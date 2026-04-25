@@ -225,14 +225,13 @@ function Card({ project, onEnter, onLeave }) {
 export default function FeaturedWorkSection() {
   const sectionRef    = useRef(null);
   const trackRef      = useRef(null);
-  const [isMobile,    setIsMobile]    = useState(false);
+  const [isMobile,    setIsMobile]    = useState(() => window.matchMedia('(max-width: 767px)').matches);
   const [cursorType,  setCursorType]  = useState('idle');
   const [cursorOn,    setCursorOn]    = useState(false); // only show inside section
 
   /* ── Mobile detection ── */
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
-    setIsMobile(mq.matches);
     const h = (e) => setIsMobile(e.matches);
     mq.addEventListener('change', h);
     return () => mq.removeEventListener('change', h);
@@ -275,100 +274,122 @@ export default function FeaturedWorkSection() {
   const handleCardEnter = useCallback((type) => setCursorType(type), []);
   const handleCardLeave = useCallback(() => setCursorType('idle'), []);
 
-  /* ── Mobile: vertical stack ── */
-  if (isMobile) {
-    return (
-      <section className="bg-krypt-cream pt-24 pb-16 px-5">
-        <h2 className="font-playfair font-bold text-krypt-charcoal text-3xl mb-10">
-          Featured works
-        </h2>
-        <div className="flex flex-col gap-5">
-          {projects.map((p) => (
-            <div
-              key={p.id}
-              className="relative rounded-2xl overflow-hidden"
-              style={{ aspectRatio: '16/9' }}
-              onClick={() => p.url && window.open(p.url, '_blank', 'noopener')}
-            >
-              <video src={p.media} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 p-5">
-                <p className="font-dm text-white/50 text-[10px] tracking-widest uppercase mb-1">{p.tag}</p>
-                <h3 className="font-playfair font-bold text-white text-lg">{p.title}</h3>
-              </div>
-              {p.url && (
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-krypt-orange flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-    );
-  }
-
-  /* ── Desktop: pinned horizontal scroll ── */
+  /* ── Unified section with mobile/desktop layouts ── */
   return (
     <>
       {/* Blob cursor — rendered outside section so fixed pos works cleanly */}
-      <BlobCursor cursorType={cursorType} visible={cursorOn} />
+      {!isMobile && <BlobCursor cursorType={cursorType} visible={cursorOn} />}
 
       <section
         ref={sectionRef}
         className="bg-krypt-cream overflow-hidden"
-        style={{ height: '100vh', cursor: cursorOn ? 'none' : 'auto' }}
-        onMouseEnter={() => setCursorOn(true)}
+        style={{
+          height: isMobile ? 'auto' : '100vh',
+          cursor: isMobile ? 'auto' : (cursorOn ? 'none' : 'auto')
+        }}
+        onMouseEnter={() => !isMobile && setCursorOn(true)}
         onMouseLeave={() => { setCursorOn(false); setCursorType('idle'); }}
       >
-        <div className="flex flex-col h-full pt-20">
-
-          {/* ── Heading ── */}
-          <div className="flex-shrink-0 px-10 md:px-16 pt-10 pb-8 flex items-end justify-between">
-            <h2
-              className="font-playfair font-bold text-krypt-charcoal"
-              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.75rem)' }}
-            >
-              Featured works
-            </h2>
-            <span className="font-dm text-krypt-charcoal/35 text-sm hidden md:block">
-              {projects.length} projects
-            </span>
-          </div>
-
-          {/* ── Card track — vertically centred ── */}
-          <div className="flex-1 flex items-center overflow-visible">
+        {isMobile ? (
+          /* ── Mobile: native horizontal swipe scroll ── */
+          <div className="pt-20 pb-10">
+            <div className="px-5 mb-6 flex items-end justify-between">
+              <h2 className="font-playfair font-bold text-krypt-charcoal text-3xl">
+                Featured works
+              </h2>
+              <span className="font-dm text-krypt-charcoal/35 text-xs tracking-[0.18em] uppercase">
+                Swipe
+              </span>
+            </div>
             <div
-              ref={trackRef}
-              className="flex gap-5 will-change-transform"
-              /*
-                pl only — no right padding so last card's right edge
-                lands exactly at viewport right when fully scrolled.
-              */
-              style={{ width: 'max-content', paddingLeft: 'clamp(40px, 4vw, 64px)' }}
+              className="flex gap-4 no-scrollbar"
+              style={{
+                overflowX: 'auto',
+                overflowY: 'hidden',
+                WebkitOverflowScrolling: 'touch',
+                scrollSnapType: 'x mandatory',
+                paddingLeft: '20px',
+                paddingRight: '20px',
+                paddingBottom: '12px',
+              }}
             >
-              {projects.map((project) => (
-                <Card
-                  key={project.id}
-                  project={project}
-                  onEnter={handleCardEnter}
-                  onLeave={handleCardLeave}
-                />
+              {projects.map((p) => (
+                <div
+                  key={p.id}
+                  className="relative rounded-2xl overflow-hidden flex-shrink-0"
+                  style={{
+                    width: '80vw',
+                    aspectRatio: '16/9',
+                    scrollSnapAlign: 'start',
+                  }}
+                  onClick={() => p.url && window.open(p.url, '_blank', 'noopener')}
+                >
+                  <video src={p.media} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-5">
+                    <p className="font-dm text-white/50 text-[10px] tracking-widest uppercase mb-1">{p.tag}</p>
+                    <h3 className="font-playfair font-bold text-white text-lg">{p.title}</h3>
+                  </div>
+                  {p.url && (
+                    <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-krypt-orange flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
+        ) : (
+          /* ── Desktop: pinned horizontal scroll ── */
+          <div className="flex flex-col h-full pt-20">
 
-          {/* ── Scroll hint ── */}
-          <div className="flex-shrink-0 px-10 md:px-16 pb-8 flex items-center gap-3">
-            <div className="w-5 h-px bg-krypt-charcoal/20" />
-            <span className="font-dm text-krypt-charcoal/30 text-xs tracking-[0.18em] uppercase">
-              Scroll to explore
-            </span>
+            {/* ── Heading ── */}
+            <div className="flex-shrink-0 px-10 md:px-16 pt-10 pb-8 flex items-end justify-between">
+              <h2
+                className="font-playfair font-bold text-krypt-charcoal"
+                style={{ fontSize: 'clamp(1.8rem, 3vw, 2.75rem)' }}
+              >
+                Featured works
+              </h2>
+              <span className="font-dm text-krypt-charcoal/35 text-sm hidden md:block">
+                {projects.length} projects
+              </span>
+            </div>
+
+            {/* ── Card track — vertically centred ── */}
+            <div className="flex-1 flex items-center overflow-visible">
+              <div
+                ref={trackRef}
+                className="flex gap-5 will-change-transform"
+                /*
+                  pl only — no right padding so last card's right edge
+                  lands exactly at viewport right when fully scrolled.
+                */
+                style={{ width: 'max-content', paddingLeft: 'clamp(40px, 4vw, 64px)' }}
+              >
+                {projects.map((project) => (
+                  <Card
+                    key={project.id}
+                    project={project}
+                    onEnter={handleCardEnter}
+                    onLeave={handleCardLeave}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* ── Scroll hint ── */}
+            <div className="flex-shrink-0 px-10 md:px-16 pb-8 flex items-center gap-3">
+              <div className="w-5 h-px bg-krypt-charcoal/20" />
+              <span className="font-dm text-krypt-charcoal/30 text-xs tracking-[0.18em] uppercase">
+                Scroll to explore
+              </span>
+            </div>
+
           </div>
-
-        </div>
+        )}
       </section>
     </>
   );

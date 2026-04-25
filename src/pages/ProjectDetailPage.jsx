@@ -9,6 +9,7 @@ const projectModules = {
   ecommerce: () => import('../projects/ecommerce/index.jsx'),
   'mumbai-studio': () => import('../projects/mumbai-studio/index.jsx'),
   'gyro-3d': () => import('../projects/gyro-3d/index.jsx'),
+  'fitness-club': () => import('../projects/fitness-club/index.jsx'),
 };
 
 export default function ProjectDetailPage() {

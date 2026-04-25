@@ -27,6 +27,15 @@
     ]
   },
   {
+    "slug": "fitness-club",
+    "title": "Fitness Club",
+    "description": "High-energy gym website with brutal editorial design and scroll-driven GSAP animations",
+    "image": "/src/projects/fitness-club/images/hero-athlete.jpg",
+    "tag": "UI/UX & Development",
+    "technologies": ["React", "GSAP", "Tailwind"],
+    "hasDemo": true
+  },
+  {
     "slug": "mumbai-studio",
     "title": "Midnight Sound Studio",
     "description": "Cinematic music recording studio experience with interactive animations",

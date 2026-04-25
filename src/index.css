@@ -30,6 +30,10 @@
   --font-cormorant: 'Cormorant Garamond', serif;
 }
 
+/* ── Hide scrollbar utility ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
 /* ── Base ── */
 html { scroll-behavior: smooth; height: -webkit-fill-available; }
 
