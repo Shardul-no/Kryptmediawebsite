@@ -54,9 +54,12 @@ export default function ProjectDetailPage() {
     return <Navigate to="/projects" replace />;
   }
 
+  const darkBgSlugs = ['videohut', 'sienna', 'milton'];
+  const isDark = darkBgSlugs.includes(projectSlug);
+
   if (loading) {
     return (
-      <ProjectLayout title={project.title}>
+      <ProjectLayout title={project.title} darkBg={isDark}>
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-krypt-orange mx-auto mb-4"></div>
@@ -69,7 +72,7 @@ export default function ProjectDetailPage() {
 
   if (!project.hasDemo) {
     return (
-      <ProjectLayout title={project.title}>
+      <ProjectLayout title={project.title} darkBg={isDark}>
         <div className="text-center py-20">
           <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
           <p className="text-krypt-charcoal/55 mb-8">{project.description}</p>
@@ -82,7 +85,7 @@ export default function ProjectDetailPage() {
   }
 
   return (
-    <ProjectLayout title={project.title}>
+    <ProjectLayout title={project.title} darkBg={isDark}>
       {ProjectDemo ? <ProjectDemo /> : (
         <div className="text-center py-20">
           <p className="text-slate-500">Demo not available</p>
