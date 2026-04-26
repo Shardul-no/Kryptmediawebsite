@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Milton — Premium water bottles designed for your lifestyle. Discover the craftsmanship behind every sip.">
+    <title>Milton — Does This For You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- NAVIGATION HEADER                              -->
+    <!-- ══════════════════════════════════════════════ -->
+    <nav id="main-nav" class="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo" id="nav-logo">
+                <span class="nav__logo-mark">M</span>
+                <span class="nav__logo-text">ilton</span>
+            </a>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="#section-v1" class="nav__link" data-section="v1">The Bottle</a></li>
+                <li><a href="#section-v2" class="nav__link" data-section="v2">Features</a></li>
+                <li><a href="#section-v3" class="nav__link" data-section="v3">Components</a></li>
+            </ul>
+            <a href="#" class="nav__cta" id="nav-cta">Shop Now</a>
+            <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-menu__links">
+            <li><a href="#section-v1" class="mobile-menu__link" data-section="v1">The Bottle</a></li>
+            <li><a href="#section-v2" class="mobile-menu__link" data-section="v2">Features</a></li>
+            <li><a href="#section-v3" class="mobile-menu__link" data-section="v3">Components</a></li>
+            <li><a href="#" class="mobile-menu__cta">Shop Now</a></li>
+        </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- CANVAS (stays fixed, fills viewport)           -->
+    <!-- ══════════════════════════════════════════════ -->
+    <canvas id="frame-canvas"></canvas>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SCROLL SPACER — drives the frame playback      -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="scroll-container" id="scroll-container">
+
+        <!-- ── SEQUENCE 1: Hero / Intro ─────────────── -->
+        <section class="section section--v1" id="section-v1" data-sequence="v1">
+            <div class="section__content section__content--hero">
+                <div class="hero-text" id="hero-text">
+                    <p class="hero-text__pre">Introducing</p>
+                    <h1 class="hero-text__title">
+                        <span class="hero-text__line">Milton Does</span>
+                        <span class="hero-text__line hero-text__line--accent">This For You</span>
+                    </h1>
+                    <p class="hero-text__sub">Scroll to explore the craft</p>
+                    <div class="hero-text__scroll-indicator" id="scroll-indicator">
+                        <div class="scroll-indicator__mouse">
+                            <div class="scroll-indicator__wheel"></div>
+                        </div>
+                        <span class="scroll-indicator__label">Scroll Down</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SEQUENCE 2: Features ─────────────────── -->
+        <section class="section section--v2" id="section-v2" data-sequence="v2">
+            <div class="section__content section__content--features">
+
+                <!-- Title for V2 -->
+                <div class="features-title" id="features-title">
+                    <p class="features-title__label">Why Milton?</p>
+                    <h2 class="features-title__heading">Engineered for<br><em>Perfection</em></h2>
+                </div>
+
+                <!-- Left Column Features -->
+                <div class="features-col features-col--left" id="features-left">
+                    <div class="feature-card feature-card--1" id="feature-card-1">
+                        <div class="feature-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                                <circle cx="9" cy="9" r="1" />
+                                <circle cx="15" cy="9" r="1" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">24hr Temperature Lock</h3>
+                        <p class="feature-card__desc">Double-wall vacuum insulation keeps your drinks cold for 24 hours
+                            and hot for 12 hours — no compromise.</p>
+                    </div>
+                    <div class="feature-card feature-card--2" id="feature-card-2">
+                        <div class="feature-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">Leak-Proof Seal</h3>
+                        <p class="feature-card__desc">Tested at extreme pressures. Throw it in your bag — not a single
+                            drop escapes.</p>
+                    </div>
+                </div>
+
+                <!-- Right Column Features -->
+                <div class="features-col features-col--right" id="features-right">
+                    <div class="feature-card feature-card--3" id="feature-card-3">
+                        <div class="feature-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 3v18M3 12h18" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">Premium Steel Body</h3>
+                        <p class="feature-card__desc">Crafted from 18/8 food-grade stainless steel. BPA-free,
+                            toxin-free, taste-free — pure hydration.</p>
+                    </div>
+                    <div class="feature-card feature-card--4" id="feature-card-4">
+                        <div class="feature-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">Eco-Conscious</h3>
+                        <p class="feature-card__desc">One Milton bottle replaces 1,460 plastic bottles per year. Hydrate
+                            responsibly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SEQUENCE 3: Components ───────────────── -->
+        <section class="section section--v3" id="section-v3" data-sequence="v3">
+            <div class="section__content section__content--components">
+
+                <!-- Title for V3 -->
+                <div class="components-title" id="components-title">
+                    <p class="components-title__label">Anatomy of Excellence</p>
+                    <h2 class="components-title__heading">Every Part,<br><em>Purposeful</em></h2>
+                </div>
+
+                <!-- Component Callouts — positioned around bottle -->
+                <div class="component-callout component-callout--cap" id="comp-cap">
+                    <div class="component-callout__line"></div>
+                    <div class="component-callout__content">
+                        <h4 class="component-callout__title">Smart-Lock Cap</h4>
+                        <p class="component-callout__desc">One-touch release with auto-seal technology. Drink
+                            effortlessly, close securely.</p>
+                    </div>
+                </div>
+
+                <div class="component-callout component-callout--spout" id="comp-spout">
+                    <div class="component-callout__line"></div>
+                    <div class="component-callout__content">
+                        <h4 class="component-callout__title">Precision Spout</h4>
+                        <p class="component-callout__desc">Ergonomically angled for smooth flow. No splashing, no
+                            spilling — just perfect pours.</p>
+                    </div>
+                </div>
+
+                <div class="component-callout component-callout--body" id="comp-body">
+                    <div class="component-callout__line"></div>
+                    <div class="component-callout__content">
+                        <h4 class="component-callout__title">Double-Wall Body</h4>
+                        <p class="component-callout__desc">Vacuum-sealed stainless steel chamber. Condensation-free
+                            exterior, always comfortable to hold.</p>
+                    </div>
+                </div>
+
+                <div class="component-callout component-callout--base" id="comp-base">
+                    <div class="component-callout__line"></div>
+                    <div class="component-callout__content">
+                        <h4 class="component-callout__title">Anti-Slip Base</h4>
+                        <p class="component-callout__desc">Rubberised silicone ring grips any surface. Stays put on your
+                            desk, in your car, everywhere.</p>
+                    </div>
+                </div>
+
+                <!-- Ending Text — Left -->
+                <div class="ending-text ending-text--left" id="ending-left">
+                    <p class="ending-text__label">Crafted with purpose</p>
+                    <h2 class="ending-text__heading">Every detail<br><em>earns its place</em></h2>
+                    <p class="ending-text__body">From the precision-milled cap to the silicone grip on the base — nothing is accidental. Milton is built by people who believe a water bottle should be the best thing you carry.</p>
+                </div>
+
+                <!-- Ending Text — Right -->
+                <div class="ending-text ending-text--right" id="ending-right">
+                    <p class="ending-text__eyebrow">Ready to make the switch?</p>
+                    <a href="#" class="ending-text__cta" id="ending-cta">
+                        <span>Shop Milton</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <p class="ending-text__note">Free shipping · 30-day returns · 2-year warranty</p>
+                </div>
+
+            </div>
+        </section>
+
+    </div><!-- /scroll-container -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PROGRESS BAR (bottom of viewport)              -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="progress-bar" id="progress-bar">
+        <div class="progress-bar__fill" id="progress-fill"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

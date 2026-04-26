@@ -48,5 +48,45 @@
       "ScrollTrigger"
     ],
     "hasDemo": true
+  },
+  {
+    "slug": "videohut",
+    "title": "Videohut Studios",
+    "description": "Video production studio website with GSAP animations",
+    "image": "/projects/videohut/gettyimages-1452644429-612x612.jpg",
+    "tag": "Video Production",
+    "technologies": [
+      "React",
+      "GSAP",
+      "ScrollTrigger"
+    ],
+    "hasDemo": true
+  },
+  {
+    "slug": "milton",
+    "title": "Milton Water Bottles",
+    "description": "Premium water bottle product showcase with scroll-driven frame animation",
+    "image": "/projects/milton/v1/ezgif-frame-001.jpg",
+    "tag": "Product Showcase",
+    "technologies": [
+      "React",
+      "Canvas API",
+      "Scroll Animation"
+    ],
+    "hasDemo": true
+  },
+  {
+    "slug": "sienna",
+    "title": "Sienna Interactions",
+    "description": "Fashion and lifestyle website with custom cursor and blend effects",
+    "image": "https://images.unsplash.com/photo-1542359649-31e03cd4d909?q=80&w=1000&auto=format&fit=crop",
+    "tag": "Fashion & Lifestyle",
+    "technologies": [
+      "React",
+      "GSAP",
+      "ScrollTrigger",
+      "Lenis"
+    ],
+    "hasDemo": true
   }
 ]

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videohut | StoryStream Studios</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Syne for heading, Plus Jakarta Sans or Inter for body. We'll use Instrument Sans or Syne for logo. Let's use Syne and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+
+    <!-- Hero Section -->
+    <section class="hero-wrapper" id="home">
+        <div class="hero-inner">
+            <!-- Top Left Menu Button -->
+            <div class="header-left">
+                <button class="menu-btn">
+                    <span class="menu-text">MENU</span>
+                </button>
+            </div>
+            
+            <!-- Top Right Title -->
+            <div class="header-right">
+                <h1 class="pixel-title">PIXEL<br>VISION</h1>
+                <p class="pixel-subtitle">Capturing every moment you want</p>
+            </div>
+            
+            <!-- Side Menu Overlay -->
+            <div class="side-menu">
+                <div class="side-menu-inner">
+                    <button class="close-menu-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                    <nav class="side-nav-links">
+                        <a href="#home" class="side-nav-item">Home</a>
+                        <a href="#projects" class="side-nav-item">Projects</a>
+                        <a href="#showreel" class="side-nav-item">Showreel</a>
+                        <a href="#services" class="side-nav-item">Services</a>
+                        <a href="#about" class="side-nav-item">About</a>
+                        <a href="#contact" class="side-nav-item">Contact</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="background-wrapper">
+                <div class="bg-overlay"></div>
+            </div>
+            <section class="hero">
+                <div class="flowing-cards-perspective">
+                    <div class="flowing-cards-rotation">
+                        <div class="flowing-cards-track">
+                        <!-- Group 1 -->
+                        <div class="card-group">
+                            <div class="flowing-card"><video src="reels/Video-110.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                            <div class="flowing-card"><video src="reels/Video-292.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                            <div class="flowing-card"><video src="reels/Video-41.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                            <div class="flowing-card"><video src="reels/Video-626.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                            <div class="flowing-card"><video src="reels/Video-686.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                        </div>
+                        <!-- Group 2 (Duplicate for infinite scroll) -->
+                        <div class="card-group">
+                            <div class="flowing-card"><video src="reels/Video-110.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                            <div class="flowing-card"><video src="reels/Video-292.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                            <div class="flowing-card"><video src="reels/Video-41.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                            <div class="flowing-card"><video src="reels/Video-626.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                            <div class="flowing-card"><video src="reels/Video-686.mp4" autoplay loop muted playsinline preload="metadata"></video></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Showreel Section -->
+    <section class="showreel-section" id="showreel">
+        <div class="showreel-container">
+            <h2 class="showreel-text">SHOWREEL</h2>
+            <div class="video-wrapper">
+                <div class="video-inner">
+                    <video src="showreel/t3oWwHTiHPdqvISgXglF9dJecA.mp4" class="video-cover" autoplay loop muted playsinline preload="metadata"></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Marquee Section -->
+    <section class="brands-section">
+        <div class="brands-container">
+            <h3 class="brands-title">Standing Tall with Our Esteemed Brand Partners</h3>
+            <div class="brands-marquee-wrapper">
+                <div class="brands-marquee-track">
+                    <!-- Original logos -->
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094851-2550130.png" alt="Logoipsum"></div>
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094852-2550129.png" alt="Logoipsum"></div>
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094853-2550128.png" alt="Logoipsum"></div>
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094854-2550127.png" alt="Logoipsum"></div>
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094855-2550126.png" alt="Logoipsum"></div>
+                    
+                    <!-- Duplicated logos for infinite scroll -->
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094851-2550130.png" alt="Logoipsum"></div>
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094852-2550129.png" alt="Logoipsum"></div>
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094853-2550128.png" alt="Logoipsum"></div>
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094854-2550127.png" alt="Logoipsum"></div>
+                    <div class="brand-logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094855-2550126.png" alt="Logoipsum"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="projects">
+        <div class="portfolio-header">
+            <h2 class="portfolio-title">Our Handpicked Featured Portfolio</h2>
+            <a href="#" class="portfolio-btn">See All Projects</a>
+        </div>
+        
+        <div class="portfolio-horizontal-wrapper">
+            <div class="portfolio-track">
+                <!-- Project 1 -->
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=1200&auto=format&fit=crop" alt="GreenWaves" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-name">GreenWaves</h3>
+                        <p class="portfolio-sub">Eco-Warriors</p>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop" alt="Mystic Horizon" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-name">Mystic Horizon</h3>
+                        <p class="portfolio-sub">ModeElite</p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1535016120720-40c746a6580c?q=80&w=1200&auto=format&fit=crop" alt="Neon Dream" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-name">Neon Dream</h3>
+                        <p class="portfolio-sub">CyberCorp</p>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop" alt="Urban Flow" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-name">Urban Flow</h3>
+                        <p class="portfolio-sub">StreetStyle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Cursor for Video Hover -->
+    <div class="custom-cursor">
+        <span class="cursor-text">WATCH<br>FULL VIDEO</span>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <!-- Vertical grid lines background -->
+        <div class="grid-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div class="services-container">
+            <!-- Left Sticky Title -->
+            <div class="services-left">
+                <h2 class="services-title">From Concept To Completion:<br>We've Got You Covered!</h2>
+            </div>
+            
+            <!-- Right Scrolling Cards -->
+            <div class="services-right">
+                <div class="service-card" data-image="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop">
+                    <h3 class="service-name">Pre-Production</h3>
+                    <p class="service-desc">Pre-production serves as the pivotal phase in any creative endeavor, encompassing planning, idea refinement, budgeting, schedule creation, and the meticulous organization of logistical details.</p>
+                    <a href="#" class="service-link"><span>LEARN MORE</span> <span class="arrow-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
+                </div>
+
+                <div class="service-card" data-image="https://images.unsplash.com/photo-1590608821422-4820a3240ea8?q=80&w=800&auto=format&fit=crop">
+                    <h3 class="service-name">Production</h3>
+                    <p class="service-desc">Production represents the dynamic phase of a creative project, where the plans from pre-production spring to life, with cameras rolling, actors delivering their performances, and the realization of the creative vision.</p>
+                    <a href="#" class="service-link"><span>LEARN MORE</span> <span class="arrow-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
+                </div>
+
+                <div class="service-card" data-image="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=800&auto=format&fit=crop">
+                    <h3 class="service-name">Post-Production</h3>
+                    <p class="service-desc">Post-production emerges as the pivotal phase in creative projects, wherein raw content undergoes a transformation into its refined, polished state where editing, sound design, visual effects, and essential adjustments to breathe life into the project.</p>
+                    <a href="#" class="service-link"><span>LEARN MORE</span> <span class="arrow-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating hover image container -->
+        <div class="hover-reveal-img"></div>
+    <!-- Industries Section -->
+    <section class="industries-section" id="industries">
+        <h2 class="industries-title">We're Video Pros in Many Industries!</h2>
+
+        <div class="industries-grid">
+            <!-- Card 1 -->
+            <div class="industry-card card-wide" data-bg="https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=1600&auto=format&fit=crop">
+                <div class="card-content">
+                    <h3 class="industry-name">Corporate <span class="highlight">Videos</span></h3>
+                    <p class="industry-desc">Deliver your corporate message with clarity and impact. We specialize in producing high-quality corporate videos that enhance your brand image and communicate your values effectively.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="industry-card card-square" data-bg="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop">
+                <div class="card-content">
+                    <h3 class="industry-name">Documentaries</h3>
+                    <p class="industry-desc">Tell compelling real-world stories with our cinematic documentary production services.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="industry-card card-tall" data-bg="https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?q=80&w=800&auto=format&fit=crop">
+                <div class="card-content">
+                    <h3 class="industry-name">Shorts & Reels</h3>
+                    <p class="industry-desc">Engage your audience quickly with high-impact, short-form content designed for social media virality.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="industry-card card-square" data-bg="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=800&auto=format&fit=crop">
+                <div class="card-content">
+                    <h3 class="industry-name">Entertainment and<br>Narrative Films</h3>
+                    <p class="industry-desc">From script to screen, we bring fictional worlds and compelling narratives to life.</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="industry-card card-wide" data-bg="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1600&auto=format&fit=crop">
+                <div class="card-content">
+                    <h3 class="industry-name"><span class="highlight">Commercials</span> <span class="highlight">and</span> <span class="highlight">Advertisements</span></h3>
+                    <p class="industry-desc">Make a memorable impression. Our short, attention-grabbing videos showcase your products, services, or brand identity effectively.</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="industry-card card-wide" data-bg="https://images.unsplash.com/photo-1540039155732-6159f1223e7f?q=80&w=1600&auto=format&fit=crop">
+                <div class="card-content">
+                    <h3 class="industry-name">Event and Live Streaming</h3>
+                    <p class="industry-desc">Capture the energy of your live events and reach a global audience with our professional streaming and recording services.</p>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="industry-card card-wide" data-bg="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop">
+                <div class="card-content">
+                    <h3 class="industry-name">Animation and VFX <span class="highlight">(Visual Effects)</span></h3>
+                    <p class="industry-desc">Elevate your visuals with stunning animations and seamless visual effects that defy reality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Agency Section -->
+    <section class="about-agency-section" id="about">
+        <!-- Vertical grid lines background (reused from services) -->
+        <div class="grid-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div class="about-container">
+            <!-- Left Side Title & Button -->
+            <div class="about-left">
+                <h2 class="about-heading">About Our Agency</h2>
+                
+                <a href="#" class="about-button">
+                    <div class="button-bg"></div>
+                    <span class="button-text">Know More About Us</span>
+                </a>
+            </div>
+            
+            <!-- Right Side Content & Stats -->
+            <div class="about-right">
+                <div class="about-text-content">
+                    <h3 class="about-subheadline">
+                        <span class="text-dim">Established in 2015, we have dedicated ourselves to</span> crafting captivating visual narratives <span class="text-dim">defined by creativity, innovation, and an unwavering commitment to</span> excellence in video production.
+                    </h3>
+                    <p class="about-paragraph">
+                        Our mission is clear: to transform ideas into compelling visual stories. We believe that every project is an opportunity to create something extraordinary. Whether it's a corporate video, a commercial, an event coverage, or an animation, we approach each endeavor with creativity, enthusiasm, and a commitment to exceeding our clients' expectations.
+                    </p>
+                </div>
+
+                <div class="about-stats-grid">
+                    <!-- Stat 1 -->
+                    <div class="stat-item">
+                        <div class="stat-bg-number">15<span class="plus">+</span></div>
+                        <h4 class="stat-title">YEARS OF EXPERIENCE</h4>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="stat-item">
+                        <div class="stat-bg-number">200<span class="plus">+</span></div>
+                        <h4 class="stat-title">REPEATED CLIENTS</h4>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="stat-item">
+                        <div class="stat-bg-number">478<span class="plus">+</span></div>
+                        <h4 class="stat-title">COMPLETED PROJECTS</h4>
+                    </div>
+
+                    <!-- Stat 4 -->
+                    <div class="stat-item">
+                        <div class="stat-bg-number">350<span class="plus">+</span></div>
+                        <h4 class="stat-title">HAPPY CLIENTS</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <!-- Full-screen background image -->
+        <div class="testimonials-bg"></div>
+        <div class="testimonials-bg-overlay"></div>
+
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <h2 class="testimonials-title">Our Client Chronicles:<br>Stories that Make Us Smile!</h2>
+            </div>
+            
+            <div class="testimonials-track-wrapper">
+                <!-- Navigation Buttons -->
+                <button class="test-nav prev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="test-nav next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+
+                <div class="testimonials-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="test-logo">
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094851-2550130.png" alt="Logoipsum Logo">
+                        </div>
+                        <p class="test-quote">We are thrilled with our new corporate videos. The team was incredibly calm, patient, and fostered a pleasant atmosphere. Everything came together seamlessly! We wholeheartedly endorse and would recommend them anytime.</p>
+                        <div class="test-bottom">
+                            <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M10 11h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2zm0 8h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2zm10-8h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2zm0 8h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2z"/></svg>
+                            <div class="test-author">
+                                <h4>SARAH ADAMS</h4>
+                                <span>Chief Marketing Officer, HorizonTech Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="test-logo">
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094852-2550129.png" alt="Logoipsum Logo">
+                        </div>
+                        <p class="test-quote">Our experience with StoryStream Studios was nothing short of exceptional. The team's relentless dedication and creative vision resulted in captivating and delightful videos that wildly exceeded our goals and vision for the campaign.</p>
+                        <div class="test-bottom">
+                            <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M10 11h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2zm0 8h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2zm10-8h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2zm0 8h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2z"/></svg>
+                            <div class="test-author">
+                                <h4>MICHAEL LEE</h4>
+                                <span>Director of Sales, EchoStream</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="test-logo">
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/free-logoipsum-3094853-2550128.png" alt="Logoipsum Logo">
+                        </div>
+                        <p class="test-quote">The final cut was an absolute masterclass in storytelling. We appreciated how open they were to feedback while confidently steering the artistic direction. Easily the quickest and most professional production partner we've used in years.</p>
+                        <div class="test-bottom">
+                            <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M10 11h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2zm0 8h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2zm10-8h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2zm0 8h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2z"/></svg>
+                            <div class="test-author">
+                                <h4>JESSICA CHEN</h4>
+                                <span>VP of Brand Strategy, Aura Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section class="blogs-section" id="blogs">
+        <div class="blogs-container">
+            <h2 class="blogs-title">Dive into our blogs</h2>
+            
+            <a href="#" class="about-button blogs-btn">
+                <div class="button-bg"></div>
+                <span class="button-text">Read All Blogs</span>
+            </a>
+
+            <div class="blogs-grid">
+                <!-- Blog Card 1 -->
+                <div class="blog-card">
+                    <div class="blog-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800&auto=format&fit=crop" alt="News Image" class="blog-img">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">NEWS</div>
+                        <h3 class="blog-post-title">StoryStream's Video Production Career Opportunities and Upcoming Event</h3>
+                        <div class="blog-meta">
+                            <span class="blog-author">Michael Carter</span>
+                            <span class="blog-dot">•</span>
+                            <span class="blog-date">Aug 29, 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="blog-card">
+                    <div class="blog-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop" alt="Tips Image" class="blog-img">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">TIPS & TRICKS</div>
+                        <h3 class="blog-post-title">Mastering the Art of Storytelling: The Power of Narrative in Video Production</h3>
+                        <div class="blog-meta">
+                            <span class="blog-author">Michael Carter</span>
+                            <span class="blog-dot">•</span>
+                            <span class="blog-date">Oct 17, 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="blog-card">
+                    <div class="blog-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Stories Image" class="blog-img">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">STORIES</div>
+                        <h3 class="blog-post-title">Lights, Camera, Action! Behind the Scenes of a Video Production</h3>
+                        <div class="blog-meta">
+                            <span class="blog-author">John Davis</span>
+                            <span class="blog-dot">•</span>
+                            <span class="blog-date">Oct 16, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Infinite Marquee Section -->
+    <section class="marquee-section">
+        <div class="marquee-container">
+            <!-- We duplicate the content track twice to create a seamless infinite loop -->
+            <div class="marquee-track">
+                <!-- Group 1 -->
+                <div class="marquee-group">
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800&auto=format&fit=crop">
+                        <span>Filming</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800&auto=format&fit=crop" alt="Filming"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop">
+                        <span>Scriptwriting</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Scriptwriting"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop">
+                        <span>Sound Design</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop" alt="Sound Design"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop">
+                        <span>Color Grading</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop" alt="Color Grading"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop">
+                        <span>Motion Graphics</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop" alt="Motion Graphics"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1506485338023-6ce5f36692df?q=80&w=800&auto=format&fit=crop">
+                        <span>VFX</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1506485338023-6ce5f36692df?q=80&w=800&auto=format&fit=crop" alt="VFX"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                </div>
+
+                <!-- Group 2 (Exact Duplicate for seamless loop) -->
+                <div class="marquee-group">
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800&auto=format&fit=crop">
+                        <span>Filming</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800&auto=format&fit=crop" alt="Filming"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop">
+                        <span>Scriptwriting</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Scriptwriting"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop">
+                        <span>Sound Design</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop" alt="Sound Design"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop">
+                        <span>Color Grading</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop" alt="Color Grading"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop">
+                        <span>Motion Graphics</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop" alt="Motion Graphics"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                    
+                    <div class="marquee-item" data-hover-img="https://images.unsplash.com/photo-1506485338023-6ce5f36692df?q=80&w=800&auto=format&fit=crop">
+                        <span>VFX</span>
+                        <div class="hover-img-wrapper"><img src="https://images.unsplash.com/photo-1506485338023-6ce5f36692df?q=80&w=800&auto=format&fit=crop" alt="VFX"></div>
+                    </div>
+                    <div class="marquee-separator"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Cursor for Blog Hover -->
+    <div class="blog-cursor">
+        <span class="blog-cursor-text">READ<br>BLOG</span>
+    </div>
+
+</body>
+</html>

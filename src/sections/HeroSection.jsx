@@ -1,14 +1,11 @@
-import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import GrainOverlay from '../components/GrainOverlay';
 import SectionBadge from '../components/SectionBadge';
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 32 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.75, delay, ease: [0.25, 0.1, 0.25, 1] },
-});
+import Aurora from '../components/Aurora';
+import SplitText from '../components/SplitText';
+import CycleText from '../components/CycleText';
+import BlurText from '../components/BlurText';
 
 export default function HeroSection() {
   const trustedLogos = [
@@ -19,15 +16,14 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen bg-krypt-charcoal overflow-hidden flex flex-col">
 
-      {/* ── Animated gradient blobs ── */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="animate-blob absolute rounded-full bg-krypt-orange/35 blur-[140px]"
-          style={{ width: '55vw', height: '55vw', top: '-15%', left: '-10%' }} />
-        <div className="animate-blob-2 absolute rounded-full bg-krypt-apricot/25 blur-[120px]"
-          style={{ width: '45vw', height: '45vw', top: '30%', right: '-12%' }} />
-        <div className="animate-blob-3 absolute rounded-full bg-krypt-sand/20 blur-[100px]"
-          style={{ width: '35vw', height: '35vw', bottom: '-10%', left: '35%' }} />
-      </div>
+      {/* ── Aurora background ── */}
+      <Aurora
+        colorStops={['#ED921D', '#F2A966', '#EBCB9F']}
+        blend={0.45}
+        amplitude={0.9}
+        speed={0.3}
+        className="absolute inset-0 w-full h-full"
+      />
 
       {/* ── Grain texture ── */}
       <GrainOverlay opacity={0.055} />
@@ -49,33 +45,52 @@ export default function HeroSection() {
       <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-12 pt-36 pb-24">
 
         {/* Badge */}
-        <motion.div {...fadeUp(0.1)}>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <SectionBadge label="Mumbai · Full-Stack Digital Agency · Est. 2024" dark />
         </motion.div>
 
         {/* Headline */}
-        <motion.h1
-          {...fadeUp(0.25)}
-          className="font-playfair font-black text-white leading-[1.04] mb-8 max-w-4xl"
+        <h1
+          className="font-playfair font-black text-white leading-[1.1] mb-8 max-w-4xl mt-6"
           style={{ fontSize: 'clamp(2.8rem, 7vw, 5.5rem)' }}
         >
-          Build Digital<br />
-          Experiences<br />
-          <span className="text-krypt-orange italic">That Convert.</span>
-        </motion.h1>
+          <span className="block">
+            <SplitText text="Build Digital" initialDelay={0.25} staggerDelay={0.07} />
+          </span>
+          <span className="block">
+            <CycleText
+              words={["Websites", "Mobile Apps", "Brand Systems", "Automations"]}
+              className="text-krypt-orange italic"
+              interval={2600}
+            />
+          </span>
+          <span className="block">
+            <SplitText text="That Convert." initialDelay={0.44} staggerDelay={0.07} className="text-krypt-orange italic" />
+          </span>
+        </h1>
 
         {/* Sub-copy */}
-        <motion.p
-          {...fadeUp(0.4)}
-          className="font-dm text-white/55 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed"
-        >
-          Krypt Media designs, develops, and deploys high-performing digital products
-          — websites, automations, and brand systems that turn visitors into customers
-          and businesses into industry leaders.
-        </motion.p>
+        <div className="font-dm text-white/55 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
+          <BlurText
+            text="Krypt Media designs, develops, and deploys high-performing digital products — websites, automations, and brand systems that turn visitors into customers and businesses into industry leaders."
+            animateBy="words"
+            direction="bottom"
+            delay={60}
+            stepDuration={0.3}
+          />
+        </div>
 
         {/* CTAs */}
-        <motion.div {...fadeUp(0.55)} className="flex flex-wrap gap-4 mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
+          className="flex flex-wrap gap-4 mb-24"
+        >
           <Link
             to="/contact"
             className="px-8 py-4 bg-krypt-orange text-white font-dm font-medium rounded-full hover:bg-krypt-apricot transition-colors duration-300 shadow-xl shadow-krypt-orange/35 text-sm md:text-base"
@@ -91,24 +106,37 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Trusted-by strip */}
-        <motion.div {...fadeUp(0.7)}>
-          <p className="font-dm text-[10px] tracking-[0.35em] uppercase text-white/25 mb-5">
+        <div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+            className="font-dm text-[10px] tracking-[0.35em] uppercase text-white/25 mb-5"
+          >
             Trusted by
-          </p>
+          </motion.p>
           <div className="flex items-center gap-8 flex-wrap">
-            {trustedLogos.map(({ name, src }) => (
-              <img
+            {trustedLogos.map(({ name, src }, i) => (
+              <motion.img
                 key={name}
                 src={src}
                 alt={name}
-                className="h-8 w-auto opacity-25 hover:opacity-55 transition-opacity duration-300 grayscale hover:grayscale-0 object-contain"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 0.25, y: 0 }}
+                transition={{ delay: 0.88 + i * 0.12, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                className="h-8 w-auto hover:opacity-55 transition-opacity duration-300 grayscale hover:grayscale-0 object-contain"
               />
             ))}
-            <span className="font-dm text-white/20 text-xs italic font-cormorant">
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.12, duration: 0.5 }}
+              className="font-dm text-white/20 text-xs italic font-cormorant"
+            >
               + 30+ growing businesses
-            </span>
+            </motion.span>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Bottom fade into next section */}

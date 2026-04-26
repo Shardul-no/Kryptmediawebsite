@@ -10,6 +10,9 @@ const projectModules = {
   'mumbai-studio': () => import('../projects/mumbai-studio/index.jsx'),
   'gyro-3d': () => import('../projects/gyro-3d/index.jsx'),
   'fitness-club': () => import('../projects/fitness-club/index.jsx'),
+  videohut: () => import('../projects/videohut/index.jsx'),
+  milton: () => import('../projects/milton/index.jsx'),
+  sienna: () => import('../projects/sienna/index.jsx'),
 };
 
 export default function ProjectDetailPage() {

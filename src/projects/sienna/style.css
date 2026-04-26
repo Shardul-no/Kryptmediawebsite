@@ -1,0 +1,1214 @@
+:root {
+    --bg-color: #030303;
+    --text-color: #ffffff;
+    --font-heading: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-heading);
+    overflow-x: hidden;
+    /* Extra height to allow GSAP scroll scrubbing now that dummy content is removed */
+    height: 250vh; 
+    -webkit-font-smoothing: antialiased;
+    cursor: none; /* Hide default cursor to use custom one */
+}
+
+/* Make sure interactable elements also hide the default pointer */
+a, button, img, select, input, textarea {
+    cursor: none;
+}
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.gradual-blur {
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+    isolation: isolate;
+}
+
+.gradual-blur-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.gradual-blur-inner > div {
+    -webkit-backdrop-filter: inherit;
+    backdrop-filter: inherit;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+    .gradual-blur-inner > div {
+        background: rgba(0, 0, 0, 0.28);
+        opacity: 0.45;
+    }
+}
+
+/* --- CUSTOM CURSOR --- */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none; /* Ensure it doesn't block clicks */
+    z-index: 10000; /* Highest z-index */
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%); /* Centered on mouse coordinates */
+    /* Transition only for scaling/opacity effects. Handled via JS x/y for speed */
+    transition: transform 0.1s ease-out, width 0.3s ease, height 0.3s ease;
+    will-change: transform;
+}
+
+/* State class added via JS to enlarge cursor when hovering */
+.custom-cursor.hovering {
+    width: 60px;
+    height: 60px;
+}
+
+/* --- HEADER & NAVIGATION --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
+    padding: 2rem 4rem;
+    pointer-events: none; /* Allows pointer events to pass through background */
+}
+
+.header-inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 30px; /* needed for absolute children */
+}
+
+.logo-placeholder {
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 0em;
+    position: absolute;
+    left: 0;
+    opacity: 0; /* Invisible initially, used as positional reference or fade in later */
+    visibility: hidden;
+}
+
+.nav-links {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Initially fully distributed */
+    pointer-events: auto; /* Re-enable pointer events for links */
+    margin-left: auto;
+    will-change: transform;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Keep images from bleeding out initially */
+}
+
+.hero-title {
+    position: fixed;
+    top: 8vh; /* Moved down to prevent overlapping navigation */
+    left: 50%;
+    font-size: 26vw; /* Reduced from 32vw to make full text visible */
+    font-weight: 900;
+    line-height: 0.75;
+    letter-spacing: -0.06em;
+    text-align: center;
+    z-index: 20; /* Keep title above images */
+    margin: 0;
+    width: 100%;
+    transform-origin: center center;
+    mix-blend-mode: difference; /* Adds the blend effect */
+    /* Setup for GSAP */
+    will-change: transform;
+}
+
+.hero-images-container {
+    position: relative;
+    width: 96vw; /* Spread almost full width */
+    max-width: none;
+    margin: 0 auto;
+    margin-top: calc(20vh + 15vw); /* Keep overlapped slightly */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1vw; /* Minimal gap */
+    z-index: 10; /* Behind the title */
+    /* setup for gsap */
+    will-change: transform;
+}
+
+.hero-image {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Returned to tall aspect ratio */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Middle image is now aligned with others */
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Optional: Subtle scale effect inside the image */
+    transform-origin: center;
+}
+
+
+
+/* --- INTRO SECTION --- */
+.intro-section {
+    position: relative;
+    width: 65vw;
+    margin: 30vh auto 20vh auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4vw;
+}
+
+.intro-left {
+    flex: 1;
+    position: relative;
+    padding-left: 3vw;
+}
+
+.scroll-arrow {
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.intro-left h2 {
+    font-size: 3.5vw;
+    font-weight: 400; /* Regular weight */
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.intro-left .dot {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    vertical-align: baseline;
+}
+
+.intro-right {
+    flex: 1;
+    max-width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00ff00; /* Bright green */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+}
+
+.intro-right p {
+    color: #cccccc; /* Slightly dimmed text */
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    width: fit-content;
+}
+
+.contact-link .arrow-right {
+    font-size: 0.6rem;
+}
+
+/* --- FULL WIDTH FEATURE SECTION (ABOUT ME) --- */
+.feature-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 15vh 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Below text */
+}
+
+.feature-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6); /* Dim the image heavily so text is readable */
+}
+
+/* Great bottom fade mask for About Me feature image */
+.feature-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh; /* Taller for a 'great' fading effect */
+    background: linear-gradient(to bottom, transparent 0%, rgba(3, 3, 3, 0.4) 40%, var(--bg-color) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.feature-text-overlay {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 0 5vw;
+}
+
+.feature-text-overlay p {
+    font-size: 1.8vw;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+}
+
+.about-link {
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    background: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.about-link:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* --- GALLERY SECTION --- */
+.gallery-section {
+    width: 90vw;
+    margin: 15vh auto 20vh auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-header {
+    margin-bottom: 6vh;
+}
+
+.gallery-subtitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #aaaaaa;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.gallery-title {
+    font-size: 6vw;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    align-items: start; /* Align tops of cards */
+}
+
+.gallery-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a; /* Subtle gray background */
+    border-radius: 8px; /* Slightly sharper corners */
+    overflow: hidden;
+    padding: 1.5vw; /* Padding around the image inside the card */
+    gap: 1.5vw; /* Gap between image and text */
+}
+
+.card-image-wrapper {
+    width: 100%;
+    border-radius: 6px; /* Inner radius for the image */
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-left .card-image-wrapper {
+    aspect-ratio: 4 / 3; /* Shorter rectangle */
+}
+
+.card-right {
+    padding-bottom: 1.5vw; /* Set padding for right card identically */
+}
+
+.card-right .card-image-wrapper {
+    aspect-ratio: 4 / 5; /* Taller rectangle */
+}
+
+.card-info {
+    padding: 0 0.5vw 1vw 0.5vw; /* Adjusted padding since outer card has padding */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem; /* Slightly larger */
+    color: #aaaaaa; /* Lighter slightly */
+    font-weight: 400; /* Normal weight */
+    letter-spacing: 0.02em;
+}
+
+.card-heading {
+    font-size: 1.6rem;
+    font-weight: 500; /* Slightly bolder */
+    line-height: 1.3;
+}
+
+.gallery-centered {
+    width: 100%;
+    margin-top: 10vh; /* Space below the grid */
+    display: flex;
+    justify-content: center;
+}
+
+.card-center {
+    width: 100%;
+    max-width: 800px; /* Constrain its width so it sits beautifully in the center */
+}
+
+.card-center .card-image-wrapper {
+    aspect-ratio: 4 / 3; /* Landscape orientation */
+}
+
+.card-center .card-info {
+    padding-bottom: 2vw; /* Ensure padding on bottom is robust like others */
+}
+
+/* Staggered Grid additions */
+.gallery-grid-offset {
+    margin-top: 15vh; /* Space below centered card */
+}
+
+.card-tall .card-image-wrapper {
+    aspect-ratio: 4 / 5; /* Match taller portrait aspect */
+}
+
+.card-short .card-image-wrapper {
+    aspect-ratio: 3 / 2; /* Shorter landscape aspect */
+}
+
+.offset-down {
+    margin-top: 20vh; /* Push the right card down significantly */
+}
+
+/* --- SERVICES SECTION --- */
+.services-section {
+    width: 90vw;
+    margin: 15vh auto 25vh auto; /* Added 25vh margin-bottom to increase gap before carousels */
+    text-align: center;
+}
+
+.services-header {
+    margin-bottom: 8vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-subtitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #aaaaaa;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+.services-title {
+    font-size: 5vw;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vw;
+    margin-top: 5vh;
+}
+
+.service-card {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: visible; /* Photos should pop out on hover potentially, but let's keep it clean. Wait! The reference image shows the photo popping OUT of the card bounds! */
+    min-height: 400px;
+}
+
+/* For empty placeholder bottom cards */
+.service-card-empty {
+    min-height: 150px;
+    justify-content: center;
+}
+
+.service-number {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+.service-heading {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: auto;
+    letter-spacing: 0.02em;
+    z-index: 2;
+}
+
+.service-photos {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.service-photos img {
+    position: absolute;
+    width: 140px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+    z-index: 5;
+}
+
+.photo-left {
+    transform: rotate(-15deg) translateX(-30px);
+}
+
+.photo-right {
+    transform: rotate(15deg) translateX(30px);
+}
+
+.service-photos img:hover {
+    transform: scale(1.8) rotate(0deg) translateY(-20px);
+    z-index: 20;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+/* Make sure the parent grid allows overflow if we scale images up massively */
+.services-section {
+    overflow: visible;
+}
+
+/* --- CAROUSELS SECTION --- */
+.carousels-section {
+    position: relative;
+    width: 100vw;
+    margin-top: 40vh;
+    padding-bottom: 15vh; /* Space below before footer/end */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+/* Radial fade mask for carousels */
+.carousels-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0; /* Reverted typo from '40' to '0' */
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 10%, var(--bg-color) 70%, var(--bg-color) 100%);
+}
+
+.carousel-row {
+    display: flex;
+    width: max-content;
+    /* Removed gap: 1vw; to keep track bounding boxes perfectly adjacent for translation */
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1vw;
+    padding-right: 1vw; /* Put the gap inside the track bounds so xPercent: -100 maps perfectly */
+}
+
+.carousel-track img {
+    height: 28vh;
+    max-width: 40vw; /* Prevent images from being too wide if aspect ratio is insane */
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+#carousel-2 .carousel-track img {
+    height: 40vh; /* Middle row is taller per reference */
+}
+
+/* Gradient overlay to ensure text readability */
+.carousels-overlay {
+    position: absolute;
+    bottom: 0; /* Changed from 10vh to 0 to cover more ground */
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    z-index: 20; /* Increased to stay above radial mask */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 5vw 8vh 5vw;
+    pointer-events: none;
+}
+
+.carousels-overlay h2 {
+    font-size: 4vw;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 15rem; /* Adjusted from 17rem - might have been excessive */
+    pointer-events: auto;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+}
+
+.browse-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    pointer-events: auto;
+    text-transform: uppercase;
+}
+
+.browse-link .arrow-right {
+    font-size: 0.7rem;
+}
+
+/* --- TESTIMONIALS SECTION --- */
+.testimonials-section {
+    position: relative;
+    width: 100vw;
+    height: 180vh; /* Significantly increased height for larger parallax window */
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.testimonials-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.testimonials-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7); /* Deepen background for contrast */
+}
+
+/* Great bottom fade mask for Testimonials background */
+.testimonials-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh; /* Taller for a 'great' fading effect */
+    background: linear-gradient(to bottom, transparent 0%, rgba(3, 3, 3, 0.4) 40%, var(--bg-color) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.testimonial-card {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 800px;
+    padding: 6vh 5vw;
+    background: rgba(26, 26, 26, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.testimonial-quote {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 3rem;
+}
+
+.testimonial-author {
+    margin-bottom: 3rem;
+}
+
+.testimonial-author h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.testimonial-author span {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.testimonial-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.arrow-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-top: -2px; /* Optical optical alignment */
+}
+
+/* --- ARTICLES SECTION --- */
+.articles-section {
+    width: 90vw;
+    margin: 20vh auto;
+}
+
+.articles-header {
+    margin-bottom: 8vh;
+    /* User referenced left aligned title, which is default text-align */
+}
+
+.articles-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #aaaaaa;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+.articles-title {
+    font-size: 4.5vw;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vw;
+    align-items: start; /* CRITICAL: ensures all 3 cards start from the same point */
+}
+
+.article-card {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.4s ease;
+    cursor: pointer;
+}
+
+.article-card:hover {
+    background-color: #222222;
+}
+
+.article-img-wrapper {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.article-card img {
+    width: 100%;
+    height: 400px; /* Base height for cards 2 and 3 */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.article-card-tall img {
+    height: 600px; /* Taller height specifically for the first card */
+}
+
+.article-card img:hover {
+    transform: scale(1.05); /* Subtle image zoom on hover */
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+.article-category {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.article-date {
+    font-size: 0.75rem;
+    color: #888888;
+    letter-spacing: 0.02em;
+}
+
+.article-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+/* --- FOOTER SECTION --- */
+.footer-section {
+    position: relative;
+    width: 100vw;
+    height: 120vh; /* Taller height for grand feeling */
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* All content sits at the bottom */
+    overflow: hidden;
+}
+
+.footer-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.footer-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5); /* Dimming background slightly to ensure readable text */
+}
+
+/* Great bottom fade mask for Footer background */
+.footer-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh; /* Extra tall for the footer background */
+    background: linear-gradient(to bottom, transparent 0%, rgba(3, 3, 3, 0.4) 40%, var(--bg-color) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: 0 5vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.footer-text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 3vw;
+}
+
+.footer-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s;
+}
+
+.footer-nav a:hover {
+    opacity: 0.7;
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 2rem 0;
+}
+
+.footer-middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+    color: #aaaaaa;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 3vw;
+}
+
+.footer-socials a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s;
+}
+
+.footer-socials a:hover {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.footer-bottom h1 {
+    font-size: 24vw; /* Huge text completely spanning the container */
+    font-weight: 600;
+    line-height: 0.75;
+    letter-spacing: -0.05em;
+    margin: 0;
+    padding: 0;
+}
+
+/* conslidated with previous section */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header {
+        padding: 1.5rem 2rem;
+        position: relative; /* Un-fix header on mobile for better flow if desired, or keep fixed but give hero top margin */
+    }
+    .header-inner {
+        justify-content: space-between;
+    }
+    .nav-links {
+        display: none; /* Simplify nav on mobile for this demo, or add hamburger */
+    }
+    
+    .hero-section {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Disable Gradual Blur on Mobile Devices */
+    .gradual-blur, [data-gradual-blur], [data-gradual-blur="true"] {
+        display: none !important;
+    }
+
+    .hero-title {
+        position: static;
+        transform: none !important; /* Override any lingering inline styles */
+        font-size: 18vw; 
+        text-align: center;
+        margin-bottom: 2rem;
+        white-space: normal;
+        line-height: 1;
+    }
+    
+    /* Convert Hero Images to Swipeable Gallery */
+    .hero-images-container {
+        position: static; 
+        transform: none !important;
+        width: 100%;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* Hide scrollbar Firefox */
+        -webkit-overflow-scrolling: touch;
+    }
+    .hero-images-container::-webkit-scrollbar {
+        display: none; /* Hide scrollbar Chrome/Safari */
+    }
+    .hero-image {
+        flex: 0 0 85%; /* Make items 85% width so the next one peeks out */
+        aspect-ratio: 4 / 5;
+        scroll-snap-align: center;
+    }
+    .intro-section {
+        flex-direction: column;
+        width: 85vw;
+        gap: 4rem;
+    }
+    .intro-left h2 {
+        font-size: 8vw;
+    }
+    .intro-right {
+        max-width: 100%;
+    }
+    .feature-text-overlay {
+        padding: 0 2rem;
+    }
+    .feature-text-overlay p {
+        font-size: 0.8rem;
+    }
+    
+    /* Responsive Gallery */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 8vh;
+    }
+    .gallery-title {
+        font-size: 12vw;
+    }
+    .card-left .card-image-wrapper, .card-right .card-image-wrapper, .card-center .card-image-wrapper, .card-tall .card-image-wrapper, .card-short .card-image-wrapper {
+        aspect-ratio: 4 / 5; /* Standardize on mobile */
+    }
+    .offset-down {
+        margin-top: 0; /* Remove offset staggered effect on mobile for straight single column */
+    }
+    
+    /* Responsive Services Grid */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 4vh;
+    }
+    .services-title {
+        font-size: 10vw;
+    }
+    .service-card {
+        min-height: 350px;
+    }
+    
+    /* Responsive Carousels */
+    .carousels-overlay h2 {
+        font-size: 10vw;
+    }
+    .carousel-track img {
+        height: 20vh;
+    }
+    #carousel-2 .carousel-track img {
+        height: 25vh;
+    }
+
+    /* Responsive Testimonials */
+    .testimonial-card {
+        padding: 5vh 8vw;
+    }
+    .testimonial-quote {
+        font-size: 1.2rem;
+    }
+    
+    /* Responsive Articles Grid */
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 4vh;
+    }
+    .articles-title {
+        font-size: 10vw;
+    }
+    .article-card img, .article-card-tall img {
+        height: 300px; /* Standardize image height on mobile */
+    }
+    
+    /* Responsive Footer */
+    .footer-top, .footer-middle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    .footer-nav, .footer-socials {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .footer-bottom h1 {
+        font-size: 15vw; /* Slightly smaller to prevent scrollbars */
+    }
+}
+
+/* Disable Custom Cursor on Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor {
+        display: none;
+    }
+    body, a, button, img, select, input, textarea {
+        cursor: auto;
+    }
+}
