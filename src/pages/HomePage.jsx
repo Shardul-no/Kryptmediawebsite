@@ -2,12 +2,10 @@ import { useEffect } from 'react';
 import HeroSection        from '../sections/HeroSection';
 import MarqueeTicker      from '../components/MarqueeTicker';
 import FeaturedWorkSection from '../sections/FeaturedWorkSection';
-import MacbookScrollSection from '../sections/MacbookScrollSection';
 import ContainerScrollSection from '../sections/ContainerScrollSection';
 import ProcessSection     from '../sections/ProcessSection';
 import SplitSection       from '../sections/SplitSection';
 import TestimonialsSection from '../sections/TestimonialsSection';
-import PricingSection     from '../sections/PricingSection';
 import FAQSection         from '../sections/FAQSection';
 import CTASection         from '../sections/CTASection';
 
@@ -31,8 +29,8 @@ export default function HomePage() {
       {/* 4. Marquee (dark variant) */}
       <MarqueeTicker dark text="WEB DEVELOPMENT · UI/UX DESIGN · AI AGENTS · BRAND STRATEGY · AUTOMATION · TECH CONSULTING ·" />
 
-      {/* 5. MacBook scroll spotlight */}
-      <MacbookScrollSection />
+      {/* 5. Container scroll */}
+      <ContainerScrollSection />
 
       {/* 6. Process */}
       <ProcessSection />
@@ -40,14 +38,9 @@ export default function HomePage() {
       {/* 7. Split sections */}
       <SplitSection />
 
-      {/* 8. Container scroll */}
-      <ContainerScrollSection />
-
       {/* 9. Testimonials */}
       <TestimonialsSection />
 
-      {/* 10. Pricing */}
-      <PricingSection />
 
       {/* 11. FAQ */}
       <FAQSection />

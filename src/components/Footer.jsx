@@ -5,11 +5,9 @@ const footerLinks = {
     { label: 'Home',         to: '/'            },
     { label: 'Work',         to: '/projects'    },
     { label: 'Process',      to: '/about'       },
-    { label: 'Pricing',      to: '/contact'     },
     { label: 'Contact',      to: '/contact'     },
   ],
   Explore: [
-    { label: 'Why Velocity', to: '/about'       },
     { label: 'Services',     to: '/services'    },
     { label: 'Testimonials', to: '/testimonials'},
   ],
@@ -26,17 +24,8 @@ const socials = [
     ),
   },
   {
-    name: 'Twitter / X',
-    href: 'https://twitter.com/krypt_media345',
-    icon: (
-      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-  {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/company/krypt-media',
+    href: 'https://www.linkedin.com/company/krypt-media/',
     icon: (
       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
         <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
@@ -47,29 +36,26 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-krypt-charcoal text-krypt-sand/60 pt-20 pb-10 px-6 md:px-12">
+    <footer className="bg-krypt-charcoal text-krypt-sand/60 pt-12 pb-8 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
 
         {/* Top grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/8">
 
           {/* Brand column */}
           <div className="md:col-span-5">
-            <Link to="/" className="block mb-6">
-              <img src="/logo.png" alt="Krypt Media" className="h-12 w-auto brightness-0 invert opacity-80" />
+            <Link to="/" className="block mb-4">
+              <img src="/logo.png" alt="Krypt Media" className="h-10 w-auto brightness-0 invert opacity-80" />
             </Link>
-            <p className="font-playfair italic text-krypt-sand/50 text-lg mb-6 max-w-xs leading-relaxed">
-              Helping founders launch faster with high-converting digital experiences.
-            </p>
             <div className="space-y-2 text-sm font-dm">
               <p>
-                <a href="mailto:kryptmedia24@gmail.com" className="hover:text-krypt-orange transition-colors">
-                  kryptmedia24@gmail.com
+                <a href="mailto:contact@kryptmedia.in" className="hover:text-krypt-orange transition-colors">
+                  contact@kryptmedia.in
                 </a>
               </p>
               <p>
-                <a href="tel:+918928030419" className="hover:text-krypt-orange transition-colors">
-                  +91 89280 30419
+                <a href="tel:+91703922208" className="hover:text-krypt-orange transition-colors">
+                  +91 703922208
                 </a>
               </p>
               <p className="text-krypt-sand/35">Mumbai, India · krypt.in</p>
@@ -78,7 +64,7 @@ export default function Footer() {
             {/* CTA */}
             <Link
               to="/contact"
-              className="inline-block mt-8 px-6 py-2.5 bg-krypt-orange text-white font-dm text-sm font-medium rounded-full hover:bg-krypt-apricot transition-colors duration-300"
+              className="inline-block mt-4 px-5 py-2 bg-krypt-orange text-white font-dm text-sm font-medium rounded-full hover:bg-krypt-apricot transition-colors duration-300"
             >
               Start a Project
             </Link>
@@ -106,51 +92,46 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Co-founders */}
+          {/* Social Media */}
           <div className="md:col-span-3">
             <h4 className="font-dm font-medium text-krypt-sand/40 text-xs tracking-[0.2em] uppercase mb-5">
-              The Team
+              Social Media
             </h4>
-            <div className="space-y-4">
-              {[
-                { name: 'Priyanshu Naik',       role: 'Co-Founder' },
-                { name: 'Taniksh Waingankar',   role: 'Co-Founder' },
-                { name: 'Kartik Mistry',         role: 'CTO' },
-              ].map(({ name, role }) => (
-                <div key={name}>
-                  <p className="font-dm text-sm text-krypt-sand/70 font-medium">{name}</p>
-                  <p className="font-dm text-xs text-krypt-sand/35">{role}</p>
-                </div>
+            <div className="space-y-3">
+              {socials.map(({ name, href, icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-krypt-sand/60 hover:text-krypt-orange transition-colors duration-200"
+                >
+                  <span className="text-krypt-sand/40">{icon}</span>
+                  <span className="font-dm text-sm">{name}</span>
+                </a>
               ))}
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-5">
-          <p className="font-dm text-xs text-krypt-sand/30">
-            © 2026 Krypt Media LLP. All rights reserved.
-          </p>
-
-          {/* Tagline */}
+        <div className="pt-6 flex flex-col items-center gap-4">
+          {/* Tagline - Centered */}
           <p className="font-cormorant italic text-krypt-orange/50 text-base tracking-wide">
             DECODE · DELIVER · DOMINATE
           </p>
 
-          {/* Socials */}
-          <div className="flex items-center gap-4">
-            {socials.map(({ name, href, icon }) => (
-              <a
-                key={name}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={name}
-                className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-krypt-sand/40 hover:text-krypt-orange hover:border-krypt-orange/40 transition-all duration-200"
-              >
-                {icon}
-              </a>
-            ))}
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <p className="font-dm text-xs text-krypt-sand/30">
+              © 2026 Krypt Media LLP. All rights reserved.
+            </p>
+            <Link
+              to="/terms"
+              className="font-dm text-xs text-krypt-sand/30 hover:text-krypt-orange transition-colors"
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              Terms & Conditions
+            </Link>
           </div>
         </div>
       </div>

@@ -1,19 +1,13 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import projectsData from '../data/projects.json';
-import CircularGallery from '../components/CircularGallery';
 import ScrollReveal from '../components/ScrollReveal';
 import GradualBlur from '../components/GradualBlur';
-
-const galleryItems = projectsData.map((p) => ({
-  image: p.image,
-  text: p.title
-}));
 
 export default function ProjectsPage() {
   useEffect(() => {
     document.title = 'Our Projects | Krypt Media LLP';
-    // Scroll to top when page loads
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
@@ -30,80 +24,82 @@ export default function ProjectsPage() {
         </GradualBlur>
       </div>
 
-      {/* Project links — open case study */}
+      {/* Project Grid — 3 columns with 16:9 cards */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex flex-wrap justify-center gap-6">
-          {projectsData.map((project) => (
-            project.url ? (
-              <a
-                key={project.slug}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col items-center rounded-xl border border-krypt-olive/10 bg-white px-8 py-6 hover:border-krypt-olive/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
-              >
-                <span className="text-krypt-orange/80 text-sm font-medium">{project.tag}</span>
-                <span className="text-xl font-semibold text-krypt-charcoal mt-1 group-hover:text-krypt-orange transition-colors">
-                  {project.title}
-                </span>
-                <p className="text-krypt-charcoal/55 text-sm mt-2 text-center max-w-xs">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1 mt-3 justify-center">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="text-xs bg-krypt-cream text-krypt-orange px-2 py-1 rounded"
-                    >
-                      {tech}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {projectsData.map((project, index) => (
+            <motion.div
+              key={project.slug}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                type: 'spring',
+                stiffness: 90,
+                damping: 18,
+                delay: index * 0.1,
+              }}
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              {project.url ? (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block relative aspect-video rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                >
+                  {/* Hero Image */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  {/* Text at Bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className="text-krypt-orange/90 text-xs font-medium uppercase tracking-wider">
+                      {project.tag}
                     </span>
-                  ))}
-                </div>
-                <span className="text-krypt-orange text-sm mt-3 font-medium">
-                  🔗 Visit Website →
-                </span>
-              </a>
-            ) : (
-              <Link
-                key={project.slug}
-                to={`/projects/${project.slug}`}
-                className="group flex flex-col items-center rounded-xl border border-krypt-olive/10 bg-white px-8 py-6 hover:border-krypt-olive/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
-              >
-                <span className="text-krypt-orange/80 text-sm font-medium">{project.tag}</span>
-                <span className="text-xl font-semibold text-krypt-charcoal mt-1 group-hover:text-krypt-orange transition-colors">
-                  {project.title}
-                </span>
-                <p className="text-krypt-charcoal/55 text-sm mt-2 text-center max-w-xs">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1 mt-3 justify-center">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="text-xs bg-krypt-cream text-krypt-orange px-2 py-1 rounded"
-                    >
-                      {tech}
+                    <h3 className="text-xl font-bold text-white mt-1 group-hover:text-krypt-apricot transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-white/70 text-sm mt-2 line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
+                </a>
+              ) : (
+                <Link
+                  to={`/projects/${project.slug}`}
+                  className="group block relative aspect-video rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                >
+                  {/* Hero Image */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  {/* Text at Bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className="text-krypt-orange/90 text-xs font-medium uppercase tracking-wider">
+                      {project.tag}
                     </span>
-                  ))}
-                </div>
-                <span className="text-krypt-orange text-sm mt-3 font-medium">
-                  {project.hasDemo ? '🚀 Try Demo →' : '📋 View Details →'}
-                </span>
-              </Link>
-            )
+                    <h3 className="text-xl font-bold text-white mt-1 group-hover:text-krypt-apricot transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-white/70 text-sm mt-2 line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
+                </Link>
+              )}
+            </motion.div>
           ))}
         </div>
-      </div>
-
-      {/* Circular Gallery — scroll/drag to browse */}
-      <div className="h-[50vh] sm:h-[60vh] md:h-[70vh] min-h-[300px] sm:min-h-[400px] w-full">
-        <CircularGallery
-          items={galleryItems}
-          bend={3}
-          textColor="#1a202c"
-          scrollSpeed={2}
-          scrollEase={0.06}
-        />
       </div>
     </div>
   );

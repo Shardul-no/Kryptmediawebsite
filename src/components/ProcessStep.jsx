@@ -4,26 +4,21 @@
  */
 export default function ProcessStep({ number, title, description, last = false }) {
   return (
-    <div className={`group flex gap-8 items-start py-10 ${!last ? 'border-b border-krypt-olive/20' : ''} hover:bg-krypt-sand/20 transition-colors duration-300 px-4 rounded-xl`}>
-      {/* Editorial number */}
-      <span className="font-playfair text-[4.5rem] font-black text-krypt-orange/15 group-hover:text-krypt-orange/30 transition-colors duration-500 leading-none pt-1 select-none flex-shrink-0 w-24 text-right">
-        {number}
-      </span>
+    <div className="relative flex-1">
+      {/* Box */}
+      <div className="border border-krypt-olive/20 rounded-2xl bg-krypt-cream/60 backdrop-blur-sm p-6 md:p-8 h-full hover:bg-krypt-sand/20 transition-colors duration-300">
+        {/* Number */}
+        <span className="font-playfair text-[3rem] md:text-[4rem] font-black text-krypt-orange/20 leading-none select-none block mb-4">
+          {number}
+        </span>
 
-      <div className="flex-1 pt-3">
-        <h3 className="font-playfair text-2xl md:text-3xl font-bold text-krypt-charcoal mb-3 leading-tight">
+        {/* Content */}
+        <h3 className="font-playfair text-xl md:text-2xl font-bold text-krypt-charcoal mb-3 leading-tight">
           {title}
         </h3>
-        <p className="font-dm text-krypt-charcoal/55 leading-relaxed max-w-lg">
+        <p className="font-dm text-krypt-charcoal/55 leading-relaxed">
           {description}
         </p>
-      </div>
-
-      {/* Arrow indicator */}
-      <div className="flex-shrink-0 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <svg className="w-5 h-5 text-krypt-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
       </div>
     </div>
   );

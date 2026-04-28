@@ -5,6 +5,9 @@ const ContactForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        companyName: '',
+        phoneNumber: '',
+        countryCode: '+91',
         subject: '',
         message: '',
     });
@@ -21,8 +24,8 @@ const ContactForm = () => {
         setIsSubmitting(true);
 
         // Prepare WhatsApp message
-        const phoneNumber = "9930183457";
-        const messageText = `*New Inquiry from Website*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Subject:* ${formData.subject}%0A*Message:* ${formData.message}`;
+        const phoneNumber = "91703922208";
+        const messageText = `*New Inquiry from Website*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Company:* ${formData.companyName || 'N/A'}%0A*Phone:* ${formData.countryCode} ${formData.phoneNumber || 'N/A'}%0A*Subject:* ${formData.subject}%0A*Message:* ${formData.message}`;
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${messageText}`;
 
         // Simulate a small delay for better UX
@@ -33,7 +36,7 @@ const ContactForm = () => {
 
         setIsSubmitting(false);
         setSubmitted(true);
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setFormData({ name: '', email: '', companyName: '', phoneNumber: '', countryCode: '+91', subject: '', message: '' });
 
         // Reset success message after 5 seconds
         setTimeout(() => setSubmitted(false), 5000);
@@ -82,6 +85,63 @@ const ContactForm = () => {
                                     placeholder="john@example.com"
                                     className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
                                 />
+                            </div>
+                        </div>
+
+                        <div className="space-y-6">
+                            <div className="space-y-2">
+                                <label htmlFor="companyName" className="text-sm font-medium text-charcoal/70 ml-1">
+                                    Name of Company
+                                </label>
+                                <input
+                                    type="text"
+                                    id="companyName"
+                                    name="companyName"
+                                    value={formData.companyName}
+                                    onChange={handleChange}
+                                    placeholder="Your Company Name"
+                                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label htmlFor="phoneNumber" className="text-sm font-medium text-charcoal/70 ml-1">
+                                    Phone Number
+                                </label>
+                                <div className="flex gap-2">
+                                    <select
+                                        id="countryCode"
+                                        name="countryCode"
+                                        value={formData.countryCode}
+                                        onChange={handleChange}
+                                        className="shrink-0 px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all text-charcoal font-medium min-w-[110px]"
+                                    >
+                                        <option value="+91">🇮🇳 +91</option>
+                                        <option value="+64">🇳🇿 +64</option>
+                                        <option value="+1">🇺🇸 +1</option>
+                                        <option value="+44">🇬🇧 +44</option>
+                                        <option value="+61">🇦🇺 +61</option>
+                                        <option value="+971">🇦🇪 +971</option>
+                                        <option value="+65">🇸🇬 +65</option>
+                                        <option value="+49">🇩🇪 +49</option>
+                                        <option value="+33">🇫🇷 +33</option>
+                                        <option value="+81">🇯🇵 +81</option>
+                                        <option value="+86">🇨🇳 +86</option>
+                                        <option value="+82">🇰🇷 +82</option>
+                                        <option value="+39">🇮🇹 +39</option>
+                                        <option value="+34">🇪🇸 +34</option>
+                                        <option value="+55">🇧🇷 +55</option>
+                                        <option value="+27">🇿🇦 +27</option>
+                                    </select>
+                                    <input
+                                        type="tel"
+                                        id="phoneNumber"
+                                        name="phoneNumber"
+                                        value={formData.phoneNumber}
+                                        onChange={handleChange}
+                                        placeholder="98765 43210"
+                                        className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
+                                    />
+                                </div>
                             </div>
                         </div>
 

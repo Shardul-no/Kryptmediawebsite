@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const WhatsAppFixed = () => {
-    const phoneNumber = "919167012101"; // Based on footer data
+    const phoneNumber = "91703922208";
     const message = encodeURIComponent("Hi, I'm interested in your services!");
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

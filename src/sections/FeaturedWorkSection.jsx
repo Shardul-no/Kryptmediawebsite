@@ -36,24 +36,6 @@ const projects = [
     url: null,
     cursor: 'demo',
   },
-  {
-    id: 4,
-    title: 'Siena Film Foundation',
-    tag: 'Brand & Film',
-    mediaType: 'video',
-    media: '/herohorizontal/From KlickPin CF Introducing the Siena Film Foundation—where bold storytelling meets cinematic innovation If you… [Video] _ Interactive web design Portfolio website design Webpage design.mp4',
-    url: null,
-    cursor: 'coming',
-  },
-  {
-    id: 5,
-    title: 'Motion & Identity',
-    tag: 'Creative Direction',
-    mediaType: 'video',
-    media: '/herohorizontal/From KlickPin CF Pin von たなか auf inspiration _ Web design Kommunikationsdesign WebdesignDaniel Oliveira avatar link.mp4',
-    url: null,
-    cursor: 'coming',
-  },
 ];
 
 /* ─────────────────────────────────────────────

@@ -8,11 +8,6 @@ import CycleText from '../components/CycleText';
 import BlurText from '../components/BlurText';
 
 export default function HeroSection() {
-  const trustedLogos = [
-    { name: 'DMX', src: '/assets/companyLogo/dmx.png' },
-    { name: 'Rajhans', src: '/assets/companyLogo/rajhans.png' },
-  ];
-
   return (
     <section className="relative min-h-screen bg-krypt-charcoal overflow-hidden flex flex-col">
 
@@ -105,38 +100,6 @@ export default function HeroSection() {
           </Link>
         </motion.div>
 
-        {/* Trusted-by strip */}
-        <div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-            className="font-dm text-[10px] tracking-[0.35em] uppercase text-white/25 mb-5"
-          >
-            Trusted by
-          </motion.p>
-          <div className="flex items-center gap-8 flex-wrap">
-            {trustedLogos.map(({ name, src }, i) => (
-              <motion.img
-                key={name}
-                src={src}
-                alt={name}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 0.25, y: 0 }}
-                transition={{ delay: 0.88 + i * 0.12, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                className="h-8 w-auto hover:opacity-55 transition-opacity duration-300 grayscale hover:grayscale-0 object-contain"
-              />
-            ))}
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.12, duration: 0.5 }}
-              className="font-dm text-white/20 text-xs italic font-cormorant"
-            >
-              + 30+ growing businesses
-            </motion.span>
-          </div>
-        </div>
       </div>
 
       {/* Bottom fade into next section */}

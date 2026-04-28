@@ -4,7 +4,8 @@
  */
 export const SERVICE_SLUGS = {
   'Website Design & Development': 'website-design',
-  'Social Media Marketing': 'social-media-marketing',
+  'AI Agents': 'ai-agents',
+  'Business Solutions': 'business-solutions',
   'Design Services': 'design-services',
 };
 

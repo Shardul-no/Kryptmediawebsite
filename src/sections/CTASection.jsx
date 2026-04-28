@@ -93,7 +93,7 @@ export default function CTASection() {
               Get Started Now
             </Link>
             <a
-              href="https://wa.me/918928030419"
+              href="https://wa.me/91703922208"
               target="_blank"
               rel="noopener noreferrer"
               className="px-9 py-4 border border-white/20 text-white font-dm font-medium rounded-full hover:border-krypt-orange/60 hover:text-krypt-orange transition-all duration-300 text-base"

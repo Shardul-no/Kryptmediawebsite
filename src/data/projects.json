@@ -1,19 +1,5 @@
 [
   {
-    "slug": "dmx",
-    "title": "DMX RGIT",
-    "description": "Interactive tech startup website with animations",
-    "image": "/assets/companyLogo/dmx.png",
-    "url": "https://www.dmxrgit.com",
-    "tag": "UI/UX & Development",
-    "technologies": [
-      "React",
-      "GSAP",
-      "TailwindCSS"
-    ],
-    "hasDemo": true
-  },
-  {
     "slug": "rajhans",
     "title": "Rajhans Tours and Travels",
     "description": "Travel and tourism website with booking features",
@@ -25,15 +11,6 @@
       "API Integration",
       "Responsive Design"
     ]
-  },
-  {
-    "slug": "fitness-club",
-    "title": "Fitness Club",
-    "description": "High-energy gym website with brutal editorial design and scroll-driven GSAP animations",
-    "image": "/src/projects/fitness-club/images/hero-athlete.jpg",
-    "tag": "UI/UX & Development",
-    "technologies": ["React", "GSAP", "Tailwind"],
-    "hasDemo": true
   },
   {
     "slug": "mumbai-studio",
@@ -87,6 +64,29 @@
       "ScrollTrigger",
       "Lenis"
     ],
+    "hasDemo": true
+  },
+  {
+    "slug": "dmx",
+    "title": "DMX RGIT",
+    "description": "Interactive tech startup website with animations",
+    "image": "/assets/companyLogo/dmx.png",
+    "url": "https://www.dmxrgit.com",
+    "tag": "UI/UX & Development",
+    "technologies": [
+      "React",
+      "GSAP",
+      "TailwindCSS"
+    ],
+    "hasDemo": true
+  },
+  {
+    "slug": "fitness-club",
+    "title": "Fitness Club",
+    "description": "High-energy gym website with brutal editorial design and scroll-driven GSAP animations",
+    "image": "/src/projects/fitness-club/images/hero-athlete.jpg",
+    "tag": "UI/UX & Development",
+    "technologies": ["React", "GSAP", "Tailwind"],
     "hasDemo": true
   }
 ]

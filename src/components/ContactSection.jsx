@@ -46,7 +46,7 @@ const ContactSection = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <SectionReveal delay={0.1}>
                   <a
-                    href="https://wa.me/9930183457?text=Hello%2C%20I%27d%20like%20to%20discuss%20a%20project"
+                    href="https://wa.me/91703922208?text=Hello%2C%20I%27d%20like%20to%20discuss%20a%20project"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 bg-krypt-orange hover:bg-krypt-apricot text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-lg shadow-krypt-orange/20 hover:shadow-krypt-orange/30 active:scale-95"
@@ -89,7 +89,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-bold uppercase tracking-wider text-krypt-charcoal/40 mb-1">Talk to us</h4>
-                    <p className="text-xl font-semibold text-krypt-charcoal">9930183457</p>
+                    <p className="text-xl font-semibold text-krypt-charcoal">+91 703922208</p>
                   </div>
                 </div>
               </SectionReveal>

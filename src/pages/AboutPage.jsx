@@ -44,28 +44,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Values — Scroll Reveal */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-krypt-olive/10">
-        <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-krypt-charcoal">
-          What We Stand For
-        </ScrollReveal>
-        <GradualBlur delay={0.1}>
-          <p className="text-krypt-charcoal/55 text-lg max-w-2xl mb-14">
-            Our values guide how we work with every client and project.
-          </p>
-        </GradualBlur>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {VALUES.map((value, i) => (
-            <SectionReveal key={value.name} delay={i * 0.1}>
-              <div className="p-6 rounded-xl border border-krypt-olive/10 bg-krypt-charcoal/[0.02] hover:border-krypt-olive/20 transition-colors duration-300">
-                <h3 className="text-xl font-semibold text-krypt-charcoal mb-2">{value.name}</h3>
-                <p className="text-krypt-charcoal/55 text-sm">{value.desc}</p>
-              </div>
-            </SectionReveal>
-          ))}
-        </div>
-      </div>
-
       {/* Interactive Lanyards Section */}
       <div className="container mx-auto px-4 pt-12 pb-48 border-t border-krypt-olive/10">
         <ScrollReveal containerClassName="!my-0 mb-0" textClassName="text-krypt-charcoal">
@@ -88,7 +66,7 @@ export default function AboutPage() {
             />
             <div className="absolute -bottom-32 left-0 right-0 text-center">
               <h3 className="text-xl font-semibold text-krypt-charcoal drop-shadow-lg">Priyanshu Naik</h3>
-              <p className="text-krypt-orange drop-shadow-lg">Co-Founder</p>
+              <p className="text-krypt-orange drop-shadow-lg">CFO</p>
             </div>
           </div>
 
@@ -103,7 +81,7 @@ export default function AboutPage() {
             />
             <div className="absolute -bottom-32 left-0 right-0 text-center">
               <h3 className="text-xl font-semibold text-krypt-charcoal drop-shadow-lg">Taniksh Waingankar</h3>
-              <p className="text-krypt-orange drop-shadow-lg">Co-Founder</p>
+              <p className="text-krypt-orange drop-shadow-lg">CEO</p>
             </div>
           </div>
 
@@ -118,9 +96,31 @@ export default function AboutPage() {
             />
             <div className="absolute -bottom-32 left-0 right-0 text-center">
               <h3 className="text-xl font-semibold text-krypt-charcoal drop-shadow-lg">Kartik Mistry</h3>
-              <p className="text-krypt-orange drop-shadow-lg">Co-Founder</p>
+              <p className="text-krypt-orange drop-shadow-lg">CTO</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Our Story — Scroll Reveal */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-krypt-olive/10">
+        <ScrollReveal containerClassName="!my-0 mb-4" textClassName="text-krypt-charcoal">
+          Our Story
+        </ScrollReveal>
+        <GradualBlur delay={0.1}>
+          <p className="text-krypt-charcoal/55 text-lg max-w-2xl mb-14">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </GradualBlur>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {VALUES.map((value, i) => (
+            <SectionReveal key={value.name} delay={i * 0.1}>
+              <div className="p-6 rounded-xl border border-krypt-olive/10 bg-krypt-charcoal/[0.02] hover:border-krypt-olive/20 transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-krypt-charcoal mb-2">{value.name}</h3>
+                <p className="text-krypt-charcoal/55 text-sm">{value.desc}</p>
+              </div>
+            </SectionReveal>
+          ))}
         </div>
       </div>
     </section>

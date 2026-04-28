@@ -3,7 +3,7 @@ import React from 'react';
 const WhatsAppButton = ({ serviceName }) => {
   const message = `Hi, I want help with ${serviceName}`;
   const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/919930183457?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/91703922208?text=${encodedMessage}`;
 
   return (
     <div className="flex justify-center mb-8">

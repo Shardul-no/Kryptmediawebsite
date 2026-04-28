@@ -11,16 +11,9 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen,   setIsOpen]   = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const isHome = location.pathname === '/';
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 56);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Close mobile menu on route change
   useEffect(() => setIsOpen(false), [location.pathname]);
@@ -28,18 +21,14 @@ export default function Navbar() {
   const isActive = (path) =>
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
 
-  const solidBg  = 'bg-krypt-cream/95 backdrop-blur-md border-b border-krypt-olive/20 shadow-sm';
-  const clearBg  = 'bg-transparent';
-  const navBg    = scrolled || !isHome ? solidBg : clearBg;
+  const navBg = 'bg-[#1c1e23]';
 
   const linkColor = (path) => {
     if (isActive(path)) return 'text-krypt-orange';
-    return scrolled || !isHome
-      ? 'text-krypt-charcoal hover:text-krypt-orange'
-      : 'text-white/80 hover:text-white';
+    return 'text-white/80 hover:text-white';
   };
 
-  const hamColor = scrolled || !isHome ? 'bg-krypt-charcoal' : 'bg-white';
+  const hamColor = 'bg-white';
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${navBg}`}>
@@ -47,7 +36,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex-shrink-0">
-          <img src="/logo.png" alt="Krypt Media" className="h-12 w-auto" />
+          <img src="/whitelogo.png" alt="Krypt Media" className="h-16 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -86,12 +75,12 @@ export default function Navbar() {
         initial={false}
         animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
-        className="md:hidden overflow-hidden bg-krypt-cream border-t border-krypt-olive/15"
+        className="md:hidden overflow-hidden bg-[#1c1e23] border-t border-white/10"
       >
         <div className="px-6 py-6 space-y-1">
           <Link
             to="/"
-            className={`block py-3 font-dm font-medium text-base border-b border-krypt-olive/10 ${isActive('/') ? 'text-krypt-orange' : 'text-krypt-charcoal'}`}
+            className={`block py-3 font-dm font-medium text-base border-b border-white/10 ${isActive('/') ? 'text-krypt-orange' : 'text-white/80'}`}
           >
             Home
           </Link>
@@ -99,7 +88,7 @@ export default function Navbar() {
             <Link
               key={path}
               to={path}
-              className={`block py-3 font-dm font-medium text-base border-b border-krypt-olive/10 ${isActive(path) ? 'text-krypt-orange' : 'text-krypt-charcoal'}`}
+              className={`block py-3 font-dm font-medium text-base border-b border-white/10 ${isActive(path) ? 'text-krypt-orange' : 'text-white/80'}`}
             >
               {name}
             </Link>

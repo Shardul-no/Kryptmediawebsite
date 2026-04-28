@@ -79,7 +79,7 @@ export default function ProcessSection() {
         </div>
 
         {/* Steps */}
-        <div className="border border-krypt-olive/20 rounded-3xl overflow-hidden bg-krypt-cream/60 backdrop-blur-sm">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
           {steps.map((step, i) => (
             <FadeUp key={step.number} delay={0.1 + i * 0.12}>
               <ProcessStep {...step} last={i === steps.length - 1} />
