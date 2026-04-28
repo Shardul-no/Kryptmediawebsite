@@ -48,10 +48,10 @@ const ContactForm = () => {
                 {!submitted ? (
                     <motion.form
                         key="contact-form"
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                         onSubmit={handleSubmit}
                         className="space-y-6"
                     >
@@ -68,7 +68,7 @@ const ContactForm = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     placeholder="John Doe"
-                                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
+                                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-krypt-coral/70 focus:ring-4 focus:ring-krypt-coral/10 outline-none transition-all placeholder:text-charcoal/20"
                                 />
                             </div>
                             <div className="space-y-2">
@@ -83,7 +83,7 @@ const ContactForm = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                     placeholder="john@example.com"
-                                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
+                                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-krypt-coral/70 focus:ring-4 focus:ring-krypt-coral/10 outline-none transition-all placeholder:text-charcoal/20"
                                 />
                             </div>
                         </div>
@@ -100,7 +100,7 @@ const ContactForm = () => {
                                     value={formData.companyName}
                                     onChange={handleChange}
                                     placeholder="Your Company Name"
-                                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
+                                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-krypt-coral/70 focus:ring-4 focus:ring-krypt-coral/10 outline-none transition-all placeholder:text-charcoal/20"
                                 />
                             </div>
                             <div className="space-y-2">
@@ -113,7 +113,7 @@ const ContactForm = () => {
                                         name="countryCode"
                                         value={formData.countryCode}
                                         onChange={handleChange}
-                                        className="shrink-0 px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all text-charcoal font-medium min-w-[110px]"
+                                        className="shrink-0 px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-krypt-coral/70 focus:ring-4 focus:ring-krypt-coral/10 outline-none transition-all text-charcoal font-medium min-w-[110px]"
                                     >
                                         <option value="+91">🇮🇳 +91</option>
                                         <option value="+64">🇳🇿 +64</option>
@@ -157,7 +157,7 @@ const ContactForm = () => {
                                 value={formData.subject}
                                 onChange={handleChange}
                                 placeholder="How can we help?"
-                                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20"
+                                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-krypt-coral/70 focus:ring-4 focus:ring-krypt-coral/10 outline-none transition-all placeholder:text-charcoal/20"
                             />
                         </div>
 
@@ -173,7 +173,7 @@ const ContactForm = () => {
                                 onChange={handleChange}
                                 rows="4"
                                 placeholder="Tell us about your project..."
-                                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-coffee/50 focus:ring-4 focus:ring-coffee/5 outline-none transition-all placeholder:text-charcoal/20 resize-none"
+                                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 rounded-2xl bg-white border border-coffee/10 focus:border-krypt-coral/70 focus:ring-4 focus:ring-krypt-coral/10 outline-none transition-all placeholder:text-charcoal/20 resize-none"
                             ></textarea>
                         </div>
 
@@ -182,7 +182,7 @@ const ContactForm = () => {
                             whileTap={{ scale: 0.98 }}
                             disabled={isSubmitting}
                             type="submit"
-                            className="w-full py-4 px-6 bg-charcoal text-white font-bold rounded-2xl hover:bg-charcoal/90 transition-all flex items-center justify-center gap-3 disabled:opacity-70"
+                            className="w-full py-4 px-6 bg-krypt-coral text-white font-bold rounded-2xl hover:bg-krypt-coral/90 transition-all flex items-center justify-center gap-3 disabled:opacity-70 shadow-lg shadow-krypt-coral/25"
                         >
                             {isSubmitting ? (
                                 <>

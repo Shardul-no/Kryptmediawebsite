@@ -3,7 +3,7 @@
     "slug": "rajhans",
     "title": "Rajhans Tours and Travels",
     "description": "Travel and tourism website with booking features",
-    "image": "/assets/companyLogo/rajhans.png",
+    "image": "/projects/thumbnail/rajhans.png",
     "url": "https://rajhanstravels.com/",
     "tag": "Travel & Tourism",
     "technologies": [
@@ -16,7 +16,7 @@
     "slug": "mumbai-studio",
     "title": "Midnight Sound Studio",
     "description": "Cinematic music recording studio experience with interactive animations",
-    "image": "/assets/projects/mumbai-studio/artist-silhouette-recording.png",
+    "image": "/projects/thumbnail/midnight.png",
     "tag": "Interactive Experience",
     "technologies": [
       "React",
@@ -30,7 +30,7 @@
     "slug": "videohut",
     "title": "Videohut Studios",
     "description": "Video production studio website with GSAP animations",
-    "image": "/projects/videohut/gettyimages-1452644429-612x612.jpg",
+    "image": "/projects/thumbnail/videohut.png",
     "tag": "Video Production",
     "technologies": [
       "React",
@@ -40,10 +40,19 @@
     "hasDemo": true
   },
   {
+    "slug": "immersive-dark-edition",
+    "title": "Immersive Dark Edition",
+    "description": "Immersive dark-themed web experience with modern interactions",
+    "image": "/projects/thumbnail/darks3k.png",
+    "url": "https://the-immersive-dark-edition.vercel.app/",
+    "tag": "UI/UX & Development",
+    "technologies": ["React", "GSAP", "TailwindCSS"]
+  },
+  {
     "slug": "milton",
     "title": "Milton Water Bottles",
     "description": "Premium water bottle product showcase with scroll-driven frame animation",
-    "image": "/projects/milton/v1/ezgif-frame-001.jpg",
+    "image": "/projects/thumbnail/milton.png",
     "tag": "Product Showcase",
     "technologies": [
       "React",
@@ -56,7 +65,7 @@
     "slug": "sienna",
     "title": "Sienna Interactions",
     "description": "Fashion and lifestyle website with custom cursor and blend effects",
-    "image": "https://images.unsplash.com/photo-1542359649-31e03cd4d909?q=80&w=1000&auto=format&fit=crop",
+    "image": "/projects/thumbnail/sienna.png",
     "tag": "Fashion & Lifestyle",
     "technologies": [
       "React",
@@ -70,7 +79,7 @@
     "slug": "dmx",
     "title": "DMX RGIT",
     "description": "Interactive tech startup website with animations",
-    "image": "/assets/companyLogo/dmx.png",
+    "image": "/projects/thumbnail/dmx.png",
     "url": "https://www.dmxrgit.com",
     "tag": "UI/UX & Development",
     "technologies": [
@@ -84,7 +93,7 @@
     "slug": "fitness-club",
     "title": "Fitness Club",
     "description": "High-energy gym website with brutal editorial design and scroll-driven GSAP animations",
-    "image": "/src/projects/fitness-club/images/hero-athlete.jpg",
+    "image": "/projects/thumbnail/fitness.png",
     "tag": "UI/UX & Development",
     "technologies": ["React", "GSAP", "Tailwind"],
     "hasDemo": true

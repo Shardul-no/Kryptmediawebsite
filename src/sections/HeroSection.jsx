@@ -13,7 +13,7 @@ export default function HeroSection() {
 
       {/* ── Aurora background ── */}
       <Aurora
-        colorStops={['#ED921D', '#F2A966', '#EBCB9F']}
+        colorStops={['#ED921D', '#ED5C47', '#F2A966', '#EBCB9F']}
         blend={0.45}
         amplitude={0.9}
         speed={0.3}

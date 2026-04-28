@@ -20,20 +20,21 @@ function ServiceFlipCard({ service, index }) {
   const bgGradient = SERVICE_BACKGROUNDS[index % SERVICE_BACKGROUNDS.length];
 
   return (
-    <motion.div
-      className="relative w-full aspect-[3/4] cursor-pointer perspective-1000"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        type: 'spring',
-        stiffness: 90,
-        damping: 18,
-        delay: index * 0.12,
-      }}
-      viewport={{ once: true, amount: 0.2 }}
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-    >
+    <Link to={`/services/${slug}`}>
+      <motion.div
+        className="relative w-full aspect-[3/4] cursor-pointer perspective-1000"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          type: 'spring',
+          stiffness: 90,
+          damping: 18,
+          delay: index * 0.25,
+        }}
+        viewport={{ once: true, amount: 0.2 }}
+        onMouseEnter={() => setIsFlipped(true)}
+        onMouseLeave={() => setIsFlipped(false)}
+      >
       <motion.div
         className="relative w-full h-full preserve-3d"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
@@ -100,17 +101,14 @@ function ServiceFlipCard({ service, index }) {
             </div>
 
             {/* CTA Button */}
-            <Link
-              to={`/services/${slug}`}
-              className="mt-4 block w-full bg-krypt-orange hover:bg-krypt-apricot text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 text-center text-sm"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="mt-4 block w-full bg-krypt-orange hover:bg-krypt-apricot text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 text-center text-sm">
               See More
-            </Link>
+            </div>
           </div>
         </div>
       </motion.div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 }
 

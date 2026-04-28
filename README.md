@@ -239,6 +239,92 @@ npm run preview  # Preview production build locally
 
 ---
 
+
+### Directory Structure
+
+```
+public/
+├── assets/
+│   ├── companyLogo/          # Client logos (logo-client-name.png)
+│   ├── projects/             # Project thumbnails (project-slug-thumb.jpg)
+│   └── services/             # Service icons (service-name-icon.png)
+├── hero/                     # Hero section videos/images
+├── models/                   # 3D models (.glb, .gltf)
+├── projects/                 # Demo-specific assets
+│   ├── project-slug/
+│   │   ├── reels/           # Video reels (reel-01.mp4, reel-02.mp4)
+│   │   ├── showreel/        # Main showreel (showreel.mp4)
+│   │   └── images/          # Static images
+└── 3d/                       # 3D icons and models
+```
+
+### Media Reference Updates Needed
+
+**Critical files requiring renaming:**
+
+1. **Hero Videos** (`/public/herohorizontal/` → `/public/hero/`):
+   - `46d06c94bfc3fd977a1cf86cbc56f81c_720w.mp4` → `hero-midnight-studio-demo.mp4`
+   - `From KlickPin CF Redo media website design.mp4` → `hero-dmx-rgit-demo.mp4`
+   - `d84c51e6a87f5549ea177e87e3771ad9.mp4` → `hero-rajhans-travels-demo.mp4`
+
+2. **3D Models** (`/public/3d/`):
+   - `a_contemporary_3d_icon_representing_creative_desig_glb.glb` → `icon-3d-creative.glb`
+   - `a_sleek_3d_symbol_representing_social_media_market_glb (2).glb` → `icon-3d-social-media.glb`
+
+3. **Videohut Assets**:
+   - `gettyimages-1452644429-612x612.jpg` → `project-videohut-hero.jpg`
+   - `Video-*.mp4` → `reel-01.mp4`, `reel-02.mp4`, etc.
+   - `t3oWwHTiHPdqvISgXglF9dJecA.mp4` → `showreel-videohut.mp4`
+
+### Code Files Requiring Updates
+
+After renaming assets, update these files:
+- `src/sections/FeaturedWorkSection.jsx` - Hero video paths
+- `src/sections/ContainerScrollSection.jsx` - Video paths  
+- `src/data/projects.json` - Project image paths
+- `src/data/services.json` - Service image paths
+- `src/projects/videohut/index.jsx` - Video reel paths
+- `src/projects/videohut/styles.css` - Background image paths
+
+---
+
+## Project Demos
+
+### How Demos Work
+
+Each project in `/src/projects/` is a **standalone mini-application** with its own:
+- Independent routing (no MainLayout wrapper)
+- Custom animations and interactions
+- Project-specific assets in `/public/projects/{slug}/`
+- Separate HTML/CSS/JS when needed
+
+### Demo Access
+
+**Live demos:** `/projects/{project-slug}`
+- `/projects/dmx` - DMX RGIT tech startup
+- `/projects/mumbai-studio` - Midnight Sound Studio  
+- `/projects/gyro-3d` - 3D gyroscope demo
+- `/projects/videohut` - Video production studio
+- `/projects/milton` - Product showcase
+- `/projects/sienna` - Fashion interactions
+
+### Demo Maintenance
+
+**Adding new demos:**
+1. Create folder: `/src/projects/{slug}/`
+2. Add assets: `/public/projects/{slug}/`
+3. Update `src/data/projects.json` with `"hasDemo": true`
+4. Route automatically available at `/projects/{slug}`
+
+**Demo requirements:**
+- Use `ProjectLayout.jsx` for consistent wrapper
+- Follow naming conventions for demo assets
+- Test standalone functionality
+- Include responsive design
+- Optimize assets for web (compress videos, resize images)
+
+---
+
 ## Rules for AI Assistants
 
 - **Color:** Always use `krypt-*` tokens. Never introduce blue/grey palettes or Bootstrap patterns.
@@ -250,3 +336,5 @@ npm run preview  # Preview production build locally
 - **Inner pages:** Use `ScrollReveal`, `SectionReveal`, `GradualBlur` for animation — they match the legacy style of non-homepage pages.
 - **Do not add** `ColorProvider`, theme switchers, or external CSS frameworks. The design system is self-contained in `index.css`.
 - **3D components:** All use React Three Fiber. Check Three.js version compatibility before updating dependencies.
+- **Media assets:** Follow naming conventions strictly. Use descriptive names, no random hashes or platform prefixes. Update all references when renaming files.
+- **Demo projects:** Test standalone functionality. Ensure demos work without MainLayout wrapper and have proper asset paths.

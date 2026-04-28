@@ -23,12 +23,12 @@ export default function ContainerScrollSection() {
         }
       >
         <video
-          src="/herohorizontal/From KlickPin CF Redo media website design _ Interactive web design Webpage design Web design examples.mp4"
+          src="/herohorizontal/ipad.mp4"
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover object-left-top rounded-2xl"
+          className="w-full h-full object-cover object-[center_50%] rounded-2xl"
         />
       </ContainerScroll>
     </div>

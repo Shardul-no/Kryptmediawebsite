@@ -10,11 +10,11 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     id: 1,
-    title: 'DMX RGIT',
+    title: 'Immersive Dark Edition',
     tag: 'UI/UX & Development',
     mediaType: 'video',
-    media: '/herohorizontal/From KlickPin CF Redo media website design _ Interactive web design Webpage design Web design examples.mp4',
-    url: 'https://www.dmxrgit.com',
+    media: '/herohorizontal/darkimmersive.mp4',
+    url: 'https://the-immersive-dark-edition.vercel.app/',
     cursor: 'view',
   },
   {
@@ -22,7 +22,7 @@ const projects = [
     title: 'Rajhans Travels',
     tag: 'Travel & Tourism',
     mediaType: 'video',
-    media: '/herohorizontal/d84c51e6a87f5549ea177e87e3771ad9.mp4',
+    media: '/herohorizontal/rajhans.mp4',
     url: 'https://rajhanstravels.com/',
     cursor: 'view',
   },
@@ -31,9 +31,9 @@ const projects = [
     title: 'Midnight Sound Studio',
     tag: 'Interactive Experience',
     mediaType: 'video',
-    media: '/herohorizontal/46d06c94bfc3fd977a1cf86cbc56f81c_720w.mp4',
+    media: '/herohorizontal/milton.mp4',
     isDemo: true,
-    url: null,
+    slug: 'mumbai-studio',
     cursor: 'demo',
   },
 ];
@@ -44,7 +44,7 @@ const projects = [
 const CURSOR = {
   idle:   { size: 14,  bg: 'rgba(237,146,29,0.55)', text: null,              textColor: 'transparent' },
   view:   { size: 110, bg: '#ED921D',                text: 'View\nProject',   textColor: '#15171C'     },
-  demo:   { size: 110, bg: '#ABAD8C',                text: 'Demo\nOnly',      textColor: '#15171C'     },
+  demo:   { size: 110, bg: '#ED5C47',                text: 'Demo\nOnly',      textColor: '#15171C'     },
   coming: { size: 110, bg: 'rgba(255,255,255,0.18)', text: 'Coming\nSoon',    textColor: '#ffffff'     },
 };
 
@@ -132,7 +132,11 @@ function BlobCursor({ cursorType, visible }) {
 ───────────────────────────────────────────── */
 function Card({ project, onEnter, onLeave }) {
   const handleClick = () => {
-    if (project.url) window.open(project.url, '_blank', 'noopener');
+    if (project.url) {
+      window.open(project.url, '_blank', 'noopener');
+    } else if (project.isDemo && project.slug) {
+      window.location.href = `/projects/${project.slug}`;
+    }
   };
 
   return (
@@ -304,7 +308,13 @@ export default function FeaturedWorkSection() {
                     aspectRatio: '16/9',
                     scrollSnapAlign: 'start',
                   }}
-                  onClick={() => p.url && window.open(p.url, '_blank', 'noopener')}
+                  onClick={() => {
+                    if (p.url) {
+                      window.open(p.url, '_blank', 'noopener');
+                    } else if (p.isDemo && p.slug) {
+                      window.location.href = `/projects/${p.slug}`;
+                    }
+                  }}
                 >
                   <video src={p.media} autoPlay loop muted playsInline className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />

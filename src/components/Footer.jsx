@@ -54,7 +54,7 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                <a href="tel:+91703922208" className="hover:text-krypt-orange transition-colors">
+                <a href="tel:+91703922208" className="hover:text-krypt-coral transition-colors">
                   +91 703922208
                 </a>
               </p>
@@ -81,7 +81,7 @@ export default function Footer() {
                   <li key={label}>
                     <Link
                       to={to}
-                      className="font-dm text-sm text-krypt-sand/60 hover:text-krypt-orange transition-colors duration-200"
+                      className="font-dm text-sm text-krypt-sand/60 hover:text-krypt-coral transition-colors duration-200"
                       onClick={() => window.scrollTo(0, 0)}
                     >
                       {label}
@@ -104,7 +104,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-krypt-sand/60 hover:text-krypt-orange transition-colors duration-200"
+                  className="flex items-center gap-3 text-krypt-sand/60 hover:text-krypt-coral transition-colors duration-200"
                 >
                   <span className="text-krypt-sand/40">{icon}</span>
                   <span className="font-dm text-sm">{name}</span>
@@ -127,7 +127,7 @@ export default function Footer() {
             </p>
             <Link
               to="/terms"
-              className="font-dm text-xs text-krypt-sand/30 hover:text-krypt-orange transition-colors"
+              className="font-dm text-xs text-krypt-sand/30 hover:text-krypt-coral transition-colors"
               onClick={() => window.scrollTo(0, 0)}
             >
               Terms & Conditions

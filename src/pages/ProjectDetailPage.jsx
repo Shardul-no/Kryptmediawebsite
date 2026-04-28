@@ -6,9 +6,7 @@ import ProjectLayout from '../components/ProjectLayout';
 // Dynamic import for project demos
 const projectModules = {
   dmx: () => import('../projects/dmx/index.jsx'),
-  ecommerce: () => import('../projects/ecommerce/index.jsx'),
   'mumbai-studio': () => import('../projects/mumbai-studio/index.jsx'),
-  'gyro-3d': () => import('../projects/gyro-3d/index.jsx'),
   'fitness-club': () => import('../projects/fitness-club/index.jsx'),
   videohut: () => import('../projects/videohut/index.jsx'),
   milton: () => import('../projects/milton/index.jsx'),
