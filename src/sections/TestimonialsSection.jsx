@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
           </FadeUp>
           <FadeUp delay={0.2}>
             <p className="font-dm text-krypt-charcoal/50 mt-4 max-w-md mx-auto text-base">
-              Startups trust Krypt because we don&rsquo;t just design pages — we help
+              Startups trust Krypt because we don&rsquo;t just design pages. We help
               founders turn clarity into conversions and wins with impact.
             </p>
           </FadeUp>

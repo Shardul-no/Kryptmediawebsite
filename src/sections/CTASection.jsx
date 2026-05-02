@@ -79,7 +79,7 @@ export default function CTASection() {
 
         <FadeUp delay={0.2}>
           <p className="font-dm text-white/50 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-            Let Krypt design the digital presence your business deserves — clean,
+            Let Krypt design the digital presence your business deserves. Clean,
             strategic, and built to grow.
           </p>
         </FadeUp>
@@ -88,7 +88,7 @@ export default function CTASection() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               to="/contact"
-              className="px-9 py-4 bg-krypt-orange text-white font-dm font-medium rounded-full hover:bg-krypt-apricot transition-colors duration-300 shadow-2xl shadow-krypt-orange/40 text-base"
+              className="px-9 py-4 btn-cta text-white font-dm font-medium rounded-full text-base"
             >
               Get Started Now
             </Link>

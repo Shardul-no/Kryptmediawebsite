@@ -71,7 +71,7 @@ export default function HeroSection() {
         {/* Sub-copy */}
         <div className="font-dm text-white/55 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
           <BlurText
-            text="Krypt Media designs, develops, and deploys high-performing digital products — websites, automations, and brand systems that turn visitors into customers and businesses into industry leaders."
+            text="Krypt Media designs, develops, and deploys high-performing digital products. From websites to automations and brand systems, we turn visitors into customers and help businesses become industry leaders."
             animateBy="words"
             direction="bottom"
             delay={60}
@@ -88,7 +88,7 @@ export default function HeroSection() {
         >
           <Link
             to="/contact"
-            className="px-8 py-4 bg-krypt-orange text-white font-dm font-medium rounded-full hover:bg-krypt-apricot transition-colors duration-300 shadow-xl shadow-krypt-orange/35 text-sm md:text-base"
+            className="px-8 py-4 btn-cta text-white font-dm font-medium rounded-full text-sm md:text-base"
           >
             Get Started Now
           </Link>

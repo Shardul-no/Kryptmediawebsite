@@ -92,6 +92,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 .animate-fade-up { animation: fadeUp 0.7s ease forwards; }
 
+/* ── CTA Button Gradient ── */
+.btn-cta {
+  background: linear-gradient(135deg, var(--color-krypt-coral) 0%, var(--color-krypt-orange) 50%, var(--color-krypt-apricot) 100%);
+  background-size: 200% 200%;
+  transition: all 0.3s ease;
+}
+.btn-cta:hover {
+  background-position: 100% 0;
+  box-shadow: 0 10px 40px rgba(237, 92, 71, 0.35);
+}
+
 /* ── Legacy utilities ── */
 .display-large   { font-size:clamp(3rem,8vw,6rem); line-height:1.1; font-weight:800; }
 .italic-serif    { font-family:'Playfair Display',serif; font-style:italic; font-weight:400; }

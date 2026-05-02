@@ -84,7 +84,7 @@ export default function SplitSection() {
             </FadeUp>
             <FadeUp delay={0.2}>
               <p className="font-dm text-krypt-charcoal/60 leading-relaxed mb-8 max-w-md">
-                Strategy comes first — always. We use user-flow thinking, positioning
+                Strategy comes first, always. We use user-flow thinking, positioning
                 frameworks, and layout psychology to build interfaces that perform. Every
                 pixel earns its place.
               </p>

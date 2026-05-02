@@ -5,11 +5,22 @@ import projectsData from '../data/projects.json';
 import ScrollReveal from '../components/ScrollReveal';
 import GradualBlur from '../components/GradualBlur';
 
+const businessSolutionsCard = {
+  slug: 'business-solutions',
+  title: 'Business Solutions',
+  description: 'Dashboards, automation systems, and custom business workflows built to streamline operations and growth.',
+  image: '/projects/thumbnail/rajhans.png',
+  tag: 'Business Solutions',
+  link: '/services/business-solutions',
+};
+
 export default function ProjectsPage() {
   useEffect(() => {
     document.title = 'Our Projects | Krypt Media LLP';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  const projectCards = [...projectsData, businessSolutionsCard];
 
   return (
     <div id="projects" className="relative bg-krypt-cream text-krypt-charcoal min-h-[100dvh] pt-16 sm:pt-20 md:pt-24 pb-20 overflow-hidden">
@@ -24,10 +35,10 @@ export default function ProjectsPage() {
         </GradualBlur>
       </div>
 
-      {/* Project Grid — 3 columns with 16:9 cards */}
+        {/* Project Grid — 3 columns with 16:9 cards */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projectsData.map((project, index) => (
+          {projectCards.map((project, index) => (
             <motion.div
               key={project.slug}
               initial={{ opacity: 0, y: 30 }}
@@ -40,7 +51,34 @@ export default function ProjectsPage() {
               }}
               viewport={{ once: true, amount: 0.2 }}
             >
-              {project.url ? (
+              {project.link ? (
+                <Link
+                  to={project.link}
+                  className="group block relative aspect-video rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                >
+                  {/* Hero Image */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  {/* Text at Bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className="text-krypt-orange/90 text-xs font-medium uppercase tracking-wider">
+                      {project.tag}
+                    </span>
+                    <h3 className="text-xl font-bold text-white mt-1 group-hover:text-krypt-apricot transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-white/70 text-sm mt-2 line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
+                </Link>
+              ) : project.url ? (
                 <a
                   href={project.url}
                   target="_blank"

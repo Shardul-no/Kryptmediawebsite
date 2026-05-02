@@ -45,9 +45,9 @@ export default function Footer() {
           {/* Brand column */}
           <div className="md:col-span-5">
             <Link to="/" className="block mb-4">
-              <img src="/logo.png" alt="Krypt Media" className="h-10 w-auto brightness-0 invert opacity-80" />
+              <img src="/logo.png" alt="Krypt Media" className="h-16 w-auto brightness-0 invert opacity-80" />
             </Link>
-            <div className="space-y-2 text-sm font-dm">
+            <div className="space-y-2 text-base font-dm">
               <p>
                 <a href="mailto:contact@kryptmedia.in" className="hover:text-krypt-orange transition-colors">
                   contact@kryptmedia.in
@@ -81,7 +81,7 @@ export default function Footer() {
                   <li key={label}>
                     <Link
                       to={to}
-                      className="font-dm text-sm text-krypt-sand/60 hover:text-krypt-coral transition-colors duration-200"
+                      className="font-dm text-base text-krypt-sand/60 hover:text-krypt-coral transition-colors duration-200"
                       onClick={() => window.scrollTo(0, 0)}
                     >
                       {label}
@@ -107,7 +107,7 @@ export default function Footer() {
                   className="flex items-center gap-3 text-krypt-sand/60 hover:text-krypt-coral transition-colors duration-200"
                 >
                   <span className="text-krypt-sand/40">{icon}</span>
-                  <span className="font-dm text-sm">{name}</span>
+                  <span className="font-dm text-base">{name}</span>
                 </a>
               ))}
             </div>

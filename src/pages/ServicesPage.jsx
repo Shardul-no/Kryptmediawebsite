@@ -4,7 +4,14 @@ import { motion } from 'framer-motion';
 import ScrollReveal from '../components/ScrollReveal';
 import GradualBlur from '../components/GradualBlur';
 import services from '../data/services.json';
-import { SERVICE_SLUGS } from '../data/serviceSlugs';
+
+// Service paths for independent pages
+const SERVICE_PATHS = {
+  'Website Design & Development': '/services/website-design',
+  'AI Agents': '/services/ai-agents',
+  'Business Solutions': '/services/business-solutions',
+  'Design Services': '/services/design-services',
+};
 
 // Gradient backgrounds for services without images
 const SERVICE_BACKGROUNDS = [
@@ -16,11 +23,11 @@ const SERVICE_BACKGROUNDS = [
 
 function ServiceFlipCard({ service, index }) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const slug = SERVICE_SLUGS[service.title] || service.title.toLowerCase().replace(/\s+/g, '-');
+  const path = SERVICE_PATHS[service.title] || '/services';
   const bgGradient = SERVICE_BACKGROUNDS[index % SERVICE_BACKGROUNDS.length];
 
   return (
-    <Link to={`/services/${slug}`}>
+    <Link to={path}>
       <motion.div
         className="relative w-full aspect-[3/4] cursor-pointer perspective-1000"
         initial={{ opacity: 0, y: 40 }}
@@ -101,7 +108,7 @@ function ServiceFlipCard({ service, index }) {
             </div>
 
             {/* CTA Button */}
-            <div className="mt-4 block w-full bg-krypt-orange hover:bg-krypt-apricot text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 text-center text-sm">
+            <div className="mt-4 block w-full btn-cta text-white font-semibold py-3 px-4 rounded-lg text-center text-sm">
               See More
             </div>
           </div>

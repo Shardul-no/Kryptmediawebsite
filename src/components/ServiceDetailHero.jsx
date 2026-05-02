@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import CurvedLoop from './CurvedLoop';
 import BlurText from './BlurText';
 
@@ -23,13 +22,6 @@ export default function ServiceDetailHero({
       <div className="absolute inset-0 bg-krypt-cream/20 z-[1]" />
 
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-        <Link
-          to="/services"
-          className="inline-flex items-center text-krypt-orange/90 hover:text-krypt-orange/80 text-sm font-medium mb-8 transition-colors"
-        >
-          <span className="mr-2">←</span> Back to Services
-        </Link>
-
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-krypt-charcoal mb-6">
           <BlurText
             text={headline}

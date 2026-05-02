@@ -7,12 +7,12 @@ const faqs = [
   {
     question: 'How long does it take to deliver my website?',
     answer:
-      'Depending on the plan you choose, we typically deliver within 7–21 business days. Starter projects are done in 7 days, Pro in 14 days, and Elite in 21–30 days depending on complexity. Every project gets a detailed timeline at kickoff so there are no surprises.',
+      'Depending on the plan you choose, we typically deliver within 7 to 21 business days. Starter projects are done in 7 days, Pro in 14 days, and Elite in 21 to 30 days depending on complexity. Every project gets a detailed timeline at kickoff so there are no surprises.',
   },
   {
     question: 'What if I don\'t like the initial design?',
     answer:
-      'Every plan includes revision rounds, and we don\'t move to development until you\'ve signed off on the design. Our discovery process is thorough enough that misalignments are rare — but when they happen, we fix them without fuss.',
+      'Every plan includes revision rounds, and we don\'t move to development until you\'ve signed off on the design. Our discovery process is thorough enough that misalignments are rare. But when they happen, we fix them without fuss.',
   },
   {
     question: 'Can I request changes after delivery?',
@@ -22,17 +22,17 @@ const faqs = [
   {
     question: 'Do you help with copywriting too?',
     answer:
-      'We can. For Pro and Elite plans, we offer basic copy review and strategic guidance on messaging. For full copywriting from scratch, we have a content partner we work with closely — just ask during onboarding.',
+      'We can. For Pro and Elite plans, we offer basic copy review and strategic guidance on messaging. For full copywriting from scratch, we have a content partner we work with closely. Just ask during onboarding.',
   },
   {
     question: 'Is development included in the pricing?',
     answer:
-      'Yes — all our plans include both design and development. We don\'t hand off design files to your dev team. We build it, test it, and deploy it ourselves so there\'s one team accountable for the entire output.',
+      'Yes. All our plans include both design and development. We don\'t hand off design files to your dev team. We build it, test it, and deploy it ourselves so there\'s one team accountable for the entire output.',
   },
   {
     question: 'Do you work with clients outside Mumbai?',
     answer:
-      'Absolutely. The majority of our clients are remote — across India, the UAE, and the UK. We work async-first with structured weekly check-ins and use tools like Notion, Figma, and Loom to stay aligned regardless of timezone.',
+      'Absolutely. The majority of our clients are remote, spread across India, the UAE, and the UK. We work async-first with structured weekly check-ins and use tools like Notion, Figma, and Loom to stay aligned regardless of timezone.',
   },
 ];
 

@@ -1004,7 +1004,11 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
               }
         `}
           >
-            {activeItem.title}
+            <span
+              className="inline-block rounded-[1.75rem] bg-krypt-cream/28 px-4 py-3 backdrop-blur-[2px]"
+            >
+              {activeItem.title}
+            </span>
           </h2>
 
           <p
@@ -1028,7 +1032,11 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
               }
         `}
           >
-            {activeItem.description}
+            <span
+              className="inline-block rounded-[1.5rem] bg-krypt-cream/22 px-4 py-3 leading-relaxed backdrop-blur-[2px]"
+            >
+              {activeItem.description}
+            </span>
           </p>
 
           <div

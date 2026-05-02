@@ -90,12 +90,15 @@
     "hasDemo": true
   },
   {
-    "slug": "fitness-club",
-    "title": "Fitness Club",
-    "description": "High-energy gym website with brutal editorial design and scroll-driven GSAP animations",
-    "image": "/projects/thumbnail/fitness.png",
-    "tag": "UI/UX & Development",
-    "technologies": ["React", "GSAP", "Tailwind"],
-    "hasDemo": true
+    "slug": "agrotourism",
+    "title": "Agrotourism",
+    "description": "Agricultural tourism website showcasing farm experiences and local attractions",
+    "image": "/projects/thumbnail/agrotourism.png",
+    "url": "https://agrotourism-liart.vercel.app/",
+    "tag": "Travel & Tourism",
+    "technologies": [
+      "React",
+      "Responsive Design"
+    ]
   }
-]
+  ]
