@@ -231,7 +231,7 @@ export default function WebsiteDesignPage() {
                 {/* Additional User Provided Links */}
                 <div className="text-center">
                   <img
-                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format"
+                    src="/assets/serviceInfo/websiteDesign/learningrevo.png"
                     alt="The Learning Revolution"
                     className="w-full h-40 sm:h-52 md:h-64 object-cover rounded-lg mb-4"
                   />
@@ -248,7 +248,7 @@ export default function WebsiteDesignPage() {
                 </div>
                 <div className="text-center">
                   <img
-                    src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=600&auto=format"
+                    src="/assets/serviceInfo/websiteDesign/rbnu.png"
                     alt="RB Nu"
                     className="w-full h-40 sm:h-52 md:h-64 object-cover rounded-lg mb-4"
                   />
@@ -265,7 +265,7 @@ export default function WebsiteDesignPage() {
                 </div>
                 <div className="text-center">
                   <img
-                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=600&auto=format"
+                    src="/assets/serviceInfo/websiteDesign/scrollfil.png"
                     alt="The Scroll Film"
                     className="w-full h-40 sm:h-52 md:h-64 object-cover rounded-lg mb-4"
                   />
@@ -282,7 +282,7 @@ export default function WebsiteDesignPage() {
                 </div>
                 <div className="text-center">
                   <img
-                    src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format"
+                    src="/assets/serviceInfo/websiteDesign/gsapanim.png"
                     alt="Krypt Media GSAP Animation"
                     className="w-full h-40 sm:h-52 md:h-64 object-cover rounded-lg mb-4"
                   />

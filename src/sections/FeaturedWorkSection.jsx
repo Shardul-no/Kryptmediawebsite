@@ -36,6 +36,15 @@ const projects = [
     slug: 'mumbai-studio',
     cursor: 'demo',
   },
+  {
+    id: 4,
+    title: 'Agrotourism',
+    tag: 'Travel & Tourism',
+    mediaType: 'video',
+    media: '/herohorizontal/agrotourism.mp4',
+    url: 'https://agrotourism-liart.vercel.app/',
+    cursor: 'view',
+  },
 ];
 
 /* ─────────────────────────────────────────────

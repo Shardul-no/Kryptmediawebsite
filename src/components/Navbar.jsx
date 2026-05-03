@@ -135,7 +135,7 @@ export default function Navbar() {
           <motion.img 
             src={navbarStyles.logo} 
             alt="Krypt Media" 
-            className="h-10 md:h-12 w-auto transition-all duration-300"
+            className="h-14 md:h-18 w-auto transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           />
