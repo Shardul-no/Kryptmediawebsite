@@ -4,8 +4,16 @@ import { motion, useInView } from 'framer-motion';
 // Partner data - easy to update with additional logos later
 const partners = [
   {
-    name: 'Rajhans Travels',
-    logo: '/projects/thumbnail/rajhans.png',
+    name: 'My AI Guru',
+    logo: '/assets/companyLogo/my ai guru.png',
+  },
+  {
+    name: 'RTT',
+    logo: '/assets/companyLogo/rtt.jpg',
+  },
+  {
+    name: 'Safezy',
+    logo: '/assets/companyLogo/safezy logo.png',
   },
 ];
 

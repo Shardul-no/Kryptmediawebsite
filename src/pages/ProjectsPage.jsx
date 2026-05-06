@@ -9,7 +9,7 @@ const businessSolutionsCard = {
   slug: 'business-solutions',
   title: 'Business Solutions',
   description: 'Dashboards, automation systems, and custom business workflows built to streamline operations and growth.',
-  image: '/projects/thumbnail/rajhans.png',
+  image: '/buisnessSolution/ai guru 1.jpeg',
   tag: 'Business Solutions',
   link: '/services/business-solutions',
 };

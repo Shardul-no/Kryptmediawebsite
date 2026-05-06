@@ -73,7 +73,7 @@ export default function Navbar() {
           WebkitBackdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.1)',
           textColor: 'text-white',
-          linkColor: (path) => isActive(path) ? 'text-krypt-orange' : 'text-white/80 hover:text-pink-400',
+          linkColor: (path) => isActive(path) ? 'text-krypt-orange' : 'text-white/80 hover:text-[#ED5C47]',
           hamColor: 'bg-white',
           logo: '/whitelogo.png'
         };
@@ -93,7 +93,7 @@ export default function Navbar() {
           border: '1px solid rgba(0, 0, 0, 0.08)',
           boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06)',
           textColor: 'text-gray-900',
-          linkColor: (path) => isActive(path) ? 'text-krypt-orange' : 'text-gray-700 hover:text-pink-400',
+          linkColor: (path) => isActive(path) ? 'text-krypt-orange' : 'text-gray-700 hover:text-[#ED5C47]',
           hamColor: 'bg-gray-900',
           logo: '/logo.png'
         };
@@ -206,7 +206,7 @@ export default function Navbar() {
               <Link
                 key={path}
                 to={path}
-                className={`block py-3 font-dm font-medium text-base border-b ${scrollState === 'solid' ? 'border-gray-200' : 'border-white/10'} ${isActive(path) ? (scrollState === 'solid' ? 'text-krypt-orange' : 'text-krypt-orange') : (scrollState === 'solid' ? 'text-gray-700 hover:text-pink-400' : 'text-white/80 hover:text-pink-400')}`}
+                className={`block py-3 font-dm font-medium text-base border-b ${scrollState === 'solid' ? 'border-gray-200' : 'border-white/10'} ${isActive(path) ? (scrollState === 'solid' ? 'text-krypt-orange' : 'text-krypt-orange') : (scrollState === 'solid' ? 'text-gray-700 hover:text-[#ED5C47]' : 'text-white/80 hover:text-[#ED5C47]')}`}
               >
                 {name}
               </Link>

@@ -6,66 +6,34 @@ import ServiceDetailHero from '../../components/ServiceDetailHero';
 import WhatsAppButton from '../../components/WhatsAppButton';
 import FlowingMenu from '../../components/FlowingMenu';
 
-// Placeholder data for Business Solutions showcase
+// Business Solutions showcase projects
 const showcaseProjects = [
   {
     id: 1,
-    title: 'CRM Integration Dashboard',
-    description: 'A comprehensive customer relationship management solution with real-time analytics and automated workflow capabilities.',
+    title: 'Safezy - EHS Management Platform',
+    description: 'Safezy is a comprehensive Environment, Health & Safety (EHS) management platform designed to streamline workplace safety operations digitally. The platform helps organizations manage incidents, safety observations, toolbox talks, compliance checklists, PPE tracking, and near-miss reporting through a centralized dashboard. Built for operational efficiency, Safezy improves safety compliance, reporting accuracy, and team accountability across industrial and corporate environments.\n\nKey Features:\n• Incident & Near-Miss Reporting\n• EHS Checklist Management\n• Toolbox Talks & Safety Training\n• PPE Tracking & Compliance\n• Real-Time Dashboard & Reports\n• User-Friendly Admin Panel',
     screenshots: [
       {
         id: 1,
-        src: '/projects/thumbnail/rajhans.png',
-        caption: 'Main dashboard view with key metrics and performance indicators',
-      },
-      {
-        id: 2,
-        src: '/projects/thumbnail/midnight.png',
-        caption: 'Customer profile interface with interaction history',
-      },
-      {
-        id: 3,
-        src: '/projects/thumbnail/videohut.png',
-        caption: 'Analytics and reporting module with export functionality',
+        src: '/buisnessSolution/safezy.jpeg',
+        caption: 'Main EHS dashboard with incident reporting and safety metrics',
       },
     ],
   },
   {
     id: 2,
-    title: 'Process Automation Platform',
-    description: 'Streamlined workflow automation system that reduced manual tasks by 70% and improved operational efficiency.',
+    title: 'My AI Guru - Learning Management System',
+    description: 'A scalable and interactive Learning Management System developed to simplify online training, course management, and employee/student learning experiences. The platform enables organizations to create, manage, and deliver digital learning programs with features like course enrollment, progress tracking, assessments, certifications, and role-based access management.\n\nKey Features:\n• Course & Module Management\n• User Progress Tracking\n• Online Assessments & Certifications\n• Role-Based Access Control\n• Interactive Learning Dashboard\n• Mobile-Friendly Interface',
     screenshots: [
       {
-        id: 4,
-        src: '/projects/thumbnail/sienna.png',
-        caption: 'Workflow builder interface with drag-and-drop functionality',
+        id: 2,
+        src: '/buisnessSolution/ai guru 1.jpeg',
+        caption: 'Course management interface with enrollment tracking',
       },
       {
-        id: 5,
-        src: '/projects/thumbnail/dmx.png',
-        caption: 'Automation rules configuration panel',
-      },
-      {
-        id: 6,
-        src: '/projects/thumbnail/darks3k.png',
-        caption: 'Execution logs and monitoring dashboard',
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: 'Business Intelligence Suite',
-    description: 'Data visualization and reporting platform providing actionable insights for strategic decision-making.',
-    screenshots: [
-      {
-        id: 7,
-        src: '/projects/thumbnail/milton.png',
-        caption: 'Executive dashboard with real-time KPIs',
-      },
-      {
-        id: 8,
-        src: '/assets/serviceInfo/websiteDesign/aramesh.png',
-        caption: 'Custom report builder with filtering options',
+        id: 3,
+        src: '/buisnessSolution/ai guru 2.jpeg',
+        caption: 'Interactive learning dashboard with progress analytics',
       },
     ],
   },
@@ -83,10 +51,8 @@ function Lightbox({ screenshots, currentIndex, isOpen, onClose, onNext, onPrev }
       if (e.key === 'ArrowRight') onNext();
     };
     window.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose, onNext, onPrev]);
 
@@ -100,7 +66,7 @@ function Lightbox({ screenshots, currentIndex, isOpen, onClose, onNext, onPrev }
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-krypt-charcoal/95 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-krypt-charcoal/95 backdrop-blur-sm overflow-auto p-4"
           onClick={onClose}
         >
           <button
@@ -146,7 +112,7 @@ function Lightbox({ screenshots, currentIndex, isOpen, onClose, onNext, onPrev }
               <img
                 src={currentScreenshot.src}
                 alt={currentScreenshot.caption}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="mt-4 text-center">
@@ -200,7 +166,7 @@ function ScreenshotGallery({ screenshots }) {
             <img
               src={screenshot.src}
               alt={screenshot.caption}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-krypt-charcoal/0 group-hover:bg-krypt-charcoal/40 transition-colors duration-300 flex items-center justify-center">
@@ -336,9 +302,22 @@ export default function BusinessSolutionsPage() {
                     <h3 className="font-playfair font-bold text-xl text-krypt-charcoal mb-2">
                       {project.title}
                     </h3>
-                    <p className="font-dm text-krypt-charcoal/60">
-                      {project.description}
-                    </p>
+                    <div className="font-dm text-krypt-charcoal/60 whitespace-pre-wrap">
+                      {project.description.split('\n\n').map((paragraph, index) => (
+                        <p key={index} className={index > 0 ? 'mt-4' : ''}>
+                          {paragraph.split('\n').map((line, lineIndex) => (
+                            <span key={lineIndex}>
+                              {lineIndex > 0 && <br />}
+                              {line.startsWith('•') ? (
+                                <span className="block ml-4">• {line.slice(1).trim()}</span>
+                              ) : (
+                                line
+                              )}
+                            </span>
+                          ))}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                   <ScreenshotGallery screenshots={project.screenshots} />
                 </div>
