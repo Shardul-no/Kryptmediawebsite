@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import WhatsAppFixed from '../components/WhatsAppFixed';
+import MobileBanner from '../components/MobileBanner';
 
 /**
  * Main layout wrapper used by all pages.
@@ -10,6 +11,8 @@ import WhatsAppFixed from '../components/WhatsAppFixed';
 export default function MainLayout() {
   return (
     <div className="min-h-[100dvh] bg-krypt-cream text-krypt-charcoal">
+      {/* Mobile-only banner — invisible on md+ screens */}
+      <MobileBanner />
       <Navbar />
       <main>
         <Outlet />

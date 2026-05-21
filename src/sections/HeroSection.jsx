@@ -68,8 +68,8 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        {/* Sub-copy */}
-        <div className="font-dm text-white/55 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
+        {/* Sub-copy — hidden on mobile, shown md+ */}
+        <div className="hidden md:block font-dm text-white/55 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
           <BlurText
             text="Krypt Media designs, develops, and deploys high-performing digital products. From websites to automations and brand systems, we turn visitors into customers and help businesses become industry leaders."
             animateBy="words"

@@ -5,8 +5,8 @@ import FeaturedWorkSection from '../sections/FeaturedWorkSection';
 import ContainerScrollSection from '../sections/ContainerScrollSection';
 import ProcessSection     from '../sections/ProcessSection';
 import SplitSection       from '../sections/SplitSection';
-import PartnersSection    from '../sections/PartnersSection';
-import TestimonialsSection from '../sections/TestimonialsSection';
+// import PartnersSection    from '../sections/PartnersSection';
+// import TestimonialsSection from '../sections/TestimonialsSection';
 import FAQSection         from '../sections/FAQSection';
 import CTASection         from '../sections/CTASection';
 
@@ -40,10 +40,10 @@ export default function HomePage() {
       <SplitSection />
 
       {/* 8. Partners */}
-      <PartnersSection />
+      {/* <PartnersSection /> */}
 
       {/* 9. Testimonials */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
 
 
       {/* 11. FAQ */}

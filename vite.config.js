@@ -17,5 +17,18 @@ export default defineConfig({
     fs: {
       allow: ['..']
     }
-  }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Three.js ecosystem — only loaded when /about is visited (lazy import)
+          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei', '@react-three/rapier'],
+          // Animation libs — cached independently so returns visits skip re-download
+          'vendor-motion': ['framer-motion'],
+          'vendor-gsap':   ['gsap'],
+        },
+      },
+    },
+  },
 })

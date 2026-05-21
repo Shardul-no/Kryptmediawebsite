@@ -7,53 +7,49 @@ const navLinks = [
   { path: '/services',      name: 'Services' },
   { path: '/projects',      name: 'Projects' },
   { path: '/about',         name: 'About' },
-  { path: '/testimonials',  name: 'Testimonials' },
+  // { path: '/testimonials',  name: 'Testimonials' },
   { path: '/contact',       name: 'Contact' },
 ];
 
 export default function Navbar() {
-  const [isOpen,   setIsOpen]   = useState(false);
-  const [scrollState, setScrollState] = useState('transparent'); // 'transparent', 'hidden', 'solid'
+  const [isOpen,      setIsOpen]      = useState(false);
+  const [scrollState, setScrollState] = useState('transparent');
   const location = useLocation();
-
-  const isHome = location.pathname === '/';
 
   // Close mobile menu on route change
   useEffect(() => setIsOpen(false), [location.pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
   // 3-state scroll behavior
   useEffect(() => {
     let lastScrollY = window.scrollY;
-    let hasPassedFirstThreshold = false;
-    let hasPassedSecondThreshold = false;
+    let hasPassedFirst  = false;
+    let hasPassedSecond = false;
 
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+      const y = window.scrollY;
+      const dir = y > lastScrollY ? 'down' : 'up';
 
-      // First threshold: 50px - hide transparent navbar
-      if (currentScrollY > 50 && !hasPassedFirstThreshold) {
-        hasPassedFirstThreshold = true;
+      if (y > 50 && !hasPassedFirst) {
+        hasPassedFirst = true;
         setScrollState('hidden');
-      }
-      // Second threshold: 150px - show solid navbar
-      else if (currentScrollY > 150 && !hasPassedSecondThreshold) {
-        hasPassedSecondThreshold = true;
+      } else if (y > 150 && !hasPassedSecond) {
+        hasPassedSecond = true;
         setScrollState('solid');
-      }
-      // Reset states when scrolling back to top
-      else if (currentScrollY <= 0) {
-        hasPassedFirstThreshold = false;
-        hasPassedSecondThreshold = false;
+      } else if (y <= 0) {
+        hasPassedFirst = false;
+        hasPassedSecond = false;
         setScrollState('transparent');
-      }
-      // Handle scrolling up from hidden state
-      else if (scrollDirection === 'up' && currentScrollY <= 100 && hasPassedFirstThreshold && !hasPassedSecondThreshold) {
+      } else if (dir === 'up' && y <= 100 && hasPassedFirst && !hasPassedSecond) {
         setScrollState('transparent');
-        hasPassedFirstThreshold = false;
+        hasPassedFirst = false;
       }
-
-      lastScrollY = currentScrollY;
+      lastScrollY = y;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -63,7 +59,6 @@ export default function Navbar() {
   const isActive = (path) =>
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
 
-  // Dynamic styling based on scroll state
   const getNavbarStyles = () => {
     switch (scrollState) {
       case 'transparent':
@@ -72,18 +67,16 @@ export default function Navbar() {
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.1)',
-          textColor: 'text-white',
           linkColor: (path) => isActive(path) ? 'text-krypt-orange' : 'text-white/80 hover:text-[#ED5C47]',
           hamColor: 'bg-white',
-          logo: '/whitelogo.png'
+          logo: '/whitelogo.png',
         };
       case 'hidden':
         return {
           background: 'transparent',
-          textColor: 'text-transparent',
           linkColor: () => 'text-transparent',
           hamColor: 'bg-transparent',
-          logo: '/whitelogo.png'
+          logo: '/whitelogo.png',
         };
       case 'solid':
         return {
@@ -92,138 +85,156 @@ export default function Navbar() {
           WebkitBackdropFilter: 'blur(20px)',
           border: '1px solid rgba(0, 0, 0, 0.08)',
           boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06)',
-          textColor: 'text-gray-900',
           linkColor: (path) => isActive(path) ? 'text-krypt-orange' : 'text-gray-700 hover:text-[#ED5C47]',
           hamColor: 'bg-gray-900',
-          logo: '/logo.png'
+          logo: '/logo.png',
         };
       default:
         return {};
     }
   };
 
-  const navbarStyles = getNavbarStyles();
+  const s = getNavbarStyles();
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.nav
-        key={scrollState}
-        initial={scrollState === 'hidden' ? { opacity: 0, y: -20 } : { opacity: 0, y: scrollState === 'solid' ? -20 : 0 }}
-        animate={scrollState === 'hidden' ? { opacity: 0, y: -30 } : { opacity: 1, y: 0 }}
-        exit={scrollState === 'hidden' ? { opacity: 0, y: -30 } : { opacity: 0, y: -20 }}
-        transition={{ 
-          duration: 0.4, 
-          ease: [0.25, 0.1, 0.25, 1],
-          opacity: { duration: 0.3 },
-          y: { duration: 0.4 }
-        }}
-        className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-400 rounded-full`}
-        style={{
-          background: navbarStyles.background,
-          backdropFilter: navbarStyles.backdropFilter,
-          WebkitBackdropFilter: navbarStyles.WebkitBackdropFilter,
-          border: navbarStyles.border,
-          boxShadow: navbarStyles.boxShadow,
-          maxWidth: '1200px',
-          width: 'calc(100% - 48px)'
-        }}
-      >
-        <div className="h-16 md:h-20 flex items-center justify-between px-6 md:px-8">
-
-        {/* Logo */}
-        <Link to="/" className="flex-shrink-0">
-          <motion.img 
-            src={navbarStyles.logo} 
-            alt="Krypt Media" 
-            className="h-14 md:h-18 w-auto transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          />
-        </Link>
-
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
-          {navLinks.map(({ path, name }) => (
-            <motion.div
-              key={path}
-              whileHover={{ y: -2 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Link
-                to={path}
-                className={`font-dm text-sm font-medium transition-all duration-200 ${navbarStyles.linkColor(path)}`}
-              >
-                {name}
-              </Link>
-            </motion.div>
-          ))}
-          <motion.a
-            href="https://wa.me/91703922208?text=Hi!%20I%20want%20to%20start%20a%20project%20with%20Krypt%20Media"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 px-5 py-2.5 btn-cta text-white font-dm text-sm font-medium rounded-full"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-          >
-            Start a Project
-          </motion.a>
-        </div>
-
-        {/* Mobile hamburger */}
-        <motion.button
-          onClick={() => setIsOpen((o) => !o)}
-          className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-[5px]"
-          aria-label="Toggle menu"
-          whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.2 }}
-        >
-          <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${navbarStyles.hamColor} ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-          <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${navbarStyles.hamColor} ${isOpen ? 'opacity-0' : ''}`} />
-          <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${navbarStyles.hamColor} ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
-        </motion.button>
-        </div>
-
-        {/* Mobile menu */}
-        <motion.div
-          initial={false}
-          animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-          transition={{ duration: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
-          className="md:hidden overflow-hidden"
+    <>
+      {/* ── Pill navbar (desktop + mobile pill — no dropdown inside) ── */}
+      <AnimatePresence mode="wait">
+        <motion.nav
+          key={scrollState}
+          initial={{ opacity: 0, y: scrollState === 'solid' ? -20 : 0 }}
+          animate={scrollState === 'hidden' ? { opacity: 0, y: -30 } : { opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="fixed top-6 left-1/2 -translate-x-1/2 z-50 rounded-full"
           style={{
-            background: scrollState === 'solid' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(28, 30, 35, 0.95)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid ' + (scrollState === 'solid' ? 'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.1)'),
-            borderTop: 'none',
-            marginTop: '-1px',
-            borderBottomLeftRadius: '1.5rem',
-            borderBottomRightRadius: '1.5rem'
+            background: s.background,
+            backdropFilter: s.backdropFilter,
+            WebkitBackdropFilter: s.WebkitBackdropFilter,
+            border: s.border,
+            boxShadow: s.boxShadow,
+            maxWidth: '1200px',
+            width: 'calc(100% - 48px)',
           }}
         >
-          <div className="px-6 py-6 space-y-1">
-            {navLinks.map(({ path, name }) => (
-              <Link
-                key={path}
-                to={path}
-                className={`block py-3 font-dm font-medium text-base border-b ${scrollState === 'solid' ? 'border-gray-200' : 'border-white/10'} ${isActive(path) ? (scrollState === 'solid' ? 'text-krypt-orange' : 'text-krypt-orange') : (scrollState === 'solid' ? 'text-gray-700 hover:text-[#ED5C47]' : 'text-white/80 hover:text-[#ED5C47]')}`}
-              >
-                {name}
-              </Link>
-            ))}
-            <div className="pt-4">
-              <a
+          <div className="h-16 md:h-20 flex items-center justify-between px-6 md:px-8">
+            {/* Logo */}
+            <Link to="/" className="flex-shrink-0">
+              <motion.img
+                src={s.logo}
+                alt="Krypt Media"
+                className="h-14 md:h-18 w-auto transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              />
+            </Link>
+
+            {/* Desktop nav links */}
+            <div className="hidden md:flex items-center gap-6 lg:gap-8">
+              {navLinks.map(({ path, name }) => (
+                <motion.div key={path} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+                  <Link
+                    to={path}
+                    className={`font-dm text-sm font-medium transition-all duration-200 ${s.linkColor(path)}`}
+                  >
+                    {name}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.a
                 href="https://wa.me/91703922208?text=Hi!%20I%20want%20to%20start%20a%20project%20with%20Krypt%20Media"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center px-6 py-3.5 btn-cta text-white font-dm font-medium rounded-full text-sm"
+                className="ml-2 px-5 py-2.5 btn-cta text-white font-dm text-sm font-medium rounded-full"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 Start a Project
-              </a>
+              </motion.a>
             </div>
+
+            {/* Mobile hamburger — pill stays clean, no dropdown inside */}
+            <motion.button
+              onClick={() => setIsOpen((o) => !o)}
+              className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-[5px]"
+              aria-label="Toggle menu"
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.2 }}
+            >
+              <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${s.hamColor} ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+              <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${s.hamColor} ${isOpen ? 'opacity-0' : ''}`} />
+              <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${s.hamColor} ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+            </motion.button>
           </div>
-        </motion.div>
-      </motion.nav>
-    </AnimatePresence>
+        </motion.nav>
+      </AnimatePresence>
+
+      {/* ── Mobile menu: separate full-screen panel, z-40 (behind pill at z-50) ── */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              key="menu-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-40 bg-black/40 md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+
+            {/* Menu panel — slides down from top, starts below the pill */}
+            <motion.div
+              key="menu-panel"
+              initial={{ y: '-100%', opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: '-100%', opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.32, 0, 0.67, 0] }}
+              className="fixed top-0 left-0 right-0 z-40 md:hidden bg-krypt-charcoal"
+              style={{ paddingTop: 'calc(1.5rem + 4rem + 1rem)' /* top-6 + h-16 + gap */ }}
+            >
+              <div className="px-6 pb-8 space-y-1">
+                {navLinks.map(({ path, name }, i) => (
+                  <motion.div
+                    key={path}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 + i * 0.06, duration: 0.25 }}
+                  >
+                    <Link
+                      to={path}
+                      className={`flex items-center justify-between py-4 font-dm font-medium text-lg border-b border-white/8 ${isActive(path) ? 'text-krypt-orange' : 'text-white/80'}`}
+                    >
+                      {name}
+                      {isActive(path) && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-krypt-orange" />
+                      )}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.38, duration: 0.25 }}
+                  className="pt-6"
+                >
+                  <a
+                    href="https://wa.me/91703922208?text=Hi!%20I%20want%20to%20start%20a%20project%20with%20Krypt%20Media"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center px-6 py-4 btn-cta text-white font-dm font-semibold rounded-full text-sm"
+                  >
+                    Start a Project
+                  </a>
+                </motion.div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

@@ -169,6 +169,7 @@ function Card({ project, onEnter, onLeave }) {
             loop
             muted
             playsInline
+            preload="none"
             className="w-full h-full object-cover"
           />
         ) : (
@@ -309,37 +310,39 @@ export default function FeaturedWorkSection() {
               }}
             >
               {projects.map((p) => (
-                <div
-                  key={p.id}
-                  className="relative rounded-2xl overflow-hidden flex-shrink-0"
-                  style={{
-                    width: '80vw',
-                    aspectRatio: '16/9',
-                    scrollSnapAlign: 'start',
-                  }}
-                  onClick={() => {
-                    if (p.url) {
-                      window.open(p.url, '_blank', 'noopener');
-                    } else if (p.isDemo && p.slug) {
-                      window.location.href = `/projects/${p.slug}`;
-                    }
-                  }}
-                >
-                  <video src={p.media} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-5">
-                    <p className="font-dm text-white/50 text-[10px] tracking-widest uppercase mb-1">{p.tag}</p>
-                    <h3 className="font-playfair font-bold text-white text-lg">{p.title}</h3>
-                  </div>
-                  {p.url && (
-                    <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-krypt-orange flex items-center justify-center">
-                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                      </svg>
+                  <div
+                    key={p.id}
+                    className="relative rounded-2xl overflow-hidden flex-shrink-0"
+                    style={{ width: '80vw', aspectRatio: '16/9', scrollSnapAlign: 'start' }}
+                    onClick={() => {
+                      if (p.url) window.open(p.url, '_blank', 'noopener');
+                      else if (p.isDemo && p.slug) window.location.href = `/projects/${p.slug}`;
+                    }}
+                  >
+                    {/* Video — preload="metadata" lets autoPlay work without pre-fetching the whole file */}
+                    <video
+                      src={p.media}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-5">
+                      <p className="font-dm text-white/50 text-[10px] tracking-widest uppercase mb-1">{p.tag}</p>
+                      <h3 className="font-playfair font-bold text-white text-lg">{p.title}</h3>
                     </div>
-                  )}
-                </div>
-              ))}
+                    {p.url && (
+                      <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-krypt-orange flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                ))}
             </div>
           </div>
         ) : (
